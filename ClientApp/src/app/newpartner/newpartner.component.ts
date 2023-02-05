@@ -1,3 +1,4 @@
+import { PartnersService } from './../services/partners.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./newpartner.component.css']
 })
 export class NewpartnerComponent implements OnInit {
+  complete:any;
+  partner={
+    id:0,
+    name:"",
+    surname:"",
+    email:"",
+    phone:"",
+    level:0,
+    leadId:0
+  }
 
-  constructor() { }
+  constructor(private partnerService:PartnersService) { }
 
   ngOnInit(): void {
   }
+  submit(f:any)
+  {}
 
 }
