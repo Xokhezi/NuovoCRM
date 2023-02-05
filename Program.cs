@@ -1,8 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using NuovoCRM.Controllers.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<NuovoCRMDbContext>(options=>options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+
 
 var app = builder.Build();
 
