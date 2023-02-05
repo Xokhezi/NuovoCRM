@@ -14,6 +14,5 @@ namespace NuovoCRM.Models
         public string Phone { get; set; }
         public int Level { get; set; }
         public int LeadId { get; set; }
-        public Partner Lead { get; set; }
     }
 }

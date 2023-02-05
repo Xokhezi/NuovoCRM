@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NuovoCRM.Models
+namespace NuovoCRM.Controllers.Resources
 {
-    public class Product
+    public class ProductResource
     {
         public int Id { get; set; }
         public string Name { get; set; }
