@@ -24,9 +24,20 @@
         <label for="phone" class="form-label">Číslo</label>
         <input required maxlength="50" [(ngModel)]="partner.phone" name="phone" #phone="ngModel" type="text"
             class="form-control">
-        <div *ngIf="name.touched && !name.valid" class="alert alert-danger">Prosím zadejte tel.číslo.</div>
+        <div *ngIf="phone.touched && !phone.valid" class="alert alert-danger">Prosím zadejte tel.číslo.</div>
     </div>
-
+    <div class="mb-3">
+        <label for="adress" class="form-label">Adresa</label>
+        <input required maxlength="50" [(ngModel)]="partner.adress" name="adress" #adress="ngModel" type="text"
+            class="form-control">
+        <div *ngIf="adress.touched && !adress.valid" class="alert alert-danger">Prosím zadejte pozici.</div>
+    </div>
+    <div class="mb-3">
+        <label for="position" class="form-label">Pozice</label>
+        <input required maxlength="50" [(ngModel)]="partner.position" name="position" #position="ngModel" type="text"
+            class="form-control">
+        <div *ngIf="position.touched && !position.valid" class="alert alert-danger">Prosím zadejte pozici.</div>
+    </div>
     <div>
         <div class="mb-3">
             <label for="lead" class="form-label">Lead</label>

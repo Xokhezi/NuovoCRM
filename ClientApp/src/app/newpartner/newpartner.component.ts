@@ -15,6 +15,8 @@ export class NewpartnerComponent implements OnInit {
     surname:"",
     email:"",
     phone:"",
+    position:"",
+    adress:"",
     leadId:0,
     level:0
   }
@@ -29,7 +31,6 @@ export class NewpartnerComponent implements OnInit {
     this.partnerService.GetPartner(this.partner.leadId)
     .subscribe((r:any)=>this.partner.level=r.level+1);
     this.partnerService.CreatePartner(this.partner)
-    .subscribe(r=>console.log(r));    
-    
+    .subscribe(r=>console.log(r));       
   }
 }

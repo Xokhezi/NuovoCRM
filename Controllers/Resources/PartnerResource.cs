@@ -13,6 +13,8 @@ namespace NuovoCRM.Controllers.Resources
         public string Surname { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
+        public string Position { get; set; }
+        public string Adress { get; set; }
         public int Level { get; set; }
         public int LeadId { get; set; }       
     }

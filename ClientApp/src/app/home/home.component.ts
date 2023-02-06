@@ -1,3 +1,4 @@
+import { PartnersService } from './../services/partners.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -5,4 +6,10 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
+  partners:any;
+  
+  constructor(private partnersService:PartnersService) {}
+  ngOnInit(): void {
+    this.partnersService.GetPartners().subscribe((p: any) =>this.partners = p);
+  }
 }
