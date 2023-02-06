@@ -11,6 +11,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { NewpartnerComponent } from './newpartner/newpartner.component';
 import { SinglePartnerComponent } from './single-partner/single-partner.component';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SinglePartnerComponent } from './single-partner/single-partner.componen
     NavMenuComponent,
     HomeComponent,
     NewpartnerComponent,
-    SinglePartnerComponent
+    SinglePartnerComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -27,7 +29,8 @@ import { SinglePartnerComponent } from './single-partner/single-partner.componen
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'partners/new', component: NewpartnerComponent },
-      { path: 'partners/:id', component: SinglePartnerComponent }
+      { path: 'partners/:id', component: SinglePartnerComponent },
+      { path: 'products', component: SinglePartnerComponent }
       
     ])
   ],

@@ -12,6 +12,11 @@ html {
     font-size: 16px;
   }
 }
+.resize{
+  width: 100px;
+  height: 40px;
+  margin-left: 30px;
+}
 
 .box-shadow {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);

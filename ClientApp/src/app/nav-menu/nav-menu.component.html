@@ -2,7 +2,9 @@
   <nav
     class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
   >
+  <img class="resize" src="assets/logo.png">
     <div class="container">
+     
       <a class="navbar-brand" [routerLink]="['/']">NuovoCRM</a>
       <button
         class="navbar-toggler"
@@ -26,6 +28,11 @@
             [routerLinkActiveOptions]="{ exact: true }"
           >
             <a class="nav-link text-dark" [routerLink]="['/']">Domů</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/products']"
+              >Správa produktů</a
+            >
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/partners/new']"

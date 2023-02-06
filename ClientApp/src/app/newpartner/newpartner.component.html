@@ -1,4 +1,3 @@
-<div *ngIf="complete" class="alert alert-success" role="alert">Článek úspěšně uložen.</div>
 <h2>Nový Partner</h2>
 {{partner|json}}
 <form #f="ngForm" (ngSubmit)="submit(f)">
@@ -41,9 +40,9 @@
     <div>
         <div class="mb-3">
             <label for="lead" class="form-label">Lead</label>
-            <div *ngIf="lead.touched && !lead.valid" class="alert alert-danger">Prosím zadejte idLeadu.</div>
+            <div *ngIf="lead.touched && !lead.valid" class="alert alert-danger">Prosím zadejte Lead osobu.</div>
             <select #lead="ngModel" name="partnerId" id="partner" class="form-control" [(ngModel)]="partner.leadId">
-                <option *ngFor="let p of partners" value="{{p.id}}">{{p.name}}</option>
+                <option *ngFor="let p of partners" value="{{p.id}}">{{p.name}} {{p.surname}}</option>
             </select>
         </div>
     </div>

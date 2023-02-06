@@ -1,5 +1,5 @@
 <section>
-  <i (mouseenter)="switch()" (mouseleave)="switch()" class="bi" [class.bi-arrow-left-square]="hover" [class.bi-arrow-left-square-fill]="!hover"></i>
+  <h2><i [routerLink]="['/']" (mouseenter)="switch()" (mouseleave)="switch()" class="bi pointer" [class.bi-arrow-left-square]="!hover" [class.bi-arrow-left-square-fill]="hover"></i></h2>
   <div class="row">
     <div class="col-lg-4">
       <div class="card mb-4">
@@ -9,8 +9,8 @@
           <h5 class="my-3">{{partner.name}} {{partner.surname}} </h5>
           <p class="text-muted mb-1">{{partner.position}}</p>
           <div class="d-flex justify-content-center mb-2">
-            <button type="button" class="btn btn-primary">Follow</button>
-            <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+            <button type="button" class="btn btn-primary">Upravit</button>
+            <button type="button" class="btn btn-outline-primary ms-1" (click)="deletePartner()">Smazat</button>
           </div>
         </div>
       </div>
