@@ -2,7 +2,6 @@ import { ProductsService } from './../services/products.service';
 import { PartnersService } from './../services/partners.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { after } from 'underscore';
 
 @Component({
   selector: 'app-single-partner',
@@ -40,9 +39,10 @@ export class SinglePartnerComponent implements OnInit {
     this.active.paramMap.subscribe(params => this.id = params.get('id'));
     this.partnerService.GetPartner(this.id).subscribe((p: any) => {
       this.partner = p;
-      this.partnerService.GetPartner(this.partner.leadId).subscribe((p: any) => this.lead = p);
+      this.partnerService.GetPartner(this.partner.leadId).subscribe((p: any) => this.lead = p);      
     });
-    this.productServis.GetProducts().subscribe(p=>this.products=p);
+    this.productServis.GetProducts().subscribe(p=>{this.products=p;
+      console.log(this.products);});
   }
   switch()
   {

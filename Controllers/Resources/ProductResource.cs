@@ -12,5 +12,6 @@ namespace NuovoCRM.Controllers.Resources
         public string ProductCode { get; set; }
         public decimal Prize { get; set; }
         public int Discount { get; set; }
+        public int DiscountStep { get; set; }
     }
 }

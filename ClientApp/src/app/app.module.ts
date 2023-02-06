@@ -30,7 +30,7 @@ import { ProductsComponent } from './products/products.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'partners/new', component: NewpartnerComponent },
       { path: 'partners/:id', component: SinglePartnerComponent },
-      { path: 'products', component: SinglePartnerComponent }
+      { path: 'products', component: ProductsComponent }
       
     ])
   ],
