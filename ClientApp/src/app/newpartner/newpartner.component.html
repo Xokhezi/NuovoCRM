@@ -1,7 +1,7 @@
 <div *ngIf="complete" class="alert alert-success" role="alert">Článek úspěšně uložen.</div>
 <h2>Nový Partner</h2>
 {{partner|json}}
-<form #f="ngForm" (ngSubmit)="submit(f)">    
+<form #f="ngForm" (ngSubmit)="submit(f)">
     <div class="mb-3">
         <label for="name" class="form-label">Jméno</label>
         <input required maxlength="50" [(ngModel)]="partner.name" name="name" #name="ngModel" type="text"
@@ -29,16 +29,11 @@
 
     <div>
         <div class="mb-3">
-            <label for="level" class="form-label">Level</label>
-            <input required maxlength="50" [(ngModel)]="partner.level" name="level" #level="ngModel" type="number"
-                class="form-control">
-            <div *ngIf="level.touched && !level.valid" class="alert alert-danger">Prosím zadejte level.</div>
-        </div>
-        <div class="mb-3">
             <label for="lead" class="form-label">Lead</label>
-            <input required maxlength="50" [(ngModel)]="partner.leadId" name="lead" #lead="ngModel" type="text"
-                class="form-control">
             <div *ngIf="lead.touched && !lead.valid" class="alert alert-danger">Prosím zadejte idLeadu.</div>
+            <select #lead="ngModel" name="partnerId" id="partner" class="form-control" [(ngModel)]="partner.leadId">
+                <option *ngFor="let p of partners" value="{{p.id}}">{{p.name}}</option>
+            </select>
         </div>
     </div>
 

@@ -13,11 +13,11 @@ export class PartnersService {
   }
   GetPartner(id:any)
   {
-    return this.http.get('https://localhost:7011/api/partners'+id);
+    return this.http.get('https://localhost:7011/api/partners/'+id);
   }
   DeletePartner(id:any)
   {
-    return this.http.delete('https://localhost:7011/api/partners'+id);
+    return this.http.delete('https://localhost:7011/api/partners/'+id);
   }
   CreatePartner(partner:any)
   {
