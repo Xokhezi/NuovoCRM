@@ -30,6 +30,7 @@ export class SinglePartnerComponent implements OnInit {
     leadId: 0
   };
   products:any;
+  hover:any;
   constructor(private active: ActivatedRoute, private partnerService: PartnersService, private productServis:ProductsService) { }
 
   ngOnInit(): void {
@@ -39,6 +40,9 @@ export class SinglePartnerComponent implements OnInit {
       this.partnerService.GetPartner(this.partner.leadId).subscribe((p: any) => this.lead = p);
     });
     this.productServis.GetProducts().subscribe(p=>this.products=p);
-
+  }
+  switch()
+  {
+    this.hover=!this.hover;
   }
 }
