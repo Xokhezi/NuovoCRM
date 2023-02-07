@@ -8,10 +8,13 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   partners: any;
+  loading = true;
 
   constructor(private partnersService: PartnersService) { }
   ngOnInit(): void {
-    this.partnersService.GetPartners().subscribe((p: any) => this.partners = p);
+    this.partnersService.GetPartners().subscribe((p: any) =>{
+      this.partners = p;
+      this.loading = false;});
   }
   search(input: string) {
     this.partnersService.GetPartners().subscribe(p => {
