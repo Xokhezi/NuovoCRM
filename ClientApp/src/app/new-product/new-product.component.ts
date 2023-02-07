@@ -1,4 +1,5 @@
-import { ActivatedRoute } from '@angular/router';
+import { ProductsService } from './../services/products.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,11 +8,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-product.component.css']
 })
 export class NewProductComponent {
-  id:any;
-  constructor(private active:ActivatedRoute) {  }
+  id: any;
+  product={
+    name:"",
+    productCode:"",
+    prize:0,
+    discount:0,
+    discountStep:0
+  };
+  constructor(private active: ActivatedRoute, private servis: ProductsService, private router:Router) { }
   ngOnInit(): void {
-    this.active.paramMap.subscribe(params =>{ this.id = params.get('id?');
-  console.log(this.id)});
+    this.active.paramMap.subscribe(params => {
+      this.id = params.get('id?');
+      if (this.id != 0) {
+        this.servis.GetProduct(this.id)
+          .subscribe((p:any) =>this.product = p);
+      }
+    })
   }
+  submit()
+  {
+    if(this.id==0)
+      this.servis.CreateProduct(this.product).subscribe(r=>this.router.navigate(['/products']));
     
+  }
 }
+
+
+

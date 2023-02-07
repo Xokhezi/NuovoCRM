@@ -1,1 +1,38 @@
-<p>new-product works!</p>
+<div class="marg">
+    <h2 *ngIf="id==0">Nový Produkt</h2>
+    <h2 *ngIf="id!=0">{{product.name}}</h2>
+    <form #f="ngForm" (ngSubmit)="submit()">
+        <div class="mb-3">
+            <label for="name" class="form-label">Produkt</label>
+            <input required maxlength="50" [(ngModel)]="product.name" name="name" #name="ngModel" type="text"
+                class="form-control">
+            <div *ngIf="name.touched && !name.valid" class="alert alert-danger">Prosím zadejte název.</div>
+        </div>
+        <div class="mb-3">
+            <label for="productCode" class="form-label">Produktový kód</label>
+            <input required maxlength="50" [(ngModel)]="product.productCode" name="productCode" #productCode="ngModel" type="text"
+                class="form-control">
+            <div *ngIf="productCode.touched && !productCode.valid" class="alert alert-danger">Prosím zadejte produktový kód.</div>
+        </div>
+        <div class="mb-3">
+            <label for="prize" class="form-label">Cena</label>
+            <input required maxlength="50" [(ngModel)]="product.prize" name="prize" #prize="ngModel" type="text"
+                class="form-control">
+            <div *ngIf="prize.touched && !prize.valid" class="alert alert-danger">Prosím zadejte cenu.</div>
+        </div>
+        <div class="mb-3">
+            <label for="discount" class="form-label">Sleva v %</label>
+            <input required maxlength="50" [(ngModel)]="product.discount" name="discount" #discount="ngModel" type="text"
+                class="form-control">
+            <div *ngIf="discount.touched && !discount.valid" class="alert alert-danger">Prosím zadejte slevu v %</div>
+        </div>
+        <div class="mb-3">
+            <label for="discountStep" class="form-label">Slevový posun v %</label>
+            <input required maxlength="50" [(ngModel)]="product.discountStep" name="discountStep" #discountStep="ngModel" type="text"
+                class="form-control">
+            <div *ngIf="discountStep.touched && !discountStep.valid" class="alert alert-danger">Prosím zadejte slevový skok v %.</div>
+        </div>
+    </form>
+
+    <button class="btn btn-primary" (click)="submit()">Uložit</button>
+</div>
