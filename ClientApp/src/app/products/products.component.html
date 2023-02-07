@@ -1,5 +1,5 @@
 <h1>Produkty - kmenové data</h1>
-<button class="btn btn-primary">Přidat produkt</button>
+<button class="btn btn-primary" [routerLink]="['new/0']">Přidat produkt</button>
 <div class="row card mb-4">
     <table class="table table-hover">
       <thead>
@@ -13,13 +13,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let p of products">
+        <tr class="point" [routerLink]="['new/'+ p.id]" *ngFor="let p of products">
           <td>{{p.name}}</td>
           <td>{{p.productCode}}</td>
           <td>{{p.prize}}</td>
           <td>{{p.discount}}</td>
           <td>{{p.discountStep}}</td>
-          <td><a class="btn btn-primary" [routerLink]="['new/'+ p.id]">Detail</a></td>
+          <td><a class="btn btn-primary" (click)="DeleteProduct(p.id)">Smazat</a></td>
         </tr>
       </tbody>
     </table>

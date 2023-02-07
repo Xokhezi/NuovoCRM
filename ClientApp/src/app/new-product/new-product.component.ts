@@ -28,9 +28,12 @@ export class NewProductComponent {
   }
   submit()
   {
+    console.log(this.id);
+    console.log(this.product)
     if(this.id==0)
       this.servis.CreateProduct(this.product).subscribe(r=>this.router.navigate(['/products']));
-    
+    else 
+      this.servis.UpdateProduct(this.product,this.id).subscribe(r=>this.router.navigate(['/products']));
   }
 }
 

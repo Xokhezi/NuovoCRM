@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ProductsService } from './../services/products.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,12 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
   products:any;
-  constructor(private service:ProductsService) { }
+  constructor(private service:ProductsService, private router:Router) { }
 
   ngOnInit(): void {
     this.service.GetProducts()
     .subscribe(p=>this.products=p);
     
+  }
+  DeleteProduct(int:any)
+  {
+    if (confirm("Opravdu vymazat produkt?"))
+    this.service.DeleteProduct(int)
+        .subscribe({
+          complete: () => {this.router.navigate(['/products']);  }
+        });
+   
   }
 
 }

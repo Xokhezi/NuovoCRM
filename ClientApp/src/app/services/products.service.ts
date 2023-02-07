@@ -23,4 +23,8 @@ export class ProductsService {
   {
     return this.http.post('https://localhost:7011/api/products', product);
   }
+  UpdateProduct(product:any,id:any)
+  {
+    return this.http.put('https://localhost:7011/api/products/'+id, product);
+  }
 }
