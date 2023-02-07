@@ -4,7 +4,7 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 footer{
   height: 45px;
-  position: fixed;
+  position: static;
   bottom: 0;
   width: 100%;
   text-align: center;

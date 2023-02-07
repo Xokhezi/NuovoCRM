@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NuovoCRM.Controllers.Persistence;
 
@@ -10,9 +11,11 @@ using NuovoCRM.Controllers.Persistence;
 namespace NuovoCRM.Migrations
 {
     [DbContext(typeof(NuovoCRMDbContext))]
-    partial class NuovoCRMDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230207184638_ExtendPrTeamsId")]
+    partial class ExtendPrTeamsId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

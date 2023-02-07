@@ -1,89 +1,102 @@
 <section>
-  <h2><i [routerLink]="['/']" (mouseenter)="switch()" (mouseleave)="switch()" class="bi pointer" [class.bi-arrow-left-square]="!hover" [class.bi-arrow-left-square-fill]="hover"></i></h2>
-  <div class="row">
-    <div class="col-lg-4">
-      <div class="card mb-4">
-        <div class="card-body text-center">
-          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-            class="rounded-circle img-fluid" style="width: 150px;">
-          <h5 class="my-3">{{partner.name}} {{partner.surname}} </h5>
-          <p class="text-muted mb-1">{{partner.position}}</p>
-          <div class="d-flex justify-content-center mb-2">
-            <button type="button" class="btn btn-primary">Upravit</button>
-            <button type="button" class="btn btn-outline-primary ms-1" (click)="deletePartner()">Smazat</button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <div class="col-lg-8">
-      <div class="card mb-4">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-sm-3">
-              <p class="mb-0">Celé jméno</p>
-            </div>
-            <div class="col-sm-9">
-              <p class="text-muted mb-0">{{partner.name}} {{partner.surname}}</p>
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-sm-3">
-              <p class="mb-0">Email</p>
-            </div>
-            <div class="col-sm-9">
-              <p class="text-muted mb-0">{{partner.email}}</p>
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-sm-3">
-              <p class="mb-0">Telefon</p>
-            </div>
-            <div class="col-sm-9">
-              <p class="text-muted mb-0">{{partner.phone}}</p>
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-sm-3">
-              <p class="mb-0">Pozice</p>
-            </div>
-            <div class="col-sm-9">
-              <p class="text-muted mb-0">{{partner.level}}.level</p>
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-sm-3">
-              <p class="mb-0">Lead</p>
-            </div>
-            <div class="col-sm-9">
-              <p class="text-muted mb-0">{{lead.name}} {{partner.surname}}</p>
+  <div class="bot">
+    <h2><i [routerLink]="['/']" (mouseenter)="switch()" (mouseleave)="switch()" class="bi pointer"
+        [class.bi-arrow-left-square]="!hover" [class.bi-arrow-left-square-fill]="hover"></i></h2>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">{{partner.name}} {{partner.surname}} </h5>
+            <p class="text-muted mb-1">{{partner.position}}</p>
+            <div class="d-flex justify-content-center mb-2">
+              <button type="button" class="btn btn-primary">Upravit</button>
+              <button type="button" class="btn btn-outline-primary ms-1" (click)="deletePartner()">Smazat</button>
             </div>
           </div>
         </div>
+        <div class="card mb-4 mb-lg-0">
+          <div class="card-body p-0">
+            <ul class="list-group list-group-flush rounded-3">
+              <li *ngFor="let m of team" class="list-group-item d-flex justify-content-between align-items-center p-3">
+                <i class="bi bi-person"></i>
+                <p class="mb-0">{{m.name}} {{m.surname}}</p>
+                <p class="mb-0">{{m.level}}.level</p>
+              </li>              
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="row card mb-4">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">Produkt</th>
-              <th scope="col">Pr.Nr.</th>
-              <th scope="col">Cena</th>              
-              <th scope="col">Podíl v %</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let p of products">
-              <td>{{p.name}}</td>
-              <td>{{p.productCode}}</td>
-              <td>{{p.prize}}</td>
-              <td>{{p.discount-partner.level*p.discountStep}}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Celé jméno</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{partner.name}} {{partner.surname}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{partner.email}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Telefon</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{partner.phone}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Pozice</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{partner.level}}.level</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Lead</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{lead.name}} {{lead.surname}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row card mb-4 marg">
+          <table class="table table-hover marg">
+            <thead>
+              <tr>
+                <th scope="col">Produkt</th>
+                <th scope="col">Pr.Nr.</th>
+                <th scope="col">Cena</th>
+                <th scope="col">Podíl v %</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of products">
+                <td>{{p.name}}</td>
+                <td>{{p.productCode}}</td>
+                <td>{{p.prize}}</td>
+                <td>{{p.discount-partner.level*p.discountStep}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
