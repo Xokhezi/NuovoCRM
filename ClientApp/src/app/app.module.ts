@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { NewpartnerComponent } from './newpartner/newpartner.component';
 import { SinglePartnerComponent } from './single-partner/single-partner.component';
 import { ProductsComponent } from './products/products.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ProductsComponent } from './products/products.component';
       { path: 'partners/:id', component: SinglePartnerComponent },
       { path: 'products', component: ProductsComponent }
       
-    ])
+    ]),
+    BrowserAnimationsModule
   ],
   providers: [
     ProductsService,
