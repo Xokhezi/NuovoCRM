@@ -36,7 +36,7 @@ import { NewProductComponent } from './new-product/new-product.component';
       { path: 'partners/new', component: NewpartnerComponent },
       { path: 'partners/:id', component: SinglePartnerComponent },
       { path: 'products', component: ProductsComponent },
-      { path: 'products/new', component: NewProductComponent }
+      { path: 'products/new/:id?', component: NewProductComponent }
       
     ]),
     BrowserAnimationsModule

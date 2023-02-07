@@ -19,7 +19,7 @@
           <td>{{p.prize}}</td>
           <td>{{p.discount}}</td>
           <td>{{p.discountStep}}</td>
-          <td><button class="btn btn-primary" [routerLink]="['products/new']">Detail</button></td>
+          <td><a class="btn btn-primary" [routerLink]="['new/'+ p.id]">Detail</a></td>
         </tr>
       </tbody>
     </table>
