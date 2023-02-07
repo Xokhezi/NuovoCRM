@@ -14,6 +14,7 @@ import { SinglePartnerComponent } from './single-partner/single-partner.componen
 import { ProductsComponent } from './products/products.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NewProductComponent } from './new-product/new-product.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     HomeComponent,
     NewpartnerComponent,
     SinglePartnerComponent,
-    ProductsComponent
+    ProductsComponent,
+    NewProductComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -33,7 +35,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'partners/new', component: NewpartnerComponent },
       { path: 'partners/:id', component: SinglePartnerComponent },
-      { path: 'products', component: ProductsComponent }
+      { path: 'products', component: ProductsComponent },
+      { path: 'products/new', component: NewProductComponent }
       
     ]),
     BrowserAnimationsModule

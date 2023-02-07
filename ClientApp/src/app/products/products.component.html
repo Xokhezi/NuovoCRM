@@ -1,1 +1,26 @@
-<p>products works!</p>
+<h1>Produkty - kmenové data</h1>
+<button class="btn btn-primary">Přidat produkt</button>
+<div class="row card mb-4">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Produkt</th>
+          <th scope="col">Pr.Nr.</th>
+          <th scope="col">Cena</th>              
+          <th scope="col">Podíl v %</th>
+          <th scope="col">Skok v %</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of products">
+          <td>{{p.name}}</td>
+          <td>{{p.productCode}}</td>
+          <td>{{p.prize}}</td>
+          <td>{{p.discount}}</td>
+          <td>{{p.discountStep}}</td>
+          <td><button class="btn btn-primary" [routerLink]="['products/new']">Detail</button></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
