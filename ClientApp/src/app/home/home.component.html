@@ -1,3 +1,7 @@
+<div *ngIf="loading">
+  <mat-spinner class="center"></mat-spinner>
+</div>
+<div *ngIf="!loading">
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon1"><i class="bi bi-search click" (click)="search(input.value)"></i></span>
@@ -9,11 +13,11 @@
     <img src="assets/img_avatar.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
     <div class="d-flex gap-2 w-100 justify-content-between">
       <div>
-        <h6 class="mb-0">{{p.name}} {{p.surname}}</h6>
+        <h4 class="mb-0">{{p.name}} {{p.surname}}</h4>
         <p class="mb-0 opacity-75">{{p.position}} {{p.adress}}</p>
       </div>
       <small class="opacity-50 text-nowrap">{{p.level}}.level</small>
     </div>
-  </a>
- 
+  </a> 
+</div>
 </div>

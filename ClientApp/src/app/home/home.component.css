@@ -1,3 +1,6 @@
 .click{
     cursor: pointer;
 }
+.center{
+    margin:0 auto;
+}

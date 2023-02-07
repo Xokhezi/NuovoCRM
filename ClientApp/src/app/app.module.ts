@@ -13,6 +13,7 @@ import { NewpartnerComponent } from './newpartner/newpartner.component';
 import { SinglePartnerComponent } from './single-partner/single-partner.component';
 import { ProductsComponent } from './products/products.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    MatProgressSpinnerModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'partners/new', component: NewpartnerComponent },
