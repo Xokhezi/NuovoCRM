@@ -31,7 +31,8 @@ export class SinglePartnerComponent implements OnInit {
     phone: "",
     position: "",
     level: 0,
-    leadId: 0
+    leadId: 0,
+    teamId:0
   };
   products: any;
   hover: any;
@@ -43,7 +44,9 @@ export class SinglePartnerComponent implements OnInit {
     this.partnerService.GetPartner(this.id).subscribe((p: any) => {
       this.partner = p;
       this.partnerService.GetPartner(this.partner.leadId).subscribe((p: any) => this.lead = p);
-      this.getTeam(this.partner.leadId);
+      this.partnerService.GetPartners().subscribe((p:any)=>{
+        this.team = p.filter((p:any)=>p.teamId===this.partner.teamId);
+      });      
       
     });
     this.productServis.GetProducts().subscribe(p => this.products = p);
@@ -63,13 +66,5 @@ export class SinglePartnerComponent implements OnInit {
           }
         });
     this.router.navigate(['/']);
-  }
-  getTeam(id: any) {
-    let lead={};
-    this.partnerService.GetPartner(id)
-    .subscribe(l=>{
-      lead=l;
-      this.team.push(l);       
-    });    
-   }
+  }  
 }

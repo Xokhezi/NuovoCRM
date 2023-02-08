@@ -51,7 +51,7 @@ namespace NuovoCRM.Controllers
             return Ok();
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdatePartner([FromBody] PartnerResource partnerResource,int Id)
+        public async Task<IActionResult> UpdatePartner([FromBody] PartnerResource partnerResource, int Id)
         {
             if (!ModelState.IsValid)
                 return NotFound(ModelState);
@@ -69,6 +69,7 @@ namespace NuovoCRM.Controllers
             partner.Position = resource.Position;
             partner.LeadId = resource.LeadId;
             partner.Level = resource.Level;
+            partner.TeamId = resource.TeamId;
 
             await context.SaveChangesAsync();
 

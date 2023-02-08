@@ -1,6 +1,7 @@
 import { PartnersService } from './../services/partners.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { elementAt } from 'rxjs';
 
 @Component({
   selector: 'app-newpartner',
@@ -19,7 +20,8 @@ export class NewpartnerComponent implements OnInit {
     position: "",
     adress: "",
     leadId: 0,
-    level: 0
+    level: 0,
+    teamId: 0
   }
 
   constructor(private partnerService: PartnersService, private router: Router) { }
@@ -31,9 +33,14 @@ export class NewpartnerComponent implements OnInit {
     this.partnerService.GetPartner(this.partner.leadId)
       .subscribe((r: any) => {
         this.partner.level = r.level + 1;
+
+        if (r.level == 0)
+          this.partner.teamId = Math.max(...this.partners.map((p: any) => p.teamId)) + 1;
+        else
+          this.partner.teamId = r.teamId;
+
         this.partnerService.CreatePartner(this.partner)
-          .subscribe(r => {
-            console.log(this.partner.level)
+          .subscribe(r => {            
             this.router.navigate(['/']);
           });
       });
