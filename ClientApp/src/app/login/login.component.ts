@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AuthService } from './../services/auth.service';
 import { Component } from '@angular/core';
 
@@ -7,21 +8,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  
-  user={
-    email:"",
-    password:""
+
+  user = {
+    email: "",
+    password: ""
   };
-  constructor(private service:AuthService) {}
+  constructor(private service: AuthService, private route: Router) { }
 
-  ngOnInit(): void {        
+  login() {
+    this.service.login(this.user);
+    this.user = {
+      email: "",
+      password: ""
+    };
+
+    if (this.service.isLoggedIn())    
+      this.route.navigate(['home']);
   }
-
-  login()
-  {
-    //real call must be added
-    this.service.login({email:'karel',password:'123'});
-    console.log(this.user);
-  }
-
 }

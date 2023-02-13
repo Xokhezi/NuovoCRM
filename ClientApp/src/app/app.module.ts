@@ -1,3 +1,5 @@
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/authguard.service';
 import { PartnersService } from './services/partners.service';
 import { ProductsService } from './services/products.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -34,11 +36,12 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     MatProgressSpinnerModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'partners/new', component: NewpartnerComponent },
-      { path: 'partners/:id', component: SinglePartnerComponent },
-      { path: 'products', component: ProductsComponent },
-      { path: 'products/new/:id?', component: NewProductComponent },
+      { path: '**', redirectTo: '/home', pathMatch: 'full' },
+      { path: 'home', component: HomeComponent, pathMatch: 'full',canActivate:[AuthGuardService] },
+      { path: 'partners/new', component: NewpartnerComponent,canActivate:[AuthGuardService]},
+      { path: 'partners/:id', component: SinglePartnerComponent,canActivate:[AuthGuardService] },
+      { path: 'products', component: ProductsComponent,canActivate:[AuthGuardService] },
+      { path: 'products/new/:id?', component: NewProductComponent,canActivate:[AuthGuardService] },
       { path: 'login', component: LoginComponent }
       
     ]),
@@ -46,7 +49,9 @@ import { LoginComponent } from './login/login.component';
   ],
   providers: [
     ProductsService,
-    PartnersService
+    PartnersService,
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

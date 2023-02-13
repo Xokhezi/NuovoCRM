@@ -23,7 +23,7 @@
             <a class="nav-link text-dark" [routerLink]="['/login']">Přihlásit</a>
           </li>
           <li *ngIf="this.service.isLoggedIn()" class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="btn btn-primary" (click)="logOut()">Odhlásit</a>
+            <a class="btn btn-primary"[routerLink]="['/login']" (click)="logOut()">Odhlásit</a>
           </li>
         </ul>
       </div>
