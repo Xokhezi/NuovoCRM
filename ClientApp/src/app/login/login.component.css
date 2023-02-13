@@ -1,0 +1,7 @@
+
+
+.br-color{
+    background: rgb(68,113,233);
+    background: linear-gradient(90deg, rgba(68,113,233,1) 0%, rgba(242,57,67,1) 64%);
+    border:0px;
+}

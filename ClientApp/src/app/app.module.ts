@@ -15,6 +15,7 @@ import { ProductsComponent } from './products/products.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NewProductComponent } from './new-product/new-product.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NewProductComponent } from './new-product/new-product.component';
     NewpartnerComponent,
     SinglePartnerComponent,
     ProductsComponent,
-    NewProductComponent
+    NewProductComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -36,7 +38,8 @@ import { NewProductComponent } from './new-product/new-product.component';
       { path: 'partners/new', component: NewpartnerComponent },
       { path: 'partners/:id', component: SinglePartnerComponent },
       { path: 'products', component: ProductsComponent },
-      { path: 'products/new/:id?', component: NewProductComponent }
+      { path: 'products/new/:id?', component: NewProductComponent },
+      { path: 'login', component: LoginComponent }
       
     ]),
     BrowserAnimationsModule

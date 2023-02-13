@@ -26,7 +26,7 @@ namespace NuovoCRM.Controllers
             this.context = context;
 
         }
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        
         [HttpGet]
         public async Task<IEnumerable<PartnerResource>> GetPartners()
         {

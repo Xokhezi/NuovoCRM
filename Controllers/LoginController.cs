@@ -15,7 +15,7 @@ using NuovoCRM.Models;
 
 namespace NuovoCRM.Controllers
 {
-    [Route("api/login")]
+    [Route("api/auth")]
     public class LoginController : Controller
     {
         public NuovoCRMDbContext context { get; }
