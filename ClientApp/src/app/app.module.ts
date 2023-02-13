@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NewProductComponent } from './new-product/new-product.component';
 import { LoginComponent } from './login/login.component';
+import { PartnersComponent } from './partners/partners.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { LoginComponent } from './login/login.component';
     SinglePartnerComponent,
     ProductsComponent,
     NewProductComponent,
-    LoginComponent
+    LoginComponent,
+    PartnersComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -36,8 +38,8 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     MatProgressSpinnerModule,
     RouterModule.forRoot([
-      { path: '**', redirectTo: '/home', pathMatch: 'full' },
-      { path: 'home', component: HomeComponent, pathMatch: 'full',canActivate:[AuthGuardService] },
+      { path: '', component: HomeComponent, pathMatch: 'full'},
+      { path: 'partners', component: PartnersComponent,canActivate:[AuthGuardService]},
       { path: 'partners/new', component: NewpartnerComponent,canActivate:[AuthGuardService]},
       { path: 'partners/:id', component: SinglePartnerComponent,canActivate:[AuthGuardService] },
       { path: 'products', component: ProductsComponent,canActivate:[AuthGuardService] },

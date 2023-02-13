@@ -8,7 +8,7 @@
               <div class="mb-md-5 mt-md-4 pb-5">
   
                 <h2 class="fw-bold mb-2 text-uppercase">Přihlášení</h2>
-                <p class="text-black mb-5">Prosím zadejte logi na heslo!</p>
+                <p class="text-black mb-5">Prosím zadejte login a heslo!</p>
   
                 <div class="form-outline form-white mb-4">
                   <input type="email" [(ngModel)]="user.email" id="typeEmailX" class="form-control form-control-lg" />
@@ -22,7 +22,7 @@
   
                 <p class="small mb-5 pb-lg-2"><a class="text-black" href="#!">Zapomněl si heslo?</a></p>
   
-                <button class="btn btn-outline-light btn-lg px-5" type="submit" (click)="login()">Přihlásit</button>
+                <button class="btn btn-outline-light btn-lg px-5" (click)="login()">Přihlásit</button>
   
                 
   

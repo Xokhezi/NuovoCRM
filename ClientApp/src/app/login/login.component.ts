@@ -22,7 +22,10 @@ export class LoginComponent {
       password: ""
     };
 
+
+    //redirect works after wtro clicks - first false
     if (this.service.isLoggedIn())    
-      this.route.navigate(['home']);
+      this.route.navigate(['/partners']);
+    console.log(this.service.isLoggedIn());
   }
 }
