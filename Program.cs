@@ -1,4 +1,8 @@
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Logging;
+using Microsoft.IdentityModel.Tokens;
 using NuovoCRM.Controllers.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,8 +24,29 @@ builder.Services.AddCors(
                                 .AllowAnyMethod();
         });
 });
-
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, config =>
+    {
+        config.TokenValidationParameters = new TokenValidationParameters()
+        {
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            ValidateLifetime = false,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = "ISSUER",
+            ValidAudience = "AUDIENCE",
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("prej-tomábýtstrasnelong13454343434434483takzejopojdmenato4554$"))
+         };
+});
 var app = builder.Build();
+
+IdentityModelEventSource.ShowPII = true;
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -34,6 +59,8 @@ app.UseCors();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
 
 
 app.MapControllerRoute(

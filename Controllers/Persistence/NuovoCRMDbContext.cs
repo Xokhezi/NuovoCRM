@@ -14,5 +14,6 @@ namespace NuovoCRM.Controllers.Persistence
         }
         public DbSet<Partner> Partners { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
