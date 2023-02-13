@@ -26,7 +26,6 @@ export class HomeComponent {
 
   getFullNames() {
     let names = this.partners.map((p: any) => p.name);
-    let namesToUp = [];
     let surnames = this.partners.map((p: any) => p.surname);
     let fullnames = names.map((namesElement: any, index: string | number) => {
       return `${namesElement} ${surnames[index]}`;

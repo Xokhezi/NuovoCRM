@@ -31,18 +31,14 @@ export class NewpartnerComponent implements OnInit {
   }
   submit(f: any) {
     this.partnerService.GetPartner(this.partner.leadId)
-      .subscribe((r: any) => {
-        this.partner.level = r.level + 1;
-
-        if (r.level == 0)
-          this.partner.teamId = Math.max(...this.partners.map((p: any) => p.teamId)) + 1;
-        else
-          this.partner.teamId = r.teamId;
+      .subscribe(({level, teamId}: any) => {
+        this.partner.level = level + 1;
+        this.partner.teamId = level === 0 ?
+          Math.max(...this.partners.map(({teamId}: any) => teamId)) + 1 :
+          teamId;
 
         this.partnerService.CreatePartner(this.partner)
-          .subscribe(r => {            
-            this.router.navigate(['/']);
-          });
+          .subscribe(() => this.router.navigate(['/']));
       });
   }
 }
