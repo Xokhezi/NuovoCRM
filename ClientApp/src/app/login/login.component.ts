@@ -14,12 +14,13 @@ export class LoginComponent {
   };
   constructor(private service:AuthService) {}
 
-  ngOnInit(): void {    
-    this.service.login({email:'karel',password:'123'});
+  ngOnInit(): void {        
   }
 
   login()
   {
+    //real call must be added
+    this.service.login({email:'karel',password:'123'});
     console.log(this.user);
   }
 
