@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
+  valid = true;
   user = {
     email: "",
     password: ""
@@ -16,16 +16,14 @@ export class LoginComponent {
   constructor(private service: AuthService, private route: Router) { }
 
   login() {
-    this.service.login(this.user);
-    this.user = {
-      email: "",
-      password: ""
-    };
-
-
-    //redirect works after wtro clicks - first false
-    if (this.service.isLoggedIn())    
-      this.route.navigate(['/partners']);
-    console.log(this.service.isLoggedIn());
+    this.service.login(this.user)
+      .subscribe({
+        next: (r: any) => {
+          localStorage.setItem('token', r.token)
+          if (this.service.isLoggedIn())
+            this.route.navigate(['/partners']);
+        },
+        error: (e: any) => this.valid = false
+      });
   }
 }

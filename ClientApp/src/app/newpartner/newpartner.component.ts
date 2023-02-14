@@ -10,6 +10,7 @@ import { elementAt } from 'rxjs';
 })
 export class NewpartnerComponent implements OnInit {
   complete = false;
+  hover=false;
   partners: any;
   partner = {
     id: 0,
@@ -40,5 +41,8 @@ export class NewpartnerComponent implements OnInit {
         this.partnerService.CreatePartner(this.partner)
           .subscribe(() => this.router.navigate(['/partners']));
       });
+  }
+  switch() {
+    this.hover = !this.hover;
   }
 }

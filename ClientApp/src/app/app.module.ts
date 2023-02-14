@@ -19,6 +19,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NewProductComponent } from './new-product/new-product.component';
 import { LoginComponent } from './login/login.component';
 import { PartnersComponent } from './partners/partners.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +39,8 @@ import { PartnersComponent } from './partners/partners.component';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    MatMenuModule,
+    MatIconModule,
     MatProgressSpinnerModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full'},

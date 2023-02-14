@@ -8,25 +8,25 @@
         aria-label="Toggle navigation" [attr.aria-expanded]="isExpanded" (click)="toggle()">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end" [ngClass]="{ show: isExpanded }">
-        <ul class="navbar-nav flex-grow">
-          <li class="nav-item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-dark" [routerLink]="['/partners']">Partneři</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/products']">Správa produktů</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/partners/new']">Nový partner</a>
-          </li>
-          <li *ngIf="!this.service.isLoggedIn()" class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/login']">Přihlásit</a>
-          </li>
-          <li *ngIf="this.service.isLoggedIn()" class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="btn btn-primary"[routerLink]="['/login']" (click)="logOut()">Odhlásit</a>
-          </li>
-        </ul>
-      </div>
+
+      <button data-mdb-toggle="sidenav" [matMenuTriggerFor]="menu" class="btn btn-primary"  aria-haspopup="true" aria-expanded="false" style="height: 37px;" >
+        <mat-icon>menu</mat-icon>
+      </button>      
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="['/partners']">
+          <mat-icon>handshake</mat-icon>
+          <span >Partneři</span>
+        </button>
+        <button mat-menu-item [routerLink]="['/products']">
+          <mat-icon>category</mat-icon>
+          <span >Produkty</span>
+        </button>
+        <button mat-menu-item [routerLink]="['/login']">
+          <mat-icon>logout</mat-icon>
+          <span  (click)="logOut()">Odhlásit</span>
+        </button>
+        
+      </mat-menu>
     </div>
   </nav>
 </header>

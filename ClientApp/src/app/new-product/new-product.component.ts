@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
 })
 export class NewProductComponent {
   id: any;
+  hover=false;
   product={
     name:"",
     productCode:"",
@@ -25,6 +26,9 @@ export class NewProductComponent {
           .subscribe((p:any) =>this.product = p);
       }
     })
+  }
+  switch() {
+    this.hover = !this.hover;
   }
   submit()
   {

@@ -10,15 +10,13 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(credentials: any) {
-    return this.http.post('https://localhost:7011/api/auth', credentials)
-      .subscribe((r: any) => localStorage.setItem('token', r.token));
+    return this.http.post('https://localhost:7011/api/auth', credentials);
   }
   logout() {
     localStorage.removeItem('token');
   }
 
-  isLoggedIn() {
-    
+  isLoggedIn() {    
     let token = localStorage.getItem('token');
     if (token)
       return true;
