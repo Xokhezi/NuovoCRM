@@ -31,3 +31,12 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
+.plus
+{
+    margin: 20px;
+    border-radius: 100%;
+}
+.plus:hover
+{
+    transform: scale(1.1);
+}

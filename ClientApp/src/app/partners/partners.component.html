@@ -1,15 +1,19 @@
 <div *ngIf="loading">
-    <mat-spinner class="center"></mat-spinner>
-  </div>
-  <div *ngIf="!loading">
+  <mat-spinner class="center"></mat-spinner>
+</div>
+<div *ngIf="!loading">
+  <button [routerLink]="['/partners/new']" class="btn btn-primary plus"><i class="bi bi-plus"></i></button>
   <div class="input-group mb-3">
     <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1"><i class="bi bi-search click" (click)="search(input.value)"></i></span>
+      <span class="input-group-text" id="basic-addon1"><i class="bi bi-search click"
+          (click)="search(input.value)"></i></span>
     </div>
-    <input #input (keyup)="search(input.value)" type="text" class="form-control" placeholder="Zástupce..." aria-label="Username" aria-describedby="basic-addon1">
+    <input #input (keyup)="search(input.value)" type="text" class="form-control" placeholder="Zástupce..."
+      aria-label="Username" aria-describedby="basic-addon1">
   </div>
   <div class="list-group w-auto">
-    <a *ngFor="let p of partners" [routerLink]="['/partners/',p.id]" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+    <a *ngFor="let p of partners" [routerLink]="['/partners/',p.id]"
+      class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
       <img src="assets/img_avatar.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
       <div class="d-flex gap-2 w-100 justify-content-between">
         <div>
@@ -18,6 +22,6 @@
         </div>
         <small class="opacity-50 text-nowrap">{{p.level}}.level</small>
       </div>
-    </a> 
+    </a>
   </div>
-  </div>
+</div>
