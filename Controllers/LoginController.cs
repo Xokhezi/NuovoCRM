@@ -63,16 +63,6 @@ namespace NuovoCRM.Controllers
                 return Unauthorized();
         }
 
-        //not working API
-        [HttpPost("/register")]
-        public IActionResult Register([FromBody] User user)
-        {
-            if (!ModelState.IsValid)
-               return BadRequest("Model is Invalid");
-            
-            context.Users.Add(user);
-            context.SaveChanges();
-            return Ok();
-        }
+        
     }
 }
