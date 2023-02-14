@@ -9,7 +9,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <button data-mdb-toggle="sidenav" [matMenuTriggerFor]="menu" class="btn btn-primary"  aria-haspopup="true" aria-expanded="false" style="height: 37px;" >
+      <button *ngIf="service.isLoggedIn()" data-mdb-toggle="sidenav" [matMenuTriggerFor]="menu" class="btn btn-primary"  aria-haspopup="true" aria-expanded="false" style="height: 37px;" >
         <mat-icon>menu</mat-icon>
       </button>      
       <mat-menu #menu="matMenu">
@@ -21,9 +21,9 @@
           <mat-icon>category</mat-icon>
           <span >Produkty</span>
         </button>
-        <button mat-menu-item [routerLink]="['/login']">
+        <button (click)="logOut()" mat-menu-item [routerLink]="['/login']">
           <mat-icon>logout</mat-icon>
-          <span  (click)="logOut()">Odhlásit</span>
+          <span  >Odhlásit</span>
         </button>
         
       </mat-menu>
