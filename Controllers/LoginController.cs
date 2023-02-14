@@ -35,7 +35,7 @@ namespace NuovoCRM.Controllers
                     new Claim("Email",user.Email)
                 };
 
-            string privateKey = "prej-tomábýtstrasnelong13454343434434483takzejopojdmenato4554$";
+            string privateKey = "testkeyvalidator-123456789";
             var symmetricKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(privateKey));
             var credentials = new SigningCredentials(symmetricKey, SecurityAlgorithms.HmacSha256);
 
