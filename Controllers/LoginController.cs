@@ -52,7 +52,11 @@ namespace NuovoCRM.Controllers
         [HttpPost]
         public IActionResult Login([FromBody] User user)
         {
-            if (user.Email == "karel" && user.Password == "123")
+            var existingUser = context.Users.SingleOrDefault(u => u.Email == user.Email);
+
+            if (existingUser == null)
+                return Unauthorized("Uživatel neexistuje");
+            if (existingUser.Password == user.Password)
             {
                 return Ok(new
                 {
@@ -63,6 +67,6 @@ namespace NuovoCRM.Controllers
                 return Unauthorized();
         }
 
-        
+
     }
 }

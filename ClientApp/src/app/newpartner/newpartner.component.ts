@@ -38,7 +38,7 @@ export class NewpartnerComponent implements OnInit {
           teamId;
 
         this.partnerService.CreatePartner(this.partner)
-          .subscribe(() => this.router.navigate(['/']));
+          .subscribe(() => this.router.navigate(['/partners']));
       });
   }
 }

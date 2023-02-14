@@ -13,7 +13,7 @@ using NuovoCRM.Models;
 
 namespace NuovoCRM.Controllers
 {
-    [Route("api/products")]
+    [Route("api/users")]
     public class UsersController : Controller
     {
         public NuovoCRMDbContext context { get; }
