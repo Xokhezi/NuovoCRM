@@ -2,8 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -14,6 +17,7 @@ using NuovoCRM.Models;
 namespace NuovoCRM.Controllers
 {
     [Route("api/users")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class UsersController : Controller
     {
         public NuovoCRMDbContext context { get; }
@@ -26,13 +30,13 @@ namespace NuovoCRM.Controllers
             this.context = context;
 
         }
+        
         [HttpGet]
         public async Task<IEnumerable<UserResource>> GetUsers()
         {
             var users = await context.Users.ToListAsync();
             return mapper.Map<IEnumerable<User>, IEnumerable<UserResource>>(users);
-        }
-
+        }        
         [HttpPost]
         public async Task<IActionResult> Register([FromBody] UserResource userResource)
         {

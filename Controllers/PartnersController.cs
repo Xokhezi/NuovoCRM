@@ -16,6 +16,7 @@ namespace NuovoCRM.Controllers
 {
 
     [Route("api/partners")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class PartnersController : Controller
     {
         public NuovoCRMDbContext context { get; }
