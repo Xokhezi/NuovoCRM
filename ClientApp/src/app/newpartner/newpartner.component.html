@@ -39,13 +39,15 @@
                 type="text" class="form-control">
             <div *ngIf="position.touched && !position.valid" class="alert alert-danger">Prosím zadejte pozici.</div>
         </div>
-        <div>
+        <div >
             <div class="mb-3">
                 <label for="lead" class="form-label">Lead</label>
                 <div *ngIf="lead.touched && !lead.valid" class="alert alert-danger">Prosím zadejte Lead osobu.</div>
-                <select #lead="ngModel" name="partnerId" id="partner" class="form-control" [(ngModel)]="partner.leadId">
+                <select [disabled]="id!=0" #lead="ngModel" name="partnerId" id="partner" class="form-control" [(ngModel)]="partner.leadId">
                     <option *ngFor="let p of partners" value="{{p.id}}">{{p.name}} {{p.surname}}</option>
                 </select>
+                <div *ngIf="id!=0" class="alert alert-primary mt-1">Lead nelze upravit - v případě potřeby kontaktujte správce</div>
+                <div *ngIf="id==0" class="alert alert-warning mt-1">Pozor Lead nelze později změnit!</div>
             </div>
         </div>
         <button class="btn btn-primary marg">Uložit</button>

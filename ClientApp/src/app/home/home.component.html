@@ -1,9 +1,46 @@
 <div class="text-center marg">
-  <h1>Vítejte v BMS</h1>
-  <p>Slouží k evidenci firemních informací, partnerů a prouktů.
-  </p>
+  <img src="assets/logo.png" class="mt-2" width="140" height="60">
+  <div class="mt-2">
+    <p class="display-4">Vítejte v BMS</p>
+    <p>
+      Slouží k evidenci firemních informací, partnerů a produktů.
+    </p>    
+  </div>
+
 </div>
+
 <div *ngIf="!this.service.isLoggedIn()" class="text-center marg">
   <h4>Pro využívání funkcí je třeba se přihlásit.</h4>
   <app-login></app-login>
+</div>
+
+<div *ngIf="this.service.isLoggedIn()" class="row" @fadeIn
+  style="background-color:#cce5ff; padding: 30px; border-radius:25px; margin-top: 70px;">
+  <div class="col-lg-4 text-center">
+    <img src="assets/img_avatar.png" class="bd-placeholder-img rounded-circle" width="140" height="140" role="img"
+      aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+
+    <h2>Partneři</h2>
+    <p class="lead">Slouží k evidenci obchodních zástupců a kalkulace jejich podílů.</p>
+    <p><a class="btn btn-primary" [routerLink]="['/partners']">Více »</a></p>
+  </div>
+
+  <div class="col-lg-4 text-center">
+    <img src="assets/cart.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140" role="img"
+      aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <h2>Produkty</h2>
+    <p class="lead">Evidence kmenových dat produktů, slev a podílů.</p>
+    <p><a class="btn btn-primary " [routerLink]="['/products']">Více »</a></p>
+  </div>
+
+  <div class="col-lg-4 text-center">
+    <img src="assets/mops.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"
+      xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140"
+      preserveAspectRatio="xMidYMid slice" focusable="false">
+
+
+    <h2>Objednávky</h2>
+    <p class="lead">Momentálně ve vývoji...</p>
+    <p><a class="btn btn-secondary" href="#">Více »</a></p>
+  </div>
 </div>

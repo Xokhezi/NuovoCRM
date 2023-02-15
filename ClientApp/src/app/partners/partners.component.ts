@@ -1,10 +1,15 @@
+import { listAnim } from './../animations/animations';
 import { PartnersService } from './../services/partners.service';
 import { Component } from '@angular/core';
+import { trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-partners',
   templateUrl: './partners.component.html',
-  styleUrls: ['./partners.component.css']
+  styleUrls: ['./partners.component.css'],
+  animations:[
+    listAnim
+  ]
 })
 export class PartnersComponent {
   partners: any;

@@ -40,3 +40,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 {
     transform: scale(1.1);
 }
+
+.sizeup:hover{
+    transform: scale(1.9);
+}

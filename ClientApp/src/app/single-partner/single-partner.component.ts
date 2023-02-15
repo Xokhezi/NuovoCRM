@@ -32,7 +32,8 @@ export class SinglePartnerComponent implements OnInit {
     position: "",
     level: 0,
     leadId: 0,
-    teamId:0
+    teamId:0,
+    adress:""
   };
   products: any;
   hover: any;

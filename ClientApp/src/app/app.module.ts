@@ -45,7 +45,7 @@ import {MatIconModule} from '@angular/material/icon';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full'},
       { path: 'partners', component: PartnersComponent,canActivate:[AuthGuardService]},
-      { path: 'partners/new', component: NewpartnerComponent,canActivate:[AuthGuardService]},
+      { path: 'partners/new/:id?', component: NewpartnerComponent,canActivate:[AuthGuardService]},
       { path: 'partners/:id', component: SinglePartnerComponent,canActivate:[AuthGuardService] },
       { path: 'products', component: ProductsComponent,canActivate:[AuthGuardService] },
       { path: 'products/new/:id?', component: NewProductComponent,canActivate:[AuthGuardService] },

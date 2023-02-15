@@ -3,7 +3,7 @@
     <img class="resize" src="assets/logo.png">
     <div class="container">
 
-      <a class="navbar-brand" [routerLink]="['/']">NBMS</a>
+      <a class="navbar-brand" [routerLink]="['/']">BMS</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
         aria-label="Toggle navigation" [attr.aria-expanded]="isExpanded" (click)="toggle()">
         <span class="navbar-toggler-icon"></span>
@@ -13,6 +13,10 @@
         <mat-icon>menu</mat-icon>
       </button>      
       <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="['']">
+          <mat-icon>home</mat-icon>
+          <span >Domů</span>
+        </button>
         <button mat-menu-item [routerLink]="['/partners']">
           <mat-icon>handshake</mat-icon>
           <span >Partneři</span>
@@ -21,7 +25,7 @@
           <mat-icon>category</mat-icon>
           <span >Produkty</span>
         </button>
-        <button (click)="logOut()" mat-menu-item [routerLink]="['/login']">
+        <button (click)="logOut()" mat-menu-item [routerLink]="['']">
           <mat-icon>logout</mat-icon>
           <span  >Odhlásit</span>
         </button>

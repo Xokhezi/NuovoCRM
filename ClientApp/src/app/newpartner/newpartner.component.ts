@@ -1,6 +1,6 @@
 import { PartnersService } from './../services/partners.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { elementAt } from 'rxjs';
 
 @Component({
@@ -12,6 +12,7 @@ export class NewpartnerComponent implements OnInit {
   complete = false;
   hover=false;
   partners: any;
+  id:any;
   partner = {
     id: 0,
     name: "",
@@ -25,12 +26,21 @@ export class NewpartnerComponent implements OnInit {
     teamId: 0
   }
 
-  constructor(private partnerService: PartnersService, private router: Router) { }
+  constructor(private active: ActivatedRoute, private partnerService: PartnersService, private router: Router) { }
 
   ngOnInit(): void {
     this.partnerService.GetPartners().subscribe(p => this.partners = p);
+    this.active.paramMap.subscribe(params => {
+      this.id = params.get('id?');
+      if (this.id != 0) {
+        this.partnerService.GetPartner(this.id)
+          .subscribe((p:any) =>this.partner = p);
+      }
+    })
+
   }
   submit(f: any) {
+    if(this.id==0){
     this.partnerService.GetPartner(this.partner.leadId)
       .subscribe(({level, teamId}: any) => {
         this.partner.level = level + 1;
@@ -41,6 +51,9 @@ export class NewpartnerComponent implements OnInit {
         this.partnerService.CreatePartner(this.partner)
           .subscribe(() => this.router.navigate(['/partners']));
       });
+    }
+    else 
+      this.partnerService.UpdatePartner(this.partner,this.id).subscribe(r=>this.router.navigate(['/partners']));
   }
   switch() {
     this.hover = !this.hover;

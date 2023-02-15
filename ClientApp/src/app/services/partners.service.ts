@@ -32,4 +32,8 @@ export class PartnersService {
   {
     return this.http.post('https://localhost:7011/api/partners', partner,this.getValidation());
   }
+  UpdatePartner(partner:any,id:any)
+  {
+    return this.http.put('https://localhost:7011/api/partners/'+id, partner,this.getValidation());
+  }
 }
