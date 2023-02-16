@@ -28,11 +28,27 @@
         </div>
         <div class="mb-3">
             <label for="passwordRepeat" class="form-label">Potvrdit heslo</label>
-            <input required maxlength="50" [(ngModel)]="user.passwordRepeat" name="passwordRepeat" #passwordRepeat="ngModel"
-                type="password" class="form-control">
-            <div *ngIf="passwordRepeat.touched && !passwordRepeat.valid" class="alert alert-danger">Prosím zadejte heslo.</div>
+            <input required maxlength="50" [(ngModel)]="user.passwordRepeat" name="passwordRepeat"
+                #passwordRepeat="ngModel" type="password" class="form-control">
+            <div *ngIf="passwordRepeat.touched && !passwordRepeat.valid" class="alert alert-danger">Prosím zadejte
+                heslo.</div>
         </div>
-        
+
+        <mat-radio-group [(ngModel)]="isPartner" name="select" aria-label="Select an option">
+            <mat-radio-button [value]="true">Partner</mat-radio-button>
+            <mat-radio-button [value]="false">Nový uživatel</mat-radio-button>
+        </mat-radio-group>
+        <div *ngIf="isPartner">
+            <h2>Informace Partnera</h2>
+            <div class="mb-3">
+                <label for="role" class="form-label">Lead</label>
+                <select #role="ngModel" name="role" id="partner" class="form-control" [(ngModel)]="user.role">
+                    <option value="admin">admin</option>
+                    <option value="obchodní zástupce">obchodní zástupce</option>
+                </select>
+                <div *ngIf="role.touched && !role.valid" class="alert alert-danger">Prosím zadejte jméno.</div>
+            </div>
+        </div>
 
         <h2>Dodatečné informace</h2>
         <div class="mb-3">

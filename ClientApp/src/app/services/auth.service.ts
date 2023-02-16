@@ -19,6 +19,8 @@ export class AuthService {
 
   isLoggedIn() {    
     let token = localStorage.getItem('token');
+    let jwtHelper= new JwtHelperService(); 
+    
     if (token)
       return true;
     else
@@ -29,6 +31,7 @@ export class AuthService {
     if(!token)
        return null;  
     let jwtHelper= new JwtHelperService();
+    
     return jwtHelper.decodeToken(token);    
   }
 }

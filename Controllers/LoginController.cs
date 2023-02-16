@@ -50,7 +50,7 @@ namespace NuovoCRM.Controllers
                  issuer: "ISSUER_NAME",
                  audience: "AUDIENCE",
                  claims: claims,
-                 signingCredentials: credentials
+                signingCredentials: credentials
             );
             return token;
         }

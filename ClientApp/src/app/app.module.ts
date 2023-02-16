@@ -24,6 +24,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { UserComponent } from './user/user.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { NewUserComponent } from './new-user/new-user.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -39,7 +41,8 @@ import { NewUserComponent } from './new-user/new-user.component';
     PartnersComponent,
     UserComponent,
     UserListComponent,
-    NewUserComponent
+    NewUserComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -47,6 +50,7 @@ import { NewUserComponent } from './new-user/new-user.component';
     FormsModule,
     MatMenuModule,
     MatIconModule,
+    MatRadioModule,
     MatProgressSpinnerModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full'},
@@ -58,7 +62,8 @@ import { NewUserComponent } from './new-user/new-user.component';
       { path: 'user', component: UserComponent,canActivate:[AuthGuardService] },
       { path: 'users', component: UserListComponent,canActivate:[AuthGuardService] },
       { path: 'users/new/:id?', component: NewUserComponent,canActivate:[AuthGuardService] },
-      { path: 'login', component: LoginComponent }
+      { path: 'login', component: LoginComponent },
+      {path: '**', component: NotfoundComponent}
       
     ]),
     BrowserAnimationsModule
