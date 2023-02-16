@@ -1,16 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { LocalhostService } from './localhost.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  constructor(private http: HttpClient) { }
+  localhost=this.service.getLocalHost();
+  constructor(private http: HttpClient, private service:LocalhostService) { }  
 
   login(credentials: any) {
-    return this.http.post('https://localhost:7011/api/auth', credentials);
+    return this.http.post(this.localhost+'/api/auth', credentials);
   }
   logout() {
     localStorage.removeItem('token');

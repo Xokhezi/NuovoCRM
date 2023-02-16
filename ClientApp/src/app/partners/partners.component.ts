@@ -1,7 +1,7 @@
 import { listAnim } from './../animations/animations';
 import { PartnersService } from './../services/partners.service';
 import { Component } from '@angular/core';
-import { trigger } from '@angular/animations';
+
 
 @Component({
   selector: 'app-partners',
@@ -14,12 +14,14 @@ import { trigger } from '@angular/animations';
 export class PartnersComponent {
   partners: any;
   loading = true;
+  
 
   constructor(private partnersService: PartnersService) { }
   ngOnInit(): void {
     this.partnersService.GetPartners().subscribe((p: any) =>{
       this.partners = p;
       this.loading = false;});
+      
   }
   search(input: string) {
     this.partnersService.GetPartners().subscribe(p => {

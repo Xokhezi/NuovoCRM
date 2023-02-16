@@ -1,12 +1,15 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { LocalhostService } from './localhost.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PartnersService {
 
-  constructor(private http:HttpClient) { }
+  localhost=this.service.getLocalHost();
+  constructor(private http:HttpClient, private service:LocalhostService) { }
+  
   getValidation()
   {
     let headers=new HttpHeaders();
@@ -18,22 +21,22 @@ export class PartnersService {
   }
   GetPartners()
   {
-    return this.http.get('https://localhost:7011/api/partners',this.getValidation());
+    return this.http.get(this.localhost+'/api/partners',this.getValidation());
   }
   GetPartner(id:any)
   {
-    return this.http.get('https://localhost:7011/api/partners/'+id,this.getValidation());
+    return this.http.get(this.localhost+'/api/partners/'+id,this.getValidation());
   }
   DeletePartner(id:any)
   {
-    return this.http.delete('https://localhost:7011/api/partners/'+id,this.getValidation());
+    return this.http.delete(this.localhost+'/api/partners/'+id,this.getValidation());
   }
   CreatePartner(partner:any)
   {
-    return this.http.post('https://localhost:7011/api/partners', partner,this.getValidation());
+    return this.http.post(this.localhost+'/api/partners', partner,this.getValidation());
   }
   UpdatePartner(partner:any,id:any)
   {
-    return this.http.put('https://localhost:7011/api/partners/'+id, partner,this.getValidation());
+    return this.http.put(this.localhost+'/api/partners/'+id, partner,this.getValidation());
   }
 }

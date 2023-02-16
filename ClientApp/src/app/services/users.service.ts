@@ -1,3 +1,4 @@
+import { LocalhostService } from './localhost.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -5,8 +6,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UsersService {
-
-  constructor(private http:HttpClient) { }
+  localhost=this.service.getLocalHost();
+  constructor(private http:HttpClient, private service:LocalhostService) { }
+  
+  
   getValidation()
   {
     let headers=new HttpHeaders();
@@ -18,22 +21,22 @@ export class UsersService {
   }
   GetUsers()
   {
-    return this.http.get('https://localhost:7011/api/users',this.getValidation());
+    return this.http.get(this.localhost+'/api/users',this.getValidation());
   }
   GetUser(id:any)
   {
-    return this.http.get('https://localhost:7011/api/users/'+id,this.getValidation());
+    return this.http.get(this.localhost+'/api/users/'+id,this.getValidation());
   }
   DeleteUser(id:any)
   {
-    return this.http.delete('https://localhost:7011/api/users/'+id,this.getValidation());
+    return this.http.delete(this.localhost+'/api/users/'+id,this.getValidation());
   }
   CreateUser(user:any)
   {
-    return this.http.post('https://localhost:7011/api/users', user,this.getValidation());
+    return this.http.post(this.localhost+'/api/users', user,this.getValidation());
   }
   UpdateUser(user:any,id:any)
   {
-    return this.http.put('https://localhost:7011/api/users/'+id, user,this.getValidation());
+    return this.http.put(this.localhost+'/api/users/'+id, user,this.getValidation());
   }
 }

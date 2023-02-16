@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class NavMenuComponent {
   isExpanded = false;
   isLogedIn = false;
-  user:any;
+  user={Email:""};
 
 
   constructor(public service: AuthService) { } 
