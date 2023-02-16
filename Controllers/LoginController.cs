@@ -32,7 +32,12 @@ namespace NuovoCRM.Controllers
         {
             var claims = new[]
                 {
-                    new Claim("Email",user.Email)
+                    new Claim("Email",user.Email),
+                    new Claim("Role",user.Role),
+                    new Claim("Adress",user.Adress),
+                    new Claim("Country",user.Country),
+                    new Claim("Phone",user.Phone),
+                    new Claim("FullName",user.FullName)
                 };
 
             string privateKey = "testkeyvalidator-123456789";
