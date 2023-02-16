@@ -21,6 +21,8 @@ import { LoginComponent } from './login/login.component';
 import { PartnersComponent } from './partners/partners.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import { UserComponent } from './user/user.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import {MatIconModule} from '@angular/material/icon';
     ProductsComponent,
     NewProductComponent,
     LoginComponent,
-    PartnersComponent
+    PartnersComponent,
+    UserComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -49,6 +53,8 @@ import {MatIconModule} from '@angular/material/icon';
       { path: 'partners/:id', component: SinglePartnerComponent,canActivate:[AuthGuardService] },
       { path: 'products', component: ProductsComponent,canActivate:[AuthGuardService] },
       { path: 'products/new/:id?', component: NewProductComponent,canActivate:[AuthGuardService] },
+      { path: 'user', component: UserComponent,canActivate:[AuthGuardService] },
+      { path: 'users', component: UserListComponent,canActivate:[AuthGuardService] },
       { path: 'login', component: LoginComponent }
       
     ]),

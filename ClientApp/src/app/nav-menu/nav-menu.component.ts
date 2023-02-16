@@ -9,9 +9,14 @@ import { Component } from '@angular/core';
 export class NavMenuComponent {
   isExpanded = false;
   isLogedIn = false;
+  user:any;
 
 
   constructor(public service: AuthService) { } 
+  ngOnInit(): void {
+    this.user=this.service.getcurrentUser();   
+    console.log(this.user) 
+  }
 
   collapse() {
     this.isExpanded = false;

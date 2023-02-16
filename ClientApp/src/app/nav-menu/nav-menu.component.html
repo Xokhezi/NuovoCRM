@@ -4,33 +4,42 @@
     <div class="container">
 
       <a class="navbar-brand sizeup" [routerLink]="['/']">BMS</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
-        aria-label="Toggle navigation" [attr.aria-expanded]="isExpanded" (click)="toggle()">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <button *ngIf="service.isLoggedIn()" data-mdb-toggle="sidenav" [matMenuTriggerFor]="menu" class="btn btn-primary"  aria-haspopup="true" aria-expanded="false" style="height: 37px;" >
-        <mat-icon>menu</mat-icon>
-      </button>      
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item [routerLink]="['']">
-          <mat-icon>home</mat-icon>
-          <span >Domů</span>
+      <div class="prof">
+        <div class="prof" *ngIf="service.isLoggedIn()">
+          <div class="prof">            
+            <p class="text-prof">Vítej, {{user.Email}}!</p>                   
+          </div>
+        </div>
+
+        <button *ngIf="service.isLoggedIn()" data-mdb-toggle="sidenav" [matMenuTriggerFor]="menu"
+          class="btn btn-primary" aria-haspopup="true" aria-expanded="false" style="height: 37px;">
+          <mat-icon>menu</mat-icon>
         </button>
-        <button mat-menu-item [routerLink]="['/partners']">
-          <mat-icon>handshake</mat-icon>
-          <span >Partneři</span>
-        </button>
-        <button mat-menu-item [routerLink]="['/products']">
-          <mat-icon>category</mat-icon>
-          <span >Produkty</span>
-        </button>
-        <button (click)="logOut()" mat-menu-item [routerLink]="['']">
-          <mat-icon>logout</mat-icon>
-          <span  >Odhlásit</span>
-        </button>
-        
-      </mat-menu>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item [routerLink]="['']">
+            <mat-icon>home</mat-icon>
+            <span>Domů</span>
+          </button>
+          <button mat-menu-item [routerLink]="['/partners']">
+            <mat-icon>handshake</mat-icon>
+            <span>Partneři</span>
+          </button>
+          <button mat-menu-item [routerLink]="['/products']">
+            <mat-icon>category</mat-icon>
+            <span>Produkty</span>
+          </button>
+          <button mat-menu-item [routerLink]="['/user']">
+            <mat-icon>account_circle</mat-icon>
+            <span>Profil</span>
+          </button>
+          <button (click)="logOut()" mat-menu-item [routerLink]="['']">
+            <mat-icon>logout</mat-icon>
+            <span>Odhlásit</span>
+          </button>
+
+        </mat-menu>
+      </div>
     </div>
   </nav>
 </header>
