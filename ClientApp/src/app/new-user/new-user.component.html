@@ -4,6 +4,7 @@
             [class.bi-arrow-left-square]="!hover" [class.bi-arrow-left-square-fill]="hover"></i></h1>
     <h2 *ngIf="id==0">Nový uživatel</h2>
     <h2 *ngIf="id!=0">{{user.fullName}}</h2>
+    <div *ngIf="invalidPassword" class="alert alert-danger">Hesla se neschodují.</div>
     <form #f="ngForm" (ngSubmit)="submit()">
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
@@ -25,7 +26,7 @@
                 type="password" class="form-control">
             <div *ngIf="password.touched && !password.valid" class="alert alert-danger">Prosím zadejte heslo.</div>
         </div>
-        <div class="mb-3" *ngIf="user.id==0">
+        <div class="mb-3">
             <label for="passwordRepeat" class="form-label">Potvrdit heslo</label>
             <input required maxlength="50" [(ngModel)]="user.passwordRepeat" name="passwordRepeat" #passwordRepeat="ngModel"
                 type="password" class="form-control">
