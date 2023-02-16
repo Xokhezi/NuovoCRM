@@ -11,5 +11,9 @@ namespace NuovoCRM.Models
         public string Email { get; set; }
         public string FullName { get; set; }
         public string Password { get; set; }
+        public string Role { get; set; }
+        public string Country { get; set; }
+        public string Adress { get; set; }
+        public string Phone { get; set; }
     }
 }

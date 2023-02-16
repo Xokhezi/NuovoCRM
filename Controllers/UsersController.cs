@@ -47,5 +47,41 @@ namespace NuovoCRM.Controllers
             await context.SaveChangesAsync();
             return Ok();
         }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateUser([FromBody] UserResource userResource,int Id)
+        {
+            if (!ModelState.IsValid)
+                return NotFound(ModelState);
+
+            var user = await context.Users.SingleOrDefaultAsync(p => p.Id == Id);
+            var resource = mapper.Map<UserResource, User>(userResource);
+
+            await context.SaveChangesAsync();
+
+            user.Email = resource.Email;
+            user.FullName = resource.FullName;
+            user.Role = resource.Role;
+            user.Adress = resource.Adress;
+            user.Country = resource.Country;
+            user.Password = resource.Password;    
+            user.Phone = resource.Phone;           
+
+            await context.SaveChangesAsync();
+
+            return Ok(resource);
+
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+
+            var user = await context.Users.SingleOrDefaultAsync(u => u.Id == id);
+            if (user == null)
+                return NotFound();
+            context.Remove(user);
+            await context.SaveChangesAsync();
+
+            return Ok();
+        }
     }
 }
