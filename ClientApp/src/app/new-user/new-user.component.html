@@ -1,0 +1,64 @@
+<div class="marg">
+    {{user|json}}
+    <h1><i [routerLink]="['/users']" (mouseenter)="switch()" (mouseleave)="switch()" class="bi pointer"
+            [class.bi-arrow-left-square]="!hover" [class.bi-arrow-left-square-fill]="hover"></i></h1>
+    <h2 *ngIf="id==0">Nový uživatel</h2>
+    <h2 *ngIf="id!=0">{{user.fullName}}</h2>
+    <form #f="ngForm" (ngSubmit)="submit()">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input required maxlength="50" [(ngModel)]="user.email" name="email" #email="ngModel" type="text"
+                class="form-control">
+            <div *ngIf="email.touched && !email.valid" class="alert alert-danger">Prosím zadejte email.</div>
+        </div>
+        <div class="mb-3">
+            <label for="role" class="form-label">Role</label>
+            <select #role="ngModel" name="role" id="partner" class="form-control" [(ngModel)]="user.role">
+                <option value="admin">admin</option>
+                <option value="obchodní zástupce">obchodní zástupce</option>
+            </select>
+            <div *ngIf="role.touched && !role.valid" class="alert alert-danger">Prosím zadejte jméno.</div>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Heslo</label>
+            <input required maxlength="50" [(ngModel)]="user.password" name="password" #password="ngModel"
+                type="password" class="form-control">
+            <div *ngIf="password.touched && !password.valid" class="alert alert-danger">Prosím zadejte heslo.</div>
+        </div>
+        <div class="mb-3">
+            <label for="passwordRepeat" class="form-label">Potvrdit heslo</label>
+            <input required maxlength="50" [(ngModel)]="user.passwordRepeat" name="passwordRepeat" #passwordRepeat="ngModel"
+                type="password" class="form-control">
+            <div *ngIf="passwordRepeat.touched && !passwordRepeat.valid" class="alert alert-danger">Prosím zadejte heslo.</div>
+        </div>
+        
+
+        <h2>Dodatečné informace</h2>
+        <div class="mb-3">
+            <label for="fullName" class="form-label">Jméno</label>
+            <input required maxlength="50" [(ngModel)]="user.fullName" name="fullName" #fullName="ngModel" type="text"
+                class="form-control">
+            <div *ngIf="fullName.touched && !fullName.valid" class="alert alert-danger">Prosím zadejte jméno.</div>
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">Telefon</label>
+            <input required maxlength="50" [(ngModel)]="user.phone" name="phone" #phone="ngModel" type="text"
+                class="form-control">
+            <div *ngIf="phone.touched && !phone.valid" class="alert alert-danger">Prosím zadejte telefon.</div>
+        </div>
+        <div class="mb-3">
+            <label for="country" class="form-label">Země</label>
+            <input required maxlength="50" [(ngModel)]="user.country" name="country" #country="ngModel" type="text"
+                class="form-control">
+            <div *ngIf="country.touched && !country.valid" class="alert alert-danger">Zadejte zemi.</div>
+        </div>
+        <div class="mb-3">
+            <label for="adress" class="form-label">Adresa</label>
+            <input required maxlength="50" [(ngModel)]="user.adress" name="adress" #adress="ngModel" type="text"
+                class="form-control">
+            <div *ngIf="adress.touched && !adress.valid" class="alert alert-danger">Zadejte adresu.</div>
+        </div>
+    </form>
+
+    <button class="btn btn-primary" (click)="submit()">Uložit</button>
+</div>

@@ -30,7 +30,10 @@ code {
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-
+.shadow{
+  -webkit-box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+  box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+}
 .plus
 {
     margin: 20px;
@@ -43,4 +46,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .sizeup:hover{
     transform: scale(1.1);
+}
+.nuovo-bg{
+  background: rgb(106, 143, 246);
+  background: linear-gradient(90deg, rgba(68,113,233,1) 0%, rgb(254, 124, 130) 64%); border-radius: 25px; padding: 30px; border-radius:25px;
+  border: 0px;;
 }

@@ -14,10 +14,8 @@ export class NavMenuComponent {
 
   constructor(public service: AuthService) { } 
   ngOnInit(): void {
-    this.user=this.service.getcurrentUser();   
-    console.log(this.user) 
+    this.user=this.service.getcurrentUser();
   }
-
   collapse() {
     this.isExpanded = false;
   }

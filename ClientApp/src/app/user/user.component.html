@@ -4,14 +4,15 @@
             <div class="col-xl-6 col-md-12">
                 <div class="card user-card-full">
                     <div class="row m-l-0 m-r-0">
-                        <div class="col-sm-4 bg-c-lite-green user-profile">
+                        <div class="col-sm-4 bg-c-lite-green user-profile" style="height: 60vh;">
                             <div class="card-block text-center text-white">
                                 <div class="m-b-25">
-                                    <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius"
-                                        alt="User-Profile-Image">
+                                    <img src="assets/img_avatar.png"
+                                        class="img-radius bd-placeholder-img rounded-circle" style="width: 100%;
+                                    height: auto;" alt="User-Profile-Image">
                                 </div>
-                                <h6 class="f-w-600">Karel Novák</h6>
-                                <p>Správce</p>
+                                <h1 class="f-w-600">{{currentUser.FullName}}</h1>
+                                <h2>{{currentUser.Role}}</h2>
                                 <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                             </div>
                         </div>
@@ -21,25 +22,25 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Email</p>
-                                        <h6 class="text-muted f-w-400">rntng@gmail.com</h6>
+                                        <h6 class="text-muted f-w-400">{{currentUser.Email}}</h6>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Telefon</p>
-                                        <h6 class="text-muted f-w-400">98979989898</h6>
+                                        <h6 class="text-muted f-w-400">{{currentUser.Phone}}</h6>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Adresa</p>
-                                        <h6 class="text-muted f-w-400">Brno 60200</h6>
+                                        <h6 class="text-muted f-w-400">{{currentUser.Adress}}</h6>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Země</p>
-                                        <h6 class="text-muted f-w-400">CZ</h6>
+                                        <h6 class="text-muted f-w-400">{{currentUser.Country}}</h6>
                                     </div>
                                 </div>
                                 <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Správa</h6>
-                                <div class="row">
+                                <div class="row" *ngIf="currentUser.Role==='admin'">
                                     <div class="col-sm-6">
                                         <button class="btn btn-primary" [routerLink]="['/users']">Uživatelé</button>
                                     </div>

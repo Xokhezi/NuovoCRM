@@ -7,3 +7,11 @@
 .marg{
     margin: 0;
 }
+.card-style{
+    color: rgb(23, 22, 22);
+    background: rgb(106, 143, 246);
+  background: linear-gradient(90deg, rgba(68,113,233,1) 0%, rgb(254, 124, 130) 64%); border-radius: 25px; padding: 30px; border-radius:25px; margin-top: 70px;
+}
+img{
+    border: solid 1px white;
+}

@@ -4,20 +4,20 @@
         [class.bi-arrow-left-square]="!hover" [class.bi-arrow-left-square-fill]="hover"></i></h1>
     <div class="row">
       <div class="col-lg-4">
-        <div class="card mb-4">
+        <div class="card mb-4 nuovo-bg shadow">
           <div class="card-body text-center">
             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
               class="rounded-circle img-fluid" style="width: 150px;">
             <h2 class="my-3">{{partner.name}} {{partner.surname}} </h2>
-            <p class="text-muted mb-1">{{partner.position}}</p>
+            <p class="mb-1">{{partner.position}}</p>
             <div class="d-flex justify-content-center mb-2">
               <button type="button" class="btn btn-primary" [routerLink]="['/partners/new/'+partner.id]">Upravit</button>
-              <button type="button" class="btn btn-outline-primary ms-1" (click)="deletePartner()">Smazat</button>
+              <button type="button" class="btn btn-danger ms-1" (click)="deletePartner()">Smazat</button>
             </div>
           </div>
         </div>
         <h2 class="text-center">Team</h2>
-        <div class="card mb-4 mb-lg-0">
+        <div class="card mb-4 mb-lg-0 shadow">
           <div class="card-body p-0">
             <ul class="list-group list-group-flush rounded-3">
               <li *ngFor="let m of team" class="list-group-item d-flex justify-content-between align-items-center p-3">
@@ -30,7 +30,7 @@
         </div>
       </div>
       <div class="col-lg-8">
-        <div class="card mb-4">
+        <div class="card mb-4 shadow"  style="border-radius: 15px;">
           <div class="card-body">
             <div class="row">
               <div class="col-sm-3">
@@ -87,7 +87,7 @@
             </div>
           </div>
         </div>
-        <div class="row card mb-4 marg">
+        <div class="row card mb-4 marg shadow" style="border-radius: 15px;">
           <table class="table table-hover marg">
             <thead>
               <tr>

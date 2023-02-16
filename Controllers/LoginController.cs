@@ -37,7 +37,8 @@ namespace NuovoCRM.Controllers
                     new Claim("Adress",user.Adress),
                     new Claim("Country",user.Country),
                     new Claim("Phone",user.Phone),
-                    new Claim("FullName",user.FullName)
+                    new Claim("FullName",user.FullName),
+                    new Claim("Id",user.Id.ToString())
                 };
 
             string privateKey = "testkeyvalidator-123456789";
@@ -65,7 +66,7 @@ namespace NuovoCRM.Controllers
             {
                 return Ok(new
                 {
-                    token = new JwtSecurityTokenHandler().WriteToken(GetJwtSecurityToken(user))
+                    token = new JwtSecurityTokenHandler().WriteToken(GetJwtSecurityToken(existingUser))
                 });
             }
             else
