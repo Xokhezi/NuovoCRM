@@ -19,9 +19,9 @@
                         </div>                
                         <div >
                             <button type="button"
-                                class="btn btn-primary m-2 btn-rounded waves-effect w-md waves-light">Upravit</button>
+                                class="btn btn-primary m-2 btn-rounded waves-effect w-md waves-light" [routerLink]="['new/'+user.id]">Upravit</button>
                             <button type="button"
-                                class="btn btn-primary btn-rounded waves-effect w-md waves-light">Smazat</button>
+                                class="btn btn-primary btn-rounded waves-effect w-md waves-light" (click)="deleteUser(user.id)">Smazat</button>
                         </div>
                     </div>
                 </div>

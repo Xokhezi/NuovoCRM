@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
 })
 export class NewUserComponent {
   user={
+    id:0,
     email: "",
     fullName: "",
     password: "",
@@ -29,7 +30,7 @@ export class NewUserComponent {
       if (this.id != 0) {
         this.service.GetUser(this.id)
           .subscribe((u:any) =>this.user = u);
-      }
+      }      
     })
 
   }

@@ -30,13 +30,19 @@ namespace NuovoCRM.Controllers
             this.context = context;
 
         }
-        
+
         [HttpGet]
         public async Task<IEnumerable<UserResource>> GetUsers()
         {
             var users = await context.Users.ToListAsync();
             return mapper.Map<IEnumerable<User>, IEnumerable<UserResource>>(users);
-        }        
+        }
+        [HttpGet("{id}")]
+        public async Task<UserResource> GetUser(int id)
+        {
+            var user = await context.Users.SingleOrDefaultAsync(u => u.Id == id);
+            return mapper.Map<User, UserResource>(user);
+        }
         [HttpPost]
         public async Task<IActionResult> Register([FromBody] UserResource userResource)
         {
@@ -48,7 +54,7 @@ namespace NuovoCRM.Controllers
             return Ok();
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUser([FromBody] UserResource userResource,int Id)
+        public async Task<IActionResult> UpdateUser([FromBody] UserResource userResource, int Id)
         {
             if (!ModelState.IsValid)
                 return NotFound(ModelState);
@@ -63,8 +69,8 @@ namespace NuovoCRM.Controllers
             user.Role = resource.Role;
             user.Adress = resource.Adress;
             user.Country = resource.Country;
-            user.Password = resource.Password;    
-            user.Phone = resource.Phone;           
+            user.Password = resource.Password;
+            user.Phone = resource.Phone;
 
             await context.SaveChangesAsync();
 

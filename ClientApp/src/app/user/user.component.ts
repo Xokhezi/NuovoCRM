@@ -12,8 +12,6 @@ export class UserComponent {
   constructor( private service: UsersService,private authService:AuthService) { }
   ngOnInit(): void {
     this.currentUser=this.authService.getcurrentUser();
-    console.log(this.currentUser);
-
   }
 
 }

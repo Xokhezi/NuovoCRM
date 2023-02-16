@@ -66,6 +66,6 @@ export class SinglePartnerComponent implements OnInit {
             }, 300)
           }
         });
-    this.router.navigate(['/']);
+    this.router.navigate(['/partners']);
   }  
 }

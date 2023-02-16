@@ -25,7 +25,7 @@
                 type="password" class="form-control">
             <div *ngIf="password.touched && !password.valid" class="alert alert-danger">Prosím zadejte heslo.</div>
         </div>
-        <div class="mb-3">
+        <div class="mb-3" *ngIf="user.id==0">
             <label for="passwordRepeat" class="form-label">Potvrdit heslo</label>
             <input required maxlength="50" [(ngModel)]="user.passwordRepeat" name="passwordRepeat" #passwordRepeat="ngModel"
                 type="password" class="form-control">
