@@ -1,16 +1,18 @@
-<div class="container mt-100">
+<div *ngIf="loading">
+    <mat-spinner class="center"></mat-spinner>
+</div>
+<div *ngIf="!loading" class="container mt-100">
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-search click"></i></span>
         </div>
-        <input #input type="text" class="form-control" placeholder="Zástupce..." aria-label="Username"
-            aria-describedby="basic-addon1">
+        <input #input type="text" (keyup)="search(input.value)" class="form-control" placeholder="Název produktu.."
+            aria-label="Username" aria-describedby="basic-addon1">
     </div>
 
-
     <div class="row">
-        <div class="col-md-4 col-sm-6">
+        <div *ngFor="let product of products" class="col-md-4 col-sm-6">
             <div class="card mb-30 shadow"><a class="card-img-tiles" href="#" data-abc="true">
                     <div
                         style="background-color: rgb(108, 184, 250); border-top-right-radius: 25px;border-top-left-radius: 25px;">
@@ -27,72 +29,18 @@
                 </a>
                 <div class="card-body text-center nuovo-bg"
                     style="border-top-right-radius: 0%; border-top-left-radius: 0%;">
-                    <h2 class="card-title">RD500</h2>
+                    <h2 class="card-title">{{product.name}}</h2>
                     <p class="text-wrap">Panel který je super</p>
-                    <p><strong>15000Kč</strong></p>
-                    <div class="d-flex pb-2 flexor">
-                        <i class="bi bi-dash-circle" style="padding-top: 5px;margin-right: 5px;"></i>
-                        <p style="padding-top: 5px; margin-right: 5px;">3</p>
-                        <i class="bi bi-plus-circle" style="padding-top: 5px;"></i>
-                        <a class="btn btn-primary" href="#" style="margin-left: 5px; height: 35px;">Do košíku</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-            <div class="card mb-30 shadow"><a class="card-img-tiles" href="#" data-abc="true">
-                    <div
-                        style="background-color: rgb(108, 184, 250); border-top-right-radius: 25px;border-top-left-radius: 25px;">
-                        <mat-icon
-                            style="margin-left: 20px; margin-right: 2px; margin-top: 10px; color: #f84343">fitness_center</mat-icon>
-                        <mat-icon style="margin-right: 2px; color: #9deb78">health_and_safety</mat-icon>
-                        <mat-icon style="margin-right: 2px; color: #250fee">spa</mat-icon>
-                    </div>
-                    <div class="inner">
-                        <div class="main-img"><img src="assets/cart.jpg" alt="Category"></div>
-                        <div class="thumblist"><img src="assets/cart.jpg" alt="Category"><img src="assets/cart.jpg"
-                                alt="Category"></div>
-                    </div>
-                </a>
-                <div class="card-body text-center nuovo-bg"
-                    style="border-top-right-radius: 0%; border-top-left-radius: 0%;">
-                    <h2 class="card-title">RD500</h2>
-                    <p class="text-wrap">Panel který je super</p>
-                    <p><strong>15000Kč</strong></p>
-                    <div class="d-flex pb-2 flexor">
-                        <i class="bi bi-dash-circle" style="padding-top: 5px;margin-right: 5px;"></i>
-                        <p style="padding-top: 5px; margin-right: 5px;">3</p>
-                        <i class="bi bi-plus-circle" style="padding-top: 5px;"></i>
-                        <a class="btn btn-primary" href="#" style="margin-left: 5px; height: 35px;">Do košíku</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-            <div class="card mb-30 shadow"><a class="card-img-tiles" href="#" data-abc="true">
-                    <div
-                        style="background-color: rgb(108, 184, 250); border-top-right-radius: 25px;border-top-left-radius: 25px;">
-                        <mat-icon
-                            style="margin-left: 20px; margin-right: 2px; margin-top: 10px; color: #f84343">fitness_center</mat-icon>
-                        <mat-icon style="margin-right: 2px; color: #9deb78">health_and_safety</mat-icon>
-                        <mat-icon style="margin-right: 2px; color: #250fee">spa</mat-icon>
-                    </div>
-                    <div class="inner">
-                        <div class="main-img"><img src="assets/cart.jpg" alt="Category"></div>
-                        <div class="thumblist"><img src="assets/cart.jpg" alt="Category"><img src="assets/cart.jpg"
-                                alt="Category"></div>
-                    </div>
-                </a>
-                <div class="card-body text-center nuovo-bg"
-                    style="border-top-right-radius: 0%; border-top-left-radius: 0%;">
-                    <h2 class="card-title">RD500</h2>
-                    <p class="text-wrap">Panel který je super</p>
-                    <p><strong>15000Kč</strong></p>
-                    <div class="d-flex pb-2 flexor">
-                        <i class="bi bi-dash-circle" style="padding-top: 5px;margin-right: 5px;"></i>
-                        <p style="padding-top: 5px; margin-right: 5px;">3</p>
-                        <i class="bi bi-plus-circle" style="padding-top: 5px;"></i>
-                        <a class="btn btn-primary" href="#" style="margin-left: 5px; height: 35px;">Do košíku</a>
+                    <p><strong>{{product.prize}} Kč</strong></p>
+                    <a class="btn btn-outline-primary" href="#"><i class="bi bi-cart-plus"></i></a>
+                    <div class="d-flex pb-2 flexor" style="margin-top: 10px;">
+                        <button class="btn btn-primary btn-sm"
+                            style=" height: 30px; border-radius: 100%;margin-right: 20px;"> <i
+                                class="bi bi-dash"></i></button>
+                        <p style="padding-top: 5px">3</p>
+                        <button class="btn btn-primary btn-sm"
+                            style="height: 30px;  border-radius: 100%;margin-left: 20px;"> <i
+                                class="bi bi-plus"></i></button>
                     </div>
                 </div>
             </div>
