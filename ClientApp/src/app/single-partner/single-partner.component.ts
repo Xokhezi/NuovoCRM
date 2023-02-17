@@ -60,8 +60,6 @@ export class SinglePartnerComponent implements OnInit {
 
     });
     this.productServis.GetProducts().subscribe(p => this.products = p);
-    
-
   }
   switch() {
     this.hover = !this.hover;
