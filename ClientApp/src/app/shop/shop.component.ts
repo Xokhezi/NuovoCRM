@@ -7,28 +7,30 @@ import { Component } from '@angular/core';
   styleUrls: ['./shop.component.css']
 })
 export class ShopComponent {
-  products:any;
-  loading=true;
-  hoverplus=false;
-  hoverminus=false;
+  products: any;
+  loading = true;  
+  expanded = false;
+  hover= false;
+
   constructor(private productService: ProductsService) { }
+  
   ngOnInit(): void {
-    this.productService.GetProducts().subscribe((p: any) =>{
+    this.productService.GetProducts().subscribe((p: any) => {
       this.products = p;
-      this.loading = false;});      
+      this.loading = false;
+    });
   }
   search(input: string) {
     this.productService.GetProducts().subscribe(p => {
       this.products = p;
       const inputUp = input.toUpperCase();
-      this.products = this.products.filter((n:any) => n.name.toUpperCase().includes(inputUp));
+      this.products = this.products.filter((n: any) => n.name.toUpperCase().includes(inputUp));
     });
   }
-  switchPlus() {
-    this.hoverplus = !this.hoverplus;
+  switch() {
+    this.expanded = !this.expanded;
   }
-  switchMinus() {
-    this.hoverminus = !this.hoverminus;
+  switchHover() {
+    this.hover = !this.hover;
   }
-
 }
