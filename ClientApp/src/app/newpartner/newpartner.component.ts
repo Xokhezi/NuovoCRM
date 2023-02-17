@@ -13,6 +13,7 @@ export class NewpartnerComponent implements OnInit {
   hover=false;
   partners: any;
   id:any;
+  isPartner:any;
   partner = {
     id: 0,
     name: "",
@@ -24,7 +25,18 @@ export class NewpartnerComponent implements OnInit {
     leadId: 0,
     level: 0,
     teamId: 0
-  }
+  };
+  user = {
+    id: 0,
+    email: "",
+    fullName: "",
+    password: "",
+    role: "",
+    country: "",
+    adress: "",
+    phone: "",
+    passwordRepeat: ""
+  };
 
   constructor(private active: ActivatedRoute, private partnerService: PartnersService, private router: Router) { }
 

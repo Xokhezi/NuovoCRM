@@ -22,12 +22,10 @@ export class NewUserComponent {
   invalidPassword = false;
   passwordRepeat: any;
   id: any;
-  isPartner:any;
-  hover = false;
+    hover = false;
 
   constructor(private service: UsersService, private active: ActivatedRoute,private router:Router) { }
-  ngOnInit(): void {
-    this.isPartner=false;
+  ngOnInit(): void {    
     this.active.paramMap.subscribe(params => {
       this.id = params.get('id?');
       if (this.id != 0) {
@@ -36,10 +34,6 @@ export class NewUserComponent {
       }
     })
 
-  }
-  test()
-  {
-    console.log(this.isPartner)
   }
   switch() {
     this.hover = !this.hover;
