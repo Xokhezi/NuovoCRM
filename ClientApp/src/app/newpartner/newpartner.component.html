@@ -2,6 +2,7 @@
     <h1><i [routerLink]="['/partners']" (mouseenter)="switch()" (mouseleave)="switch()" class="bi pointer"
             [class.bi-arrow-left-square]="!hover" [class.bi-arrow-left-square-fill]="hover"></i></h1>
     <h2>Nový Partner</h2>
+    <div *ngIf="invalidPasswords" class="alert alert-danger">Hesla se neschodují.</div>
     <form #f="ngForm" (ngSubmit)="submit(f)">
         <div class="mb-3">
             <label for="name" class="form-label">Jméno</label>
