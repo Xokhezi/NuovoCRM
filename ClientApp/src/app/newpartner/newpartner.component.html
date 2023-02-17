@@ -29,6 +29,12 @@
             <div *ngIf="phone.touched && !phone.valid" class="alert alert-danger">Prosím zadejte tel.číslo.</div>
         </div>
         <div class="mb-3">
+            <label for="country" class="form-label">Země</label>
+            <input required maxlength="50" [(ngModel)]="partner.country" name="country" #country="ngModel" type="text"
+                class="form-control">
+            <div *ngIf="country.touched && !country.valid" class="alert alert-danger">Prosím zadejte zemi.</div>
+        </div>
+        <div class="mb-3">
             <label for="adress" class="form-label">Adresa</label>
             <input required maxlength="50" [(ngModel)]="partner.adress" name="adress" #adress="ngModel" type="text"
                 class="form-control">

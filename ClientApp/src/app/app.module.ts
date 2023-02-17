@@ -26,6 +26,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import {MatRadioModule} from '@angular/material/radio';
     HttpClientModule,
     FormsModule,
     MatMenuModule,
+    MatDialogModule,
     MatIconModule,
     MatRadioModule,
     MatProgressSpinnerModule,

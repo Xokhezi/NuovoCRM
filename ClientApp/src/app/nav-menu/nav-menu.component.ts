@@ -1,3 +1,4 @@
+import { UsersService } from './../services/users.service';
 import { AuthService } from './../services/auth.service';
 import { Component } from '@angular/core';
 
@@ -12,14 +13,13 @@ export class NavMenuComponent {
   user={Email:""};
 
 
-  constructor(public service: AuthService) { } 
+  constructor(public service: AuthService,private usersService:UsersService) { } 
   ngOnInit(): void {
-    this.user=this.service.getcurrentUser();
+    this.user=this.service.getcurrentUser();   
   }
   collapse() {
     this.isExpanded = false;
   }
-
   toggle() {
     this.isExpanded = !this.isExpanded;
   }

@@ -51,7 +51,7 @@ namespace NuovoCRM.Controllers
             var user = mapper.Map<UserResource, User>(userResource);
             context.Users.Add(user);
             await context.SaveChangesAsync();
-            return Ok();
+            return Ok(user.Id);
         }
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser([FromBody] UserResource userResource, int Id)

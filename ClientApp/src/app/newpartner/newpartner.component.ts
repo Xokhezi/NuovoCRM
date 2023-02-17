@@ -26,7 +26,9 @@ export class NewpartnerComponent implements OnInit {
     adress: "",
     leadId: 0,
     level: 0,
-    teamId: 0
+    teamId: 0,
+    country: "",
+    userId: 0
   };
   user = {
     id: 0,
@@ -65,16 +67,18 @@ export class NewpartnerComponent implements OnInit {
             let userToCreate = {
               email: this.partner.email,
               fullName: this.partner.name + this.partner.surname,
-              password: this.partner.email,
+              password: this.user.password,
               role: this.user.role,
-              country: this.partner.adress,
+              country: this.partner.country,
               adress: this.partner.adress,
               phone: this.partner.phone
             };
             this.userService.CreateUser(userToCreate)
-              .subscribe(r => console.log(r));
-            this.partnerService.CreatePartner(this.partner)
-              .subscribe(() => this.router.navigate(['/partners']));
+              .subscribe((r: any) => {
+                this.partner.userId = r;
+                this.partnerService.CreatePartner(this.partner)
+                  .subscribe(() => this.router.navigate(['/partners']));
+              });
           }
           else if (!this.isPartner) {
             this.partnerService.CreatePartner(this.partner)
@@ -82,8 +86,6 @@ export class NewpartnerComponent implements OnInit {
           }
           else
             this.invalidPasswords = true;
-
-
         });
 
     }

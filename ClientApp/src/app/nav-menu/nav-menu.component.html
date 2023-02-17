@@ -6,7 +6,7 @@
       <a class="navbar-brand sizeup" [routerLink]="['/']">BMS</a>
 
       <div class="prof">
-        <div class="prof" *ngIf="service.isLoggedIn()">
+        <div class="prof" *ngIf="service.isLoggedIn()&&user">
           <div class="prof">            
             <p class="text-prof">Vítej, {{user.Email}}!</p>                   
           </div>
