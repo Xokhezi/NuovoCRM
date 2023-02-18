@@ -8,15 +8,21 @@ import { Component } from '@angular/core';
 })
 export class ShopComponent {
   products: any;
-  loading = true;  
+  loading = true;
   expanded = false;
-  hover= false;
+  hover = false;
+  cart: any;
 
   constructor(private productService: ProductsService) { }
-  
+
   ngOnInit(): void {
     this.productService.GetProducts().subscribe((p: any) => {
-      this.products = p;
+      this.products = p.map((pr: any) => {
+        return {
+          ...pr,
+          count: 1
+        }
+      })
       this.loading = false;
     });
   }
@@ -32,5 +38,18 @@ export class ShopComponent {
   }
   switchHover() {
     this.hover = !this.hover;
+  }
+  increasePcs(product: any) {
+    return product.count++;
+  }
+  decreasePcs(product: any) {
+    if (product.count > 1)
+      return product.count--;
+    else
+      return product.count;
+  }
+  addToCart(product:any)
+  {
+
   }
 }
