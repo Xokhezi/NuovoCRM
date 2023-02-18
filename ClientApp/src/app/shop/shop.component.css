@@ -70,3 +70,6 @@ body {
 .center{
     margin:0 auto;
 }
+.input-form{
+    width: 400px;
+}

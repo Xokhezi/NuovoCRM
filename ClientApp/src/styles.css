@@ -62,9 +62,23 @@ body {
 }
 
 .nuovo-bg {
-  background: rgb(254, 124, 130);
+  background: #ef7e84;
   border-radius: 25px;
   padding: 30px;
   border-radius: 25px;
   border: 0px;
+}
+.btn-primary{  
+    background-color: #273358;  
+}
+.btn-primary:hover{
+  background-color: #ef7e84
+}
+.btn-outline-primary{  
+  color: #273358;
+  border-color: #273358;  
+}
+.btn-outline-primary:hover{  
+  background-color: #4fbdc5;
+  color: white;  
 }
