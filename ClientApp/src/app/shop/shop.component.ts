@@ -1,3 +1,4 @@
+import { AuthService } from './../services/auth.service';
 import { fadeleft, faderight } from './../animations/animations';
 import { ProductsService } from './../services/products.service';
 import { Component } from '@angular/core';
@@ -20,7 +21,7 @@ export class ShopComponent {
   hover = false;
   cart: any;
   totalPrize: any;
-  toOrder=false;
+  toOrder = false;
   partner = {
     id: 0,
     name: "",
@@ -35,11 +36,13 @@ export class ShopComponent {
     country: "",
     userId: 0
   };
+  user:any;
 
-  constructor(private productService: ProductsService) { }
+  constructor(private productService: ProductsService,private authService:AuthService) { }
 
   ngOnInit(): void {
     this.cart = [];
+    this.user=this.authService.getcurrentUser();
     this.productService.GetProducts().subscribe((p: any) => {
       this.products = p.map((pr: any) => {
         return {
@@ -96,9 +99,10 @@ export class ShopComponent {
     }, 0);
     console.log(this.totalPrize)
   }
-  toOrderForm()
-  {
-    this.toOrder=!this.toOrder
+  toOrderForm() {
+    this.toOrder = !this.toOrder
   }
-  createOrder(f:any) { }
+  createOrder(f: any) { 
+    console.log(f);
+  }
 }
