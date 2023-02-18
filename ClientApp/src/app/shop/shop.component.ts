@@ -110,5 +110,6 @@ export class ShopComponent {
   createOrder(f: any) { 
     console.log(f);
     this.finishedOrder=true;
+    this.toOrder=false;
   }
 }
