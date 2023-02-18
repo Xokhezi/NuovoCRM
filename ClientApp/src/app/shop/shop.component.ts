@@ -15,13 +15,18 @@ import { cart } from '../animations/animations';
   ]
 })
 export class ShopComponent {
-  products: any;
+  
   loading = true;
   expanded = false;
   hover = false;
+  toOrder = false;
+  finishedOrder=false;
+
+  products: any;
   cart: any;
   totalPrize: any;
-  toOrder = false;
+
+  
   partner = {
     id: 0,
     name: "",
@@ -104,5 +109,6 @@ export class ShopComponent {
   }
   createOrder(f: any) { 
     console.log(f);
+    this.finishedOrder=true;
   }
 }

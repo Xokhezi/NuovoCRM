@@ -26,7 +26,8 @@
 
                                             </div>
 
-                                            <h2 *ngIf="totalPrize!=null && !expanded" class="text-muted">je za {{totalPrize}} Kč</h2>
+                                            <h2 *ngIf="totalPrize!=null && !expanded" class="text-muted">je za
+                                                {{totalPrize}} Kč</h2>
                                             <h2 *ngIf="cart.length==0" class="text-muted">Zatím neobsahuje žádné
                                                 položky. <i class="bi bi-emoji-frown"></i></h2>
 
@@ -57,7 +58,7 @@
                                                             </button>
                                                         </div>
                                                         <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                                            <h3 class="mb-0">{{p.count*p.prize}}</h3>
+                                                            <h3 class="mb-0">{{p.count*p.prize}} Kč</h3>
                                                         </div>
                                                         <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                                             <a href="#!" class="text-muted"><i
@@ -142,42 +143,69 @@
     </div>
 </div>
 
-<div *ngIf="!loading && toOrder" class="container" @faderight>  
-    <button  (click)="toOrderForm()" class="btn btn-primary plus"><i class="bi bi-arrow-left"></i></button>       
-        <form #f="ngForm" (ngSubmit)="createOrder(f.value)">
-            <div class="mb-3">
-                <label for="FullName" class="form-label">Celí Jméno</label>
-                <input required maxlength="50" [(ngModel)]="user.FullName" name="FullName" #FullName="ngModel" type="text"
-                    class="form-control">
-                <div *ngIf="FullName.touched && !FullName.valid" class="alert alert-danger">Prosím zadejte celé své jméno.</div>
-            </div>            
-            <div class="mb-3">
-                <label for="Email" class="form-label">Email</label>
-                <input required maxlength="50" [(ngModel)]="user.Email" name="Email" #Email="ngModel" type="email"
-                    class="form-control">
-                <div *ngIf="Email.touched && !Email.valid" class="alert alert-danger">Prosím zadejte email.</div>
+<div class="container" @faderight *ngIf="!loading && toOrder">
+    <button (click)="toOrderForm()" class="btn btn-primary plus"><i class="bi bi-arrow-left"></i></button>
+    <h1>Kontaktní údaje</h1>
+    <form #f="ngForm" (ngSubmit)="createOrder(f.value)">
+        <div class="mb-3">
+            <label for="FullName" class="form-label">Celí Jméno</label>
+            <input required maxlength="50" [(ngModel)]="user.FullName" name="FullName" #FullName="ngModel" type="text"
+                class="form-control">
+            <div *ngIf="FullName.touched && !FullName.valid" class="alert alert-danger">Prosím zadejte celé své jméno.
             </div>
-            <div class="mb-3">
-                <label for="Phone" class="form-label">Číslo</label>
-                <input required maxlength="50" [(ngModel)]="user.Phone" name="Phone" #Phone="ngModel" type="text"
-                    class="form-control">
-                <div *ngIf="Phone.touched && !Phone.valid" class="alert alert-danger">Prosím zadejte tel.číslo.</div>
+        </div>
+        <div class="mb-3">
+            <label for="Email" class="form-label">Email</label>
+            <input required maxlength="50" [(ngModel)]="user.Email" name="Email" #Email="ngModel" type="email"
+                class="form-control">
+            <div *ngIf="Email.touched && !Email.valid" class="alert alert-danger">Prosím zadejte email.</div>
+        </div>
+        <div class="mb-3">
+            <label for="Phone" class="form-label">Číslo</label>
+            <input required maxlength="50" [(ngModel)]="user.Phone" name="Phone" #Phone="ngModel" type="text"
+                class="form-control">
+            <div *ngIf="Phone.touched && !Phone.valid" class="alert alert-danger">Prosím zadejte tel.číslo.</div>
+        </div>
+        <div class="mb-3">
+            <label for="Country" class="form-label">Země</label>
+            <input required maxlength="50" [(ngModel)]="user.Country" name="Country" #Country="ngModel" type="text"
+                class="form-control">
+            <div *ngIf="Country.touched && !Country.valid" class="alert alert-danger">Prosím zadejte zemi.</div>
+        </div>
+        <div class="mb-3">
+            <label for="Adress" class="form-label">Adresa</label>
+            <input required maxlength="50" [(ngModel)]="user.Adress" name="Adress" #Adress="ngModel" type="text"
+                class="form-control">
+            <div *ngIf="Adress.touched && !Adress.valid" class="alert alert-danger">Prosím zadejte pozici.</div>
+        </div>
+        <hr>
+       <div>
+            <div class="col-lg-4 bg-grey">
+                <div class="p-5">
+                    <h2 class="fw-bold mb-5 mt-2 pt-1">Souhrn</h2>
+                    <ul>
+                        <li *ngFor="let p of cart">
+                            {{p.count}}X  {{p.name}} 
+                        </li>
+                    </ul>
+                    <hr class="my-4">
+                    <div class="d-flex justify-content-between mb-4">
+                        <h3 class="text-uppercase">položky: {{cart.length}}</h3>
+                        <h3>Kč {{totalPrize}}</h3>
+
+                    </div>
+
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="Country" class="form-label">Země</label>
-                <input required maxlength="50" [(ngModel)]="user.Country" name="Country" #Country="ngModel" type="text"
-                    class="form-control">
-                <div *ngIf="Country.touched && !Country.valid" class="alert alert-danger">Prosím zadejte zemi.</div>
-            </div>
-            <div class="mb-3">
-                <label for="Adress" class="form-label">Adresa</label>
-                <input required maxlength="50" [(ngModel)]="user.Adress" name="Adress" #Adress="ngModel" type="text"
-                    class="form-control">
-                <div *ngIf="Adress.touched && !Adress.valid" class="alert alert-danger">Prosím zadejte pozici.</div>
-            </div>
-            <div>
-                <button class="btn btn-primary marg">Uložit</button>
-            </div>
-    
-        </form>
+        </div>        
+        <div>
+            <button class="btn btn-primary marg" (click)="createOrder(f)">Objednat</button>
+        </div>
+
+    </form>
+    <div *ngIf="!loading && finishedOrder">
+        <h1>Děkujeme za Vši obejdnávku! <i class="bi bi-emoji-smile"></i></h1>
+        <h2 class="text-muted">Vše co nejrychleji zpracujeme - o odeslání Vás budeme informovat.</h2>
+
+    </div>
 </div>
