@@ -114,7 +114,7 @@ export class ShopComponent {
     this.toOrder = !this.toOrder
   }
   createOrder(f: any) {
-    let date=Date();
+    let date=new Date();
     let orderDetails="";
     for(let p of this.cart)
       orderDetails=orderDetails+p.name.toString()+" "+p.count.toString()+";";
@@ -126,7 +126,8 @@ export class ShopComponent {
       orderList: orderDetails,
       adress: f.Adress,
       phone: f.Phone,
-      totalPrize:this.totalPrize
+      totalPrize:this.totalPrize,
+      status:'nová'
     };
 
     this.ordersService.CreateOrder(order)
