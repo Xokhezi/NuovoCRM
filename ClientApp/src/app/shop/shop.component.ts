@@ -48,7 +48,7 @@ export class ShopComponent {
   constructor(
     private productService: ProductsService,
     private authService: AuthService,
-    private ordersService:OrdersService) { }
+    private ordersService: OrdersService) { }
 
   ngOnInit(): void {
     this.cart = [];
@@ -99,7 +99,7 @@ export class ShopComponent {
         else
           return ac + currentPrize.prize
       }, 0);
-    }    
+    }
   }
   summarize() {
     this.totalPrize = this.cart.reduce((ac: any, currentPrize: { prize: any; count: any }) => {
@@ -108,32 +108,29 @@ export class ShopComponent {
       else
         return ac + currentPrize.prize
     }, 0);
-    console.log(this.totalPrize)
   }
   toOrderForm() {
     this.toOrder = !this.toOrder
   }
   createOrder(f: any) {
-    let date=new Date();
-    let orderDetails="";
-    for(let p of this.cart)
-      orderDetails=orderDetails+p.name.toString()+" "+p.count.toString()+";";
+    let date = new Date();
+    let orderDetails = "";
+    for (let p of this.cart)
+      orderDetails = orderDetails + p.name.toString() + " " + p.count.toString() + ";";
 
-    let order={
+    let order = {
       email: f.Email,
       fullName: f.FullName,
       placedOn: date,
       orderList: orderDetails,
       adress: f.Adress,
       phone: f.Phone,
-      totalPrize:this.totalPrize,
-      status:'nová'
+      totalPrize: this.totalPrize,
+      status: 'nová'
     };
 
     this.ordersService.CreateOrder(order)
-    .subscribe(r=>console.log(r));
-    console.log(order);
-    
+      .subscribe();
 
     this.finishedOrder = true;
     this.toOrder = false;
@@ -143,8 +140,7 @@ export class ShopComponent {
     this.cart.map((n: any) => names.push(n.name));
     return names.includes(productName);
   }
-  removeFromCart(p:any)
-  {
-    this.cart.splice(p,1);
+  removeFromCart(p: any) {
+    this.cart.splice(p, 1);
   }
 }
