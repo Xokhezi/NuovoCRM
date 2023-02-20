@@ -4,8 +4,6 @@ import { fadeleft, faderight } from './../animations/animations';
 import { ProductsService } from './../services/products.service';
 import { Component } from '@angular/core';
 import { cart } from '../animations/animations';
-import { any, object } from 'underscore';
-
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
