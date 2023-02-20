@@ -7,7 +7,7 @@
 
       
       <div class="prof">
-        <button type="button" class="btn btn-light" style="margin-right: 30px;"><i class="bi bi-bell"></i> 9</button>
+        <button type="button" class="btn btn-light" style="margin-right: 30px;"><i class="bi bi-bell"></i> {{countOfNotifications}}</button>
         <div class="prof" *ngIf="service.isLoggedIn()&&user">
           <div class="prof">            
             <p class="text-prof">Vítej, {{user.Email}}!</p>                   

@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
 export class NavMenuComponent {
   isExpanded = false;
   isLogedIn = false;
+  countOfNotifications=0;
   user={Email:"",Role:""};
 
 
@@ -25,5 +26,9 @@ export class NavMenuComponent {
   }
   logOut() {
     this.service.logout();
+  }
+  updateNotifications()
+  {
+      //use interval to refresh and filter new orders withotu change
   }
 }
