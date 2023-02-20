@@ -1,3 +1,4 @@
+import { OrdersService } from './services/orders.service';
 import { AdminauthService } from './services/adminauth.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/authguard.service';
@@ -16,18 +17,18 @@ import { NewpartnerComponent } from './newpartner/newpartner.component';
 import { SinglePartnerComponent } from './single-partner/single-partner.component';
 import { ProductsComponent } from './products/products.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NewProductComponent } from './new-product/new-product.component';
 import { LoginComponent } from './login/login.component';
 import { PartnersComponent } from './partners/partners.component';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatIconModule} from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 import { UserComponent } from './user/user.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { NotfoundComponent } from './notfound/notfound.component';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ShopComponent } from './shop/shop.component';
 import { OrdersComponent } from './orders/orders.component';
 
@@ -60,20 +61,20 @@ import { OrdersComponent } from './orders/orders.component';
     MatRadioModule,
     MatProgressSpinnerModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full'},
-      { path: 'partners', component: PartnersComponent,canActivate:[AdminauthService]},
-      { path: 'partners/new/:id?', component: NewpartnerComponent,canActivate:[AdminauthService]},
-      { path: 'partners/:id', component: SinglePartnerComponent,canActivate:[AdminauthService] },
-      { path: 'products', component: ProductsComponent,canActivate:[AdminauthService] },
-      { path: 'products/new/:id?', component: NewProductComponent,canActivate:[AdminauthService] },
-      { path: 'user', component: UserComponent,canActivate:[AuthGuardService] },
-      { path: 'users', component: UserListComponent,canActivate:[AdminauthService] },
-      { path: 'users/new/:id?', component: NewUserComponent,canActivate:[AdminauthService] },
-      { path: 'shop', component: ShopComponent,canActivate:[AuthGuardService] },
-      { path: 'orders', component: OrdersComponent,canActivate:[AdminauthService] },
+      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'partners', component: PartnersComponent, canActivate: [AdminauthService] },
+      { path: 'partners/new/:id?', component: NewpartnerComponent, canActivate: [AdminauthService] },
+      { path: 'partners/:id', component: SinglePartnerComponent, canActivate: [AdminauthService] },
+      { path: 'products', component: ProductsComponent, canActivate: [AdminauthService] },
+      { path: 'products/new/:id?', component: NewProductComponent, canActivate: [AdminauthService] },
+      { path: 'user', component: UserComponent, canActivate: [AuthGuardService] },
+      { path: 'users', component: UserListComponent, canActivate: [AdminauthService] },
+      { path: 'users/new/:id?', component: NewUserComponent, canActivate: [AdminauthService] },
+      { path: 'shop', component: ShopComponent, canActivate: [AuthGuardService] },
+      { path: 'orders', component: OrdersComponent, canActivate: [AdminauthService] },
       { path: 'login', component: LoginComponent },
-      {path: '**', component: NotfoundComponent}
-      
+      { path: '**', component: NotfoundComponent }
+
     ]),
     BrowserAnimationsModule
   ],
@@ -82,7 +83,8 @@ import { OrdersComponent } from './orders/orders.component';
     PartnersService,
     AuthService,
     AuthGuardService,
-    AdminauthService
+    AdminauthService,
+    OrdersService
   ],
   bootstrap: [AppComponent]
 })
