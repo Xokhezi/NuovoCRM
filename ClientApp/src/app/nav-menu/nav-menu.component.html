@@ -5,7 +5,9 @@
 
       <a class="navbar-brand sizeup" [routerLink]="['/']">BMS</a>
 
+      
       <div class="prof">
+        <button type="button" class="btn btn-light" style="margin-right: 30px;"><i class="bi bi-bell"></i> 9</button>
         <div class="prof" *ngIf="service.isLoggedIn()&&user">
           <div class="prof">            
             <p class="text-prof">Vítej, {{user.Email}}!</p>                   
