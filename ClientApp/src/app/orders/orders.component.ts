@@ -1,3 +1,4 @@
+import { OrdersService } from './../services/orders.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent {
+  orders: any;
+  newOrders:any;
+  ordersSwitch=false;
 
+  constructor(private ordersService: OrdersService) { };
+
+  ngOnInit(): void {
+    this.ordersService.GetOrders().subscribe((o: any) => {
+      this.orders = o;
+      this.newOrders=o.filter((o:any)=>o.status=='nová');
+    })
+  }
+  switch()
+  {
+    this.ordersSwitch=!this.ordersSwitch;
+  }
+  toList(array:any)
+  {
+    return array.split(";");
+  }
 }

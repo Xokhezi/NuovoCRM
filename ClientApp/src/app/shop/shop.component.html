@@ -28,6 +28,10 @@
 
                                             <h2 *ngIf="totalPrize!=null && !expanded" class="text-muted">je za
                                                 {{totalPrize}} Kč</h2>
+                                            <div *ngIf="cart.length!=0" class="center">
+                                                    <button class="btn btn-primary" (click)="toOrderForm()">
+                                                        K objednání</button>
+                                            </div>
                                             <h2 *ngIf="cart.length==0" class="text-muted">Zatím neobsahuje žádné
                                                 položky. <i class="bi bi-emoji-frown"></i></h2>
 

@@ -4,7 +4,7 @@ import { fadeleft, faderight } from './../animations/animations';
 import { ProductsService } from './../services/products.service';
 import { Component } from '@angular/core';
 import { cart } from '../animations/animations';
-import { object } from 'underscore';
+import { any, object } from 'underscore';
 
 @Component({
   selector: 'app-shop',
@@ -114,10 +114,9 @@ export class ShopComponent {
   }
   createOrder(f: any) {
     let date = new Date();
-    let orderDetails = "";
-    for (let p of this.cart)
-      orderDetails = orderDetails + p.name.toString() + " " + p.count.toString() + ";";
-
+    
+    let orderDetails: string = this.cart.map((p:any) => `${p.name}  X${p.count}`).join(";");
+    
     let order = {
       email: f.Email,
       fullName: f.FullName,
@@ -134,6 +133,7 @@ export class ShopComponent {
 
     this.finishedOrder = true;
     this.toOrder = false;
+    console.log(orderDetails);
   }
   checkCart(productName: any) {
     let names: any[] = [];

@@ -7,27 +7,28 @@ import { Component } from '@angular/core';
   selector: 'app-partners',
   templateUrl: './partners.component.html',
   styleUrls: ['./partners.component.css'],
-  animations:[
+  animations: [
     listAnim
   ]
 })
 export class PartnersComponent {
   partners: any;
   loading = true;
-  
+
 
   constructor(private partnersService: PartnersService) { }
   ngOnInit(): void {
-    this.partnersService.GetPartners().subscribe((p: any) =>{
+    this.partnersService.GetPartners().subscribe((p: any) => {
       this.partners = p;
-      this.loading = false;});
-      
+      this.loading = false;
+    });
+
   }
   search(input: string) {
     this.partnersService.GetPartners().subscribe(p => {
       this.partners = p;
       const inputUp = input.toUpperCase();
-      this.partners = this.getFullNames().filter((n:any) => n.fullName.toUpperCase().includes(inputUp));
+      this.partners = this.getFullNames().filter((n: any) => n.fullName.toUpperCase().includes(inputUp));
     });
   }
 
