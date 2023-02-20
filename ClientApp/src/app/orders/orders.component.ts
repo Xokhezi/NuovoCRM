@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class OrdersComponent {
   orders: any;
+  loading=true;
   newOrders:any;
   ordersSwitch=false;
 
@@ -17,7 +18,17 @@ export class OrdersComponent {
     this.ordersService.GetOrders().subscribe((o: any) => {
       this.orders = o;
       this.newOrders=o.filter((o:any)=>o.status=='nová');
+      this.loading = false;
     })    
+  }
+  search(input:any)
+  {
+    this.ordersService.GetOrders()
+    .subscribe((r:any) => {
+      this.orders=r;
+      const inputUp = input.toUpperCase();
+      this.orders = this.orders().filter((o: any) => o.fullName.includes(inputUp));
+    });
   }
   switch()
   {
