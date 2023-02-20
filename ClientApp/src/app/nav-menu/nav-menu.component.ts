@@ -10,12 +10,12 @@ import { Component } from '@angular/core';
 export class NavMenuComponent {
   isExpanded = false;
   isLogedIn = false;
-  user={Email:""};
+  user={Email:"",Role:""};
 
 
-  constructor(public service: AuthService,private usersService:UsersService) { } 
+  constructor(public service: AuthService) { } 
   ngOnInit(): void {
-    this.user=this.service.getcurrentUser();   
+    this.user=this.service.getcurrentUser();
   }
   collapse() {
     this.isExpanded = false;
