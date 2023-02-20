@@ -1,3 +1,4 @@
+import { OrdersService } from './../services/orders.service';
 import { AuthService } from './../services/auth.service';
 import { fadeleft, faderight } from './../animations/animations';
 import { ProductsService } from './../services/products.service';
@@ -44,7 +45,10 @@ export class ShopComponent {
   };
   user: any;
 
-  constructor(private productService: ProductsService, private authService: AuthService) { }
+  constructor(
+    private productService: ProductsService,
+    private authService: AuthService,
+    private ordersService:OrdersService) { }
 
   ngOnInit(): void {
     this.cart = [];
@@ -110,7 +114,26 @@ export class ShopComponent {
     this.toOrder = !this.toOrder
   }
   createOrder(f: any) {
-    console.log(f);
+    let date=Date();
+    let orderDetails="";
+    for(let p of this.cart)
+      orderDetails=orderDetails+p.name.toString()+" "+p.count.toString()+";";
+
+    let order={
+      email: f.Email,
+      fullName: f.FullName,
+      placedOn: date,
+      orderList: orderDetails,
+      adress: f.Adress,
+      phone: f.Phone,
+      totalPrize:this.totalPrize
+    };
+
+    this.ordersService.CreateOrder(order)
+    .subscribe(r=>console.log(r));
+    console.log(order);
+    
+
     this.finishedOrder = true;
     this.toOrder = false;
   }

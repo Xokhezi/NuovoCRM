@@ -152,7 +152,7 @@
     <h1>Kontaktní údaje</h1>
     <form #f="ngForm" (ngSubmit)="createOrder(f.value)">
         <div class="mb-3">
-            <label for="FullName" class="form-label">Celí Jméno</label>
+            <label for="FullName" class="form-label">Celé Jméno</label>
             <input required maxlength="50" [(ngModel)]="user.FullName" name="FullName" #FullName="ngModel" type="text"
                 class="form-control">
             <div *ngIf="FullName.touched && !FullName.valid" class="alert alert-danger">Prosím zadejte celé své jméno.
@@ -203,7 +203,7 @@
             </div>
         </div>
         <div>
-            <button class="btn btn-primary marg" (click)="createOrder(f)" style="margin-bottom: 50px;">Objednat</button>
+            <button class="btn btn-primary marg" (click)="createOrder(f.value)" style="margin-bottom: 50px;">Objednat</button>
         </div>
 
     </form>
