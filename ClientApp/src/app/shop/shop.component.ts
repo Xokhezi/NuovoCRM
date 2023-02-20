@@ -3,6 +3,7 @@ import { fadeleft, faderight } from './../animations/animations';
 import { ProductsService } from './../services/products.service';
 import { Component } from '@angular/core';
 import { cart } from '../animations/animations';
+import { object } from 'underscore';
 
 @Component({
   selector: 'app-shop',
@@ -15,18 +16,18 @@ import { cart } from '../animations/animations';
   ]
 })
 export class ShopComponent {
-  
+
   loading = true;
   expanded = false;
   hover = false;
   toOrder = false;
-  finishedOrder=false;
+  finishedOrder = false;
 
   products: any;
   cart: any;
   totalPrize: any;
 
-  
+
   partner = {
     id: 0,
     name: "",
@@ -41,13 +42,13 @@ export class ShopComponent {
     country: "",
     userId: 0
   };
-  user:any;
+  user: any;
 
-  constructor(private productService: ProductsService,private authService:AuthService) { }
+  constructor(private productService: ProductsService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.cart = [];
-    this.user=this.authService.getcurrentUser();
+    this.user = this.authService.getcurrentUser();
     this.productService.GetProducts().subscribe((p: any) => {
       this.products = p.map((pr: any) => {
         return {
@@ -86,14 +87,15 @@ export class ShopComponent {
       return product.count;
   }
   addToCart(product: any) {
-    this.cart.push(product);
-    this.totalPrize = this.cart.reduce((ac: any, currentPrize: { prize: any; count: any }) => {
-      if (currentPrize.count! < 1)
-        return ac + currentPrize.prize * currentPrize.count;
-      else
-        return ac + currentPrize.prize
-    }, 0);
-    console.log(this.totalPrize);
+    if (!this.checkCart(product.name)) {
+      this.cart.push(product);
+      this.totalPrize = this.cart.reduce((ac: any, currentPrize: { prize: any; count: any }) => {
+        if (currentPrize.count! < 1)
+          return ac + currentPrize.prize * currentPrize.count;
+        else
+          return ac + currentPrize.prize
+      }, 0);
+    }    
   }
   summarize() {
     this.totalPrize = this.cart.reduce((ac: any, currentPrize: { prize: any; count: any }) => {
@@ -107,9 +109,18 @@ export class ShopComponent {
   toOrderForm() {
     this.toOrder = !this.toOrder
   }
-  createOrder(f: any) { 
+  createOrder(f: any) {
     console.log(f);
-    this.finishedOrder=true;
-    this.toOrder=false;
+    this.finishedOrder = true;
+    this.toOrder = false;
+  }
+  checkCart(productName: any) {
+    let names: any[] = [];
+    this.cart.map((n: any) => names.push(n.name));
+    return names.includes(productName);
+  }
+  removeFromCart(p:any)
+  {
+    this.cart.splice(p,1);
   }
 }

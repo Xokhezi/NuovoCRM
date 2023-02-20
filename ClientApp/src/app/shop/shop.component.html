@@ -63,7 +63,9 @@
                                                         <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                                             <a href="#!" class="text-muted"><i
                                                                     class="fas fa-times"></i></a>
+                                                                    <button class="btn btn-primary plus" (click)="removeFromCart(p)"><i class="bi bi-trash3"></i></button>
                                                         </div>
+                                                        
                                                     </div>
                                                     <hr class="my-4">
                                                 </div>
@@ -126,7 +128,7 @@
                     <h2 class="card-title">{{product.name}}</h2>
                     <p class="text-wrap">Panel který je super</p>
                     <p><strong>{{product.prize}} Kč</strong></p>
-                    <button class="btn btn-outline-primary" (click)="addToCart(product)"><i
+                    <button *ngIf="!checkCart(product.name)" class="btn btn-outline-primary" (click)="addToCart(product)"><i
                             class="bi bi-cart-plus"></i></button>
                     <div class="d-flex pb-2 flexor" style="margin-top: 10px;">
                         <button class="btn btn-primary btn-sm" (click)=" decreasePcs(product)"
@@ -199,7 +201,7 @@
             </div>
         </div>        
         <div>
-            <button class="btn btn-primary marg" (click)="createOrder(f)">Objednat</button>
+            <button class="btn btn-primary marg" (click)="createOrder(f)" style="margin-bottom: 50px;">Objednat</button>
         </div>
 
     </form>

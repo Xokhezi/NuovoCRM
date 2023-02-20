@@ -1,3 +1,4 @@
+import { AdminauthService } from './services/adminauth.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/authguard.service';
 import { PartnersService } from './services/partners.service';
@@ -64,8 +65,8 @@ import { ShopComponent } from './shop/shop.component';
       { path: 'products', component: ProductsComponent,canActivate:[AuthGuardService] },
       { path: 'products/new/:id?', component: NewProductComponent,canActivate:[AuthGuardService] },
       { path: 'user', component: UserComponent,canActivate:[AuthGuardService] },
-      { path: 'users', component: UserListComponent,canActivate:[AuthGuardService] },
-      { path: 'users/new/:id?', component: NewUserComponent,canActivate:[AuthGuardService] },
+      { path: 'users', component: UserListComponent,canActivate:[AdminauthService] },
+      { path: 'users/new/:id?', component: NewUserComponent,canActivate:[AdminauthService] },
       { path: 'shop', component: ShopComponent,canActivate:[AuthGuardService] },
       { path: 'login', component: LoginComponent },
       {path: '**', component: NotfoundComponent}
@@ -77,7 +78,8 @@ import { ShopComponent } from './shop/shop.component';
     ProductsService,
     PartnersService,
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    AdminauthService
   ],
   bootstrap: [AppComponent]
 })
