@@ -114,3 +114,9 @@ body{
 a:hover{
     text-decoration:none;
 }
+.finished{
+    color: #2e5c00;
+}
+.new{
+    color: #ef7e84;
+}

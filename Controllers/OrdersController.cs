@@ -70,6 +70,8 @@ namespace NuovoCRM.Controllers
             order.Adress = resource.Adress;
             order.OrderList = resource.OrderList;
             order.Phone = resource.Phone;
+            order.Status = resource.Status;
+            order.TotalPrize = resource.TotalPrize;
 
             await context.SaveChangesAsync();
 

@@ -17,7 +17,7 @@ export class OrdersComponent {
     this.ordersService.GetOrders().subscribe((o: any) => {
       this.orders = o;
       this.newOrders=o.filter((o:any)=>o.status=='nová');
-    })
+    })    
   }
   switch()
   {
@@ -26,5 +26,12 @@ export class OrdersComponent {
   toList(array:any)
   {
     return array.split(";");
+  }
+  fullfill(order:any)
+  {
+    this.newOrders.splice(order,1);
+    order.status="expedováno";
+    this.ordersService.UpdateOrder(order,order.id)
+    .subscribe();
   }
 }

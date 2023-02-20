@@ -115,7 +115,7 @@ export class ShopComponent {
   createOrder(f: any) {
     let date = new Date();
     
-    let orderDetails: string = this.cart.map((p:any) => `${p.name}  X${p.count}`).join(";");
+    let orderDetails: string = this.cart.map((p:any) => `${p.name}  x${p.count}`).join(";");
     
     let order = {
       email: f.Email,
