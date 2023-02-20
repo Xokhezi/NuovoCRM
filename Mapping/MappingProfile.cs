@@ -16,12 +16,14 @@ namespace NuovoCRM.Mapping
             CreateMap<Product, ProductResource>();
             CreateMap<Partner, PartnerResource>();
             CreateMap<User, UserResource>();
+            CreateMap<Order, OrderResource>();
             
 
             //api resource to domain
             CreateMap<PartnerResource, Partner>();
             CreateMap<ProductResource, Product>();
             CreateMap<UserResource, User>();
+            CreateMap<OrderResource, Order>();
             
         }
     }

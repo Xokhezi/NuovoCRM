@@ -63,9 +63,11 @@
                                                         <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                                             <a href="#!" class="text-muted"><i
                                                                     class="fas fa-times"></i></a>
-                                                                    <button class="btn btn-primary plus" (click)="removeFromCart(p)"><i class="bi bi-trash3"></i></button>
+                                                            <button class="btn btn-primary plus"
+                                                                (click)="removeFromCart(p)"><i
+                                                                    class="bi bi-trash3"></i></button>
                                                         </div>
-                                                        
+
                                                     </div>
                                                     <hr class="my-4">
                                                 </div>
@@ -128,8 +130,8 @@
                     <h2 class="card-title">{{product.name}}</h2>
                     <p class="text-wrap">Panel který je super</p>
                     <p><strong>{{product.prize}} Kč</strong></p>
-                    <button *ngIf="!checkCart(product.name)" class="btn btn-outline-primary" (click)="addToCart(product)"><i
-                            class="bi bi-cart-plus"></i></button>
+                    <button *ngIf="!checkCart(product.name)" class="btn btn-outline-primary"
+                        (click)="addToCart(product)"><i class="bi bi-cart-plus"></i></button>
                     <div class="d-flex pb-2 flexor" style="margin-top: 10px;">
                         <button class="btn btn-primary btn-sm" (click)=" decreasePcs(product)"
                             style=" height: 30px; border-radius: 100%;margin-right: 20px;"> <i
@@ -181,13 +183,13 @@
             <div *ngIf="Adress.touched && !Adress.valid" class="alert alert-danger">Prosím zadejte pozici.</div>
         </div>
         <hr>
-       <div>
+        <div>
             <div class="col-lg-4 bg-grey">
                 <div class="p-5">
                     <h2 class="fw-bold mb-5 mt-2 pt-1">Souhrn</h2>
                     <ul>
                         <li *ngFor="let p of cart">
-                            {{p.count}}X  {{p.name}} 
+                            {{p.count}}X {{p.name}}
                         </li>
                     </ul>
                     <hr class="my-4">
@@ -199,15 +201,88 @@
 
                 </div>
             </div>
-        </div>        
+        </div>
         <div>
             <button class="btn btn-primary marg" (click)="createOrder(f)" style="margin-bottom: 50px;">Objednat</button>
         </div>
 
     </form>
-   
+
 </div>
 <div *ngIf="!loading && finishedOrder">
     <h1>Děkujeme za Vaši obejdnávku! <i class="bi bi-emoji-smile"></i></h1>
     <h2 class="text-muted">Vše co nejrychleji zpracujeme - o odeslání Vás budeme informovat.</h2>
+    <div>
+        <section class="h-100 h-custom">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12">
+                        <div class="card card-registration card-registration-2 shadow" style="border-radius: 25px;">
+                            <div class="card-body p-0">
+                                <div class="row g-0">
+                                    <div class="col-lg-8">
+                                        <div class="p-5">
+                                            <div class="d-flex justify-content-between align-items-center mb-5">
+                                                <h1 class="fw-bold mb-0 text-black" (click)="switch()">Moje objednávka
+                                                </h1>
+                                            </div>
+                                            <div>
+                                                <div *ngFor="let p of cart" class="cart-item">
+                                                    <hr class="my-4">
+                                                    <div
+                                                        class="row mb-4 d-flex justify-content-between align-items-center">
+                                                        <div class="col-md-2 col-lg-2 col-xl-2">
+                                                            <img src="assets/cart.jpg" class="img-fluid rounded-3"
+                                                                alt="Cotton T-shirt">
+                                                        </div>
+                                                        <div class="col-md-3 col-lg-3 col-xl-3">
+                                                            <h3 class="text-muted">{{p.name}}</h3>
+                                                            <h3 class="text-black mb-0">Panel</h3>
+                                                        </div>
+                                                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                                            <button class="btn btn-link px-2">
+                                                                <i class="fas fa-minus"></i>
+                                                            </button>
+
+                                                            <input disabled id="form1" min="1"
+                                                                name="quantity" [(ngModel)]="p.count" type="number"
+                                                                class="form-control form-control-sm" />
+                                                            
+                                                        </div>
+                                                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                                            <h3 class="mb-0">{{p.count*p.prize}} Kč</h3>
+                                                        </div>
+
+
+                                                    </div>
+                                                    <hr class="my-4">
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 bg-grey" *ngIf="cart.length!=0 && expanded">
+                                        <div class="p-5">
+                                            <h2 class="fw-bold mb-5 mt-2 pt-1">Souhrn</h2>
+                                            <hr class="my-4">
+
+                                            <div class="d-flex justify-content-between mb-4">
+                                                <h3 class="text-uppercase">položky: {{cart.length}}</h3>
+                                                <h3>Kč {{totalPrize}}</h3>
+
+                                            </div>
+                                            <div *ngIf="cart.length!=0" class="center">
+                                                <button class="btn btn-primary" [routerLink]="['']">Zpět domů</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </div>

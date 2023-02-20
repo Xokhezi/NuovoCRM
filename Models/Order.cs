@@ -1,0 +1,18 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace NuovoCRM.Models
+{
+    public class Order
+    {
+        public int Id { get; set; }
+        public DateTime PlacedOn{ get; set; }
+        public string Email { get; set; }
+        public string Adress { get; set; }
+        public string Phone { get; set; }
+        public string FullName { get; set; }
+        public string OrderList { get; set; }
+    }
+}
