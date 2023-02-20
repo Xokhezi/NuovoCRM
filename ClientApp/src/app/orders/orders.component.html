@@ -1,5 +1,6 @@
 <div>
-    <h1 class="font-weight-bold mt-0">Objednávky</h1>
+    <h1 *ngIf="!ordersSwitch" class="font-weight-bold mt-0">Přehled nových objednávek </h1>
+    <h1 *ngIf="ordersSwitch" class="font-weight-bold mt-0">Přehled všech objednávek </h1>
     <button class="btn btn-primary mb-4" *ngIf="ordersSwitch" (click)="switch()" style="width: 100px;">Vše</button>
     <button class="btn btn-outline-primary mb-4" *ngIf="!ordersSwitch" (click)="switch()"
         style="width: 100px;">Nové</button>
@@ -15,13 +16,13 @@
         <div class="col-md-9">
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane  fade  active show" id="orders" role="tabpanel" aria-labelledby="orders-tab">
-                    <div *ngFor="let o of newOrders" class="bg-white card mb-4 order-list shadow-sm"
+                    <div *ngFor="let o of newOrders" class="bg-white card mb-4 order-list shadow"
                         style="border-radius: 25px;">
                         <div class="gold-members p-4">
                             <div class="media">
                                 <div class="media-body">
                                     <h2>{{o.fullName}}</h2>
-                                    <h4 class="text-muted">Objednáno dne:{{o.placedOn}}</h4>
+                                    <h4 class="text-muted">Objednáno dne: {{o.placedOn}}</h4>
 
                                     <div class="mb-4">
                                         <h2>Adresa:</h2>
@@ -66,7 +67,7 @@
                     aria-label="input" aria-describedby="basic-addon1">
             </div>
             <div class="list-group">
-                <a *ngFor="let o of orders" href="#" class="list-group-item list-group-item-action" aria-current="true">
+                <a *ngFor="let o of orders" href="#" class="list-group-item list-group-item-action shadow" aria-current="true">
                     <div class="d-flex w-100 justify-content-between">
                         <h2 class="mb-1">{{o.fullName}}</h2>
                         <p class="text-muted">{{o.placedOn}}</p>
