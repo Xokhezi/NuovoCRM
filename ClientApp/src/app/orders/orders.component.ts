@@ -25,9 +25,9 @@ export class OrdersComponent {
   {
     this.ordersService.GetOrders()
     .subscribe((r:any) => {
-      this.orders=r;
+      this.orders=r;      
       const inputUp = input.toUpperCase();
-      this.orders = this.orders().filter((o: any) => o.fullName.includes(inputUp));
+      this.orders = this.orders.filter((o: any) => o.fullName.toUpperCase().includes(inputUp));
     });
   }
   switch()
