@@ -138,7 +138,6 @@ export class ShopComponent {
           orderNumber: maxOrderNumber,
           checkedByCustomer: false
         };
-        console.log(order);
         this.orderNumber = order.orderNumber;
         this.ordersService.CreateOrder(order)
           .subscribe();
