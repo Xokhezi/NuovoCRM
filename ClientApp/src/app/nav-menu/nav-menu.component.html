@@ -7,7 +7,7 @@
 
 
       <div class="prof">
-        <button [matMenuTriggerFor]="notif" type="button" class="btn btn-light" style="margin-right: 30px;"><i
+        <button *ngIf="newOrders.length!=0" [matMenuTriggerFor]="notif" type="button" class="btn btn-light" style="margin-right: 30px;"><i
             class="bi bi-bell"></i> {{countOfNotifications}}</button>
         <mat-menu #notif="matMenu">
           <ol class="list-group list-group-numbered">
@@ -50,6 +50,10 @@
           <button mat-menu-item [routerLink]="['/shop']">
             <mat-icon>shopping_cart</mat-icon>
             <span>Obchod</span>
+          </button>
+          <button mat-menu-item [routerLink]="['/orders/my']">
+            <mat-icon>fact_check</mat-icon>
+            <span>Moje objednávky</span>
           </button>
           <button *ngIf="user.Role=='admin'" mat-menu-item [routerLink]="['/orders']">
             <mat-icon>local_shipping</mat-icon>

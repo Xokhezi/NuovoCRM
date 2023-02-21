@@ -1,3 +1,9 @@
-.point{
+.point {
     cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .mob-device {
+        display: none;
+    }
 }

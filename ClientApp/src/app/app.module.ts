@@ -31,6 +31,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ShopComponent } from './shop/shop.component';
 import { OrdersComponent } from './orders/orders.component';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { OrdersComponent } from './orders/orders.component';
     NewUserComponent,
     NotfoundComponent,
     ShopComponent,
-    OrdersComponent
+    OrdersComponent,
+    MyOrdersComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -72,6 +74,7 @@ import { OrdersComponent } from './orders/orders.component';
       { path: 'users/new/:id?', component: NewUserComponent, canActivate: [AdminauthService] },
       { path: 'shop', component: ShopComponent, canActivate: [AuthGuardService] },
       { path: 'orders', component: OrdersComponent, canActivate: [AdminauthService] },
+      { path: 'orders/my', component: MyOrdersComponent, canActivate: [AuthGuardService] },
       { path: 'login', component: LoginComponent },
       { path: '**', component: NotfoundComponent }
 

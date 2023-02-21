@@ -19,6 +19,7 @@ export class NavMenuComponent {
 
   constructor(public service: AuthService, private ordersService: OrdersService) { }
   ngOnInit(): void {
+    this.newOrders=[];
     this.user = this.service.getcurrentUser();
     this.updateNotifications();
     this.interval = setInterval(() => {

@@ -34,6 +34,12 @@
                 class="form-control">
             <div *ngIf="discountStep.touched && !discountStep.valid" class="alert alert-danger">Prosím zadejte slevový skok v %.</div>
         </div>
+        <div class="mb-3">
+            <label for="url" class="form-label">URL</label>
+            <input required maxlength="50" [(ngModel)]="product.url" name="url" #url="ngModel" type="text"
+                class="form-control">
+            <div *ngIf="url.touched && !url.valid" class="alert alert-danger">Prosím zadejte odkaz k obrázku.</div>
+        </div>
     </form>
 
     <button class="btn btn-primary" (click)="submit()">Uložit</button>

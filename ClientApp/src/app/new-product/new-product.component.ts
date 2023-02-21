@@ -15,7 +15,8 @@ export class NewProductComponent {
     productCode:"",
     prize:0,
     discount:0,
-    discountStep:0
+    discountStep:0,
+    url:""
   };
   constructor(private active: ActivatedRoute, private servis: ProductsService, private router:Router) { }
   ngOnInit(): void {
