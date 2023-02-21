@@ -31,7 +31,6 @@ export class AuthService {
     if (!token)
       return null;
     let jwtHelper = new JwtHelperService();
-
     return jwtHelper.decodeToken(token);
   }
   isAdmin() {

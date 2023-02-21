@@ -18,6 +18,10 @@ export class LoginComponent {
     password: ""
   };
   constructor(private service: AuthService, private route: Router) { }
+  ngOnInit(): void {
+    if(this.service.isLoggedIn())
+      this.route.navigate(['']);
+    }
 
   login() {
     this.service.login(this.user)
@@ -25,7 +29,9 @@ export class LoginComponent {
         next: (r: any) => {
           localStorage.setItem('token', r.token)
           if (this.service.isLoggedIn())
-            this.route.navigate(['']);
+          {
+            window.location.reload();            
+          }            
         },
         error: (e: any) => this.valid = false
       });

@@ -19,12 +19,16 @@ export class NavMenuComponent {
 
   constructor(public service: AuthService, private ordersService: OrdersService) { }
   ngOnInit(): void {
-    this.newOrders=[];
-    this.user = this.service.getcurrentUser();
-    this.updateNotifications();
-    this.interval = setInterval(() => {
+    this.newOrders = [];    
+    if (this.service.isLoggedIn()) {
+      this.user = this.service.getcurrentUser();      
       this.updateNotifications();
-    }, 180000);
+      this.interval = setInterval(() => {
+        this.updateNotifications();
+      }, 180000);
+    }
+    
+
 
   }
   collapse() {
@@ -43,15 +47,13 @@ export class NavMenuComponent {
         this.newOrders = usersOrders.filter((o: any) => o.status == 'expedováno');
         this.newOrders = this.newOrders.filter((o: any) => o.checkedByCustomer == false);
         this.countOfNotifications = this.newOrders.length;
-      });
-    //use interval to refresh and filter new orders withotu change
+      });   
   }
-  aknowlegde(o:any)
-  {
-    o.checkedByCustomer=true;
-    this.ordersService.UpdateOrder(o,o.id)
-    .subscribe();
-    this.newOrders.splice(o,1);
+  aknowlegde(o: any) {
+    o.checkedByCustomer = true;
+    this.ordersService.UpdateOrder(o, o.id)
+      .subscribe();
+    this.newOrders.splice(o, 1);
     this.countOfNotifications = this.newOrders.length;
 
   }

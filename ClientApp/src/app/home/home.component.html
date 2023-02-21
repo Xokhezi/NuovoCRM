@@ -1,10 +1,11 @@
+
 <div class="text-center marg">
   <img src="assets/logo.png" class="mt-2" width="140" height="50">
   <div class="mt-2">
     <p class="display-4">Vítejte v BMS</p>
     <p>
-      Slouží k evidenci firemních informací, partnerů a produktů.
-    </p>    
+      Partnerském portálu pro NuovoTherapy s.r.o
+    </p>
   </div>
 
 </div>
@@ -14,8 +15,7 @@
   <app-login></app-login>
 </div>
 
-<div *ngIf="this.service.isLoggedIn()" class="row card-style shadow" @fadeIn
-  >
+<div *ngIf="this.service.isLoggedIn()&& user.Role=='admin'" class="row card-style shadow" @fadeIn>
   <div class="col-lg-4 text-center">
     <img src="assets/img_avatar.png" class="bd-placeholder-img rounded-circle" width="140" height="140" role="img"
       aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
@@ -34,13 +34,15 @@
   </div>
 
   <div class="col-lg-4 text-center">
-    <img src="assets/mops.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"
+    <img src="assets/bag.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140"
       xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140"
       preserveAspectRatio="xMidYMid slice" focusable="false">
 
 
-    <h2>Objednávky</h2>
-    <p class="lead">Momentálně ve vývoji...</p>
-    <p><a class="btn btn-secondary" href="#">Více »</a></p>
+    <h2>Obchod</h2>
+    <p class="lead">Objednávkový portál pro partnery</p>
+    <p><a class="btn btn-primary" href="#">Více »</a></p>
   </div>
+</div>
+<div *ngIf="this.service.isLoggedIn()&& user.Role!='admin'">  
 </div>

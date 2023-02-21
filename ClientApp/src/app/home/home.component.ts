@@ -6,14 +6,16 @@ import { Component } from '@angular/core';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  animations:[
+  animations: [
     fadeIn
   ]
 })
 export class HomeComponent {
-  
+  user = { Role: '' };
 
   constructor(public service: AuthService) { }
-  ngOnInit(): void {}
-  
+  ngOnInit(): void {
+    this.user = this.service.getcurrentUser();
+  }
+
 }

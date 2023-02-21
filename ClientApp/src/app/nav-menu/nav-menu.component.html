@@ -7,72 +7,73 @@
 
 
       <div class="prof">
-        <button *ngIf="newOrders.length!=0" [matMenuTriggerFor]="notif" type="button" class="btn btn-light" style="margin-right: 30px;"><i
-            class="bi bi-bell"></i> {{countOfNotifications}}</button>
+        <button *ngIf="newOrders.length!=0 &&service.isLoggedIn()" [matMenuTriggerFor]="notif" type="button"
+          class="btn btn-light" style="margin-right: 30px;"><i class="bi bi-bell"></i> {{countOfNotifications}}</button>
         <mat-menu #notif="matMenu">
           <ol class="list-group list-group-numbered">
             <li *ngFor="let o of newOrders" class="list-group-item d-flex justify-content-between align-items-start">
               <div class="ms-2 me-auto row">
-                <div class="fw-bold">#{{o.orderNumber}} <i class="bi bi-trash3 click" (click)="aknowlegde(o)"></i></div>                
+                <div class="fw-bold">#{{o.orderNumber}} <i class="bi bi-trash3 click" (click)="aknowlegde(o)"></i></div>
                 <div>{{o.totalPrize}} Kč</div>
-                
-                
-                
+
+
+
               </div>
               <span class="badge bg-secondary rounded-pill"><i class="bi bi-truck"></i>v přepravě </span>
-            </li>           
+            </li>
           </ol>
         </mat-menu>
 
-        <div class="prof" *ngIf="service.isLoggedIn()&&user">
+        <div class="prof" *ngIf="service.isLoggedIn()">
           <div class="prof">
             <p class="text-prof">Vítej, {{user.Email}}!</p>
           </div>
         </div>
 
-        <button *ngIf="service.isLoggedIn()" data-mdb-toggle="sidenav" [matMenuTriggerFor]="menu"
-          class="btn btn-primary" aria-haspopup="true" aria-expanded="false" style="height: 37px;">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item [routerLink]="['']">
-            <mat-icon>home</mat-icon>
-            <span>Domů</span>
+        <div *ngIf="service.isLoggedIn()">
+          <button data-mdb-toggle="sidenav" [matMenuTriggerFor]="menu" class="btn btn-primary" aria-haspopup="true"
+            aria-expanded="false" style="height: 37px;">
+            <mat-icon>menu</mat-icon>
           </button>
-          <button *ngIf="user.Role=='admin'" mat-menu-item [routerLink]="['/partners']">
-            <mat-icon>handshake</mat-icon>
-            <span>Partneři</span>
-          </button>
-          <button *ngIf="user.Role=='admin'" mat-menu-item [routerLink]="['/products']">
-            <mat-icon>category</mat-icon>
-            <span>Produkty</span>
-          </button>
-          <button mat-menu-item [routerLink]="['/shop']">
-            <mat-icon>shopping_cart</mat-icon>
-            <span>Obchod</span>
-          </button>
-          <button mat-menu-item [routerLink]="['/orders/my']">
-            <mat-icon>fact_check</mat-icon>
-            <span>Moje objednávky</span>
-          </button>
-          <button *ngIf="user.Role=='admin'" mat-menu-item [routerLink]="['/orders']">
-            <mat-icon>local_shipping</mat-icon>
-            <span>Expedice</span>
-          </button>
-          <button *ngIf="user.Role=='admin'" mat-menu-item [routerLink]="['/dashboard']">
-            <mat-icon>equalizer</mat-icon>
-            <span>Dashboard</span>
-          </button>
-          <button mat-menu-item [routerLink]="['/user']">
-            <mat-icon>account_circle</mat-icon>
-            <span>Profil</span>
-          </button>
-          <button (click)="logOut()" mat-menu-item [routerLink]="['']">
-            <mat-icon>logout</mat-icon>
-            <span>Odhlásit</span>
-          </button>
-
-        </mat-menu>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item [routerLink]="['']">
+              <mat-icon>home</mat-icon>
+              <span>Domů</span>
+            </button>
+            <button *ngIf="user.Role=='admin'" mat-menu-item [routerLink]="['/partners']">
+              <mat-icon>handshake</mat-icon>
+              <span>Partneři</span>
+            </button>
+            <button *ngIf="user.Role=='admin'" mat-menu-item [routerLink]="['/products']">
+              <mat-icon>category</mat-icon>
+              <span>Produkty</span>
+            </button>
+            <button mat-menu-item [routerLink]="['/shop']">
+              <mat-icon>shopping_cart</mat-icon>
+              <span>Obchod</span>
+            </button>
+            <button mat-menu-item [routerLink]="['/orders/my']">
+              <mat-icon>fact_check</mat-icon>
+              <span>Moje objednávky</span>
+            </button>
+            <button *ngIf="user.Role=='admin'" mat-menu-item [routerLink]="['/orders']">
+              <mat-icon>local_shipping</mat-icon>
+              <span>Expedice</span>
+            </button>
+            <button *ngIf="user.Role=='admin'" mat-menu-item [routerLink]="['/dashboard']">
+              <mat-icon>equalizer</mat-icon>
+              <span>Dashboard</span>
+            </button>
+            <button mat-menu-item [routerLink]="['/user']">
+              <mat-icon>account_circle</mat-icon>
+              <span>Profil</span>
+            </button>
+            <button (click)="logOut()" mat-menu-item [routerLink]="['']">
+              <mat-icon>logout</mat-icon>
+              <span>Odhlásit</span>
+            </button>
+          </mat-menu>
+        </div>
       </div>
     </div>
   </nav>
