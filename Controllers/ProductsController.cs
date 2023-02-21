@@ -70,7 +70,8 @@ namespace NuovoCRM.Controllers
             product.Prize = resource.Prize;
             product.Discount = resource.Discount;
             product.DiscountStep = resource.DiscountStep;
-            product.ProductCode = resource.ProductCode;            
+            product.ProductCode = resource.ProductCode;
+            product.Url = resource.Url;            
 
             await context.SaveChangesAsync();
 
