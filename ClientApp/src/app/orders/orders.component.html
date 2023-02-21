@@ -21,7 +21,8 @@
                         <div class="gold-members p-4">
                             <div class="media">
                                 <div class="media-body">
-                                    <h2>{{o.fullName}}</h2>
+                                    <h2>#{{o.orderNumber}}</h2>
+                                    <h4 class="text-muted">Od: {{o.fullName}}</h4>
                                     <h4 class="text-muted">Objednáno dne: {{o.placedOn}}</h4>
 
                                     <div class="mb-4">
@@ -44,7 +45,7 @@
                                     </div>
                                     <p class="mb-0 text-black text-primary pt-2"><span
                                             class="text-black font-weight-bold">
-                                            Celkem:</span> {{o.totalPrize}} Kč
+                                            Celkem:</span> {{o.totalPrize.toLocaleString("fr-FR")}} Kč
                                     </p>
                                 </div>
                             </div>
@@ -70,11 +71,11 @@
                 <a *ngFor="let o of orders" href="#" class="list-group-item list-group-item-action shadow" aria-current="true">
                     <div class="d-flex w-100 justify-content-between">
                         <h2 class="mb-1">{{o.fullName}}</h2>
-                        <p class="text-muted">{{o.placedOn}}</p>
+                        <p class="text-muted">#{{o.orderNumber}} {{o.placedOn}}</p>
                     </div>
                     <p class="text-muted">{{o.orderList}}</p>
                     <div class="d-flex w-100 justify-content-between">
-                        <small>{{o.totalPrize}} Kč</small>
+                        <small>{{o.totalPrize.toLocaleString("fr-FR")}} Kč</small>
                         <small [class.finished]="o.status=='expedováno'" [class.new]="o.status=='nová'">{{o.status}} <i
                                 class="bi" [class.bi-truck]="o.status=='expedováno'"
                                 [class.bi-exclamation-lg]="o.status=='nová'">

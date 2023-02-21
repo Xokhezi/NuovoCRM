@@ -1,0 +1,5 @@
+@media only screen and (max-width: 600px) {
+    .mob-device {
+        font-size: 12px;
+    }
+}

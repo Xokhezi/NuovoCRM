@@ -127,7 +127,7 @@ export class ShopComponent {
         }
         maxOrderNumber = maxOrderNumber + 1;
         order = {
-          email: f.Email,
+          email: this.user.Email,
           fullName: f.FullName,
           placedOn: date,
           orderList: orderDetails,
@@ -136,8 +136,9 @@ export class ShopComponent {
           totalPrize: this.totalPrize,
           status: 'nová',
           orderNumber: maxOrderNumber,
-          checkedByCustomer:false
+          checkedByCustomer: false
         };
+        console.log(order);
         this.orderNumber = order.orderNumber;
         this.ordersService.CreateOrder(order)
           .subscribe();

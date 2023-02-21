@@ -27,7 +27,7 @@
                                             </div>
                                             <div class="mt-0">
                                                 <h2 *ngIf="totalPrize!=null && !expanded" class="text-muted">je za
-                                                    {{totalPrize}} Kč</h2>
+                                                    {{totalPrize.toLocaleString("fr-FR")}} Kč</h2>
                                                 <div *ngIf="cart.length!=0 && !expanded" class="center">
                                                     <button class="btn btn-primary" (click)="toOrderForm()">
                                                         K objednání</button>
@@ -64,7 +64,8 @@
                                                             </button>
                                                         </div>
                                                         <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                                            <h3 class="mb-0">{{p.count*p.prize}} Kč</h3>
+                                                            <h3 class="mb-0">
+                                                                {{(p.count*p.prize).toLocaleString("fr-FR")}} Kč</h3>
                                                         </div>
                                                         <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                                             <a href="#!" class="text-muted"><i
@@ -89,7 +90,7 @@
 
                                             <div class="d-flex justify-content-between mb-4">
                                                 <h3 class="text-uppercase">položky: {{cart.length}}</h3>
-                                                <h3>Kč {{totalPrize}}</h3>
+                                                <h3>Kč {{totalPrize.toLocaleString("fr-FR")}}</h3>
 
                                             </div>
                                             <div *ngIf="cart.length!=0" class="center">
@@ -126,14 +127,14 @@
                         <mat-icon style="margin-right: 2px; color: #250fee">spa</mat-icon>
                     </div>
                     <div class="inner" style="height: 400px;">
-                        <div class="main-img"><img src={{product.url}} alt="Category"></div>                        
+                        <div class="main-img"><img src={{product.url}} alt="Category"></div>
                     </div>
                 </a>
                 <div class="card-body text-center nuovo-bg"
                     style="border-top-right-radius: 0%; border-top-left-radius: 0%;">
                     <h2 class="card-title">{{product.name}}</h2>
                     <p class="text-wrap">Panel který je super</p>
-                    <p><strong>{{product.prize}} Kč</strong></p>
+                    <p><strong>{{product.prize.toLocaleString("fr-FR")}} Kč</strong></p>
                     <button *ngIf="!checkCart(product.name)" class="btn btn-outline-primary"
                         (click)="addToCart(product)"><i class="bi bi-cart-plus"></i></button>
                     <div class="d-flex pb-2 flexor" style="margin-top: 10px;">
@@ -164,7 +165,7 @@
         </div>
         <div class="mb-3">
             <label for="Email" class="form-label">Email</label>
-            <input required maxlength="50" [(ngModel)]="user.Email" name="Email" #Email="ngModel" type="email"
+            <input required disabled maxlength="50" [(ngModel)]="user.Email" name="Email" #Email="ngModel" type="email"
                 class="form-control">
             <div *ngIf="Email.touched && !Email.valid" class="alert alert-danger">Prosím zadejte email.</div>
         </div>
@@ -199,7 +200,7 @@
                     <hr class="my-4">
                     <div class="d-flex justify-content-between mb-4">
                         <h3 class="text-uppercase">položky: {{cart.length}}</h3>
-                        <h3>Kč {{totalPrize}}</h3>
+                        <h3>Kč {{totalPrize.toLocaleString("fr-FR")}}</h3>
 
                     </div>
 
@@ -228,7 +229,8 @@
                                     <div class="col-lg-8">
                                         <div class="p-5">
                                             <div class="d-flex justify-content-between align-items-center mb-5">
-                                                <h1 class="fw-bold mb-0 text-black" (click)="switch()">Objednávka #{{orderNumber}}
+                                                <h1 class="fw-bold mb-0 text-black" (click)="switch()">Objednávka
+                                                    #{{orderNumber}}
                                                 </h1>
                                             </div>
                                             <div>
@@ -254,7 +256,8 @@
 
                                                         </div>
                                                         <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                                            <h3 class="mb-0">{{p.count*p.prize}} Kč</h3>
+                                                            <h3 class="mb-0">
+                                                                {{(p.count*p.prize).toLocaleString("fr-FR")}} Kč</h3>
                                                         </div>
 
 
@@ -273,7 +276,7 @@
 
                                             <div class="d-flex justify-content-between mb-4">
                                                 <h3 class="text-uppercase">položky: {{cart.length}}</h3>
-                                                <h3>Kč {{totalPrize}}</h3>
+                                                <h3>Kč {{totalPrize.toLocaleString("fr-FR")}}</h3>
 
                                             </div>
                                             <div *ngIf="cart.length!=0" class="center">
