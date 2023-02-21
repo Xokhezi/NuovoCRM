@@ -73,6 +73,7 @@ namespace NuovoCRM.Controllers
             order.Status = resource.Status;
             order.TotalPrize = resource.TotalPrize;
             order.OrderNumber = resource.OrderNumber;
+            order.CheckedByCustomer = resource.CheckedByCustomer;
 
             await context.SaveChangesAsync();
 

@@ -12,11 +12,14 @@
         <mat-menu #notif="matMenu">
           <ol class="list-group list-group-numbered">
             <li *ngFor="let o of newOrders" class="list-group-item d-flex justify-content-between align-items-start">
-              <div class="ms-2 me-auto">
-                <div class="fw-bold">#{{o.orderNumber}}</div>
-                {{o.totalPrize}} Kč
+              <div class="ms-2 me-auto row">
+                <div class="fw-bold">#{{o.orderNumber}} <i class="bi bi-trash3 click" (click)="aknowlegde(o)"></i></div>                
+                <div>{{o.totalPrize}} Kč</div>
+                
+                
+                
               </div>
-              <span class="badge bg-primary rounded-pill">nový</span>
+              <span class="badge bg-secondary rounded-pill"><i class="bi bi-truck"></i>v přepravě </span>
             </li>           
           </ol>
         </mat-menu>

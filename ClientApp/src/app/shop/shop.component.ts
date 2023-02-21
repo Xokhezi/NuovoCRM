@@ -135,7 +135,8 @@ export class ShopComponent {
           phone: f.Phone,
           totalPrize: this.totalPrize,
           status: 'nová',
-          orderNumber: maxOrderNumber
+          orderNumber: maxOrderNumber,
+          checkedByCustomer:false
         };
         this.orderNumber = order.orderNumber;
         this.ordersService.CreateOrder(order)

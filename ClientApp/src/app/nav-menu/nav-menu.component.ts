@@ -40,8 +40,18 @@ export class NavMenuComponent {
       .subscribe((r: any) => {
         let usersOrders = r.filter((o: any) => o.email == this.user.Email);
         this.newOrders = usersOrders.filter((o: any) => o.status == 'expedováno');
+        this.newOrders = this.newOrders.filter((o: any) => o.checkedByCustomer == false);
         this.countOfNotifications = this.newOrders.length;
       });
     //use interval to refresh and filter new orders withotu change
+  }
+  aknowlegde(o:any)
+  {
+    o.checkedByCustomer=true;
+    this.ordersService.UpdateOrder(o,o.id)
+    .subscribe();
+    this.newOrders.splice(o,1);
+    this.countOfNotifications = this.newOrders.length;
+
   }
 }

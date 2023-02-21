@@ -17,5 +17,6 @@ namespace NuovoCRM.Controllers.Resources
         public int TotalPrize { get; set; }
         public string Status { get; set; }
         public int OrderNumber { get; set; }
+        public bool CheckedByCustomer { get; set; }
     }
 }
