@@ -16,5 +16,6 @@ namespace NuovoCRM.Models
         public string OrderList { get; set; }
         public int TotalPrize { get; set; }
         public string Status { get; set; }
+        public int OrderNumber { get; set; }
     }
 }

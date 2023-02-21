@@ -5,16 +5,29 @@
 
       <a class="navbar-brand sizeup" [routerLink]="['/']">BMS</a>
 
-      
+
       <div class="prof">
-        <button type="button" class="btn btn-light" style="margin-right: 30px;"><i class="bi bi-bell"></i> {{countOfNotifications}}</button>
+        <button [matMenuTriggerFor]="notif" type="button" class="btn btn-light" style="margin-right: 30px;"><i
+            class="bi bi-bell"></i> {{countOfNotifications}}</button>
+        <mat-menu #notif="matMenu">
+          <ol class="list-group list-group-numbered">
+            <li *ngFor="let o of newOrders" class="list-group-item d-flex justify-content-between align-items-start">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">#{{o.orderNumber}}</div>
+                {{o.totalPrize}} Kč
+              </div>
+              <span class="badge bg-primary rounded-pill">nový</span>
+            </li>           
+          </ol>
+        </mat-menu>
+
         <div class="prof" *ngIf="service.isLoggedIn()&&user">
-          <div class="prof">            
-            <p class="text-prof">Vítej, {{user.Email}}!</p>                   
+          <div class="prof">
+            <p class="text-prof">Vítej, {{user.Email}}!</p>
           </div>
         </div>
 
-        <button *ngIf="service.isLoggedIn()"data-mdb-toggle="sidenav" [matMenuTriggerFor]="menu"
+        <button *ngIf="service.isLoggedIn()" data-mdb-toggle="sidenav" [matMenuTriggerFor]="menu"
           class="btn btn-primary" aria-haspopup="true" aria-expanded="false" style="height: 37px;">
           <mat-icon>menu</mat-icon>
         </button>
@@ -38,11 +51,11 @@
           <button *ngIf="user.Role=='admin'" mat-menu-item [routerLink]="['/orders']">
             <mat-icon>local_shipping</mat-icon>
             <span>Expedice</span>
-          </button> 
+          </button>
           <button *ngIf="user.Role=='admin'" mat-menu-item [routerLink]="['/dashboard']">
             <mat-icon>equalizer</mat-icon>
             <span>Dashboard</span>
-          </button>          
+          </button>
           <button mat-menu-item [routerLink]="['/user']">
             <mat-icon>account_circle</mat-icon>
             <span>Profil</span>

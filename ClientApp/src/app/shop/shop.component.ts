@@ -25,6 +25,7 @@ export class ShopComponent {
   products: any;
   cart: any;
   totalPrize: any;
+  orderNumber: any;
 
 
   partner = {
@@ -112,26 +113,37 @@ export class ShopComponent {
   }
   createOrder(f: any) {
     let date = new Date();
-    
-    let orderDetails: string = this.cart.map((p:any) => `${p.name}  x${p.count}`).join(";");
-    
-    let order = {
-      email: f.Email,
-      fullName: f.FullName,
-      placedOn: date,
-      orderList: orderDetails,
-      adress: f.Adress,
-      phone: f.Phone,
-      totalPrize: this.totalPrize,
-      status: 'nová'
-    };
+    let orderDetails: string = this.cart.map((p: any) => `${p.name}  x${p.count}`).join(";");
+    let maxOrderNumber: any;
+    let order;
 
-    this.ordersService.CreateOrder(order)
-      .subscribe();
-
+    this.ordersService.GetOrders()
+      .subscribe((r: any) => {
+        maxOrderNumber = r[0].orderNumber;
+        for (let i = 1; i < r.length; i++) {
+          if (r[i].orderNumber > maxOrderNumber) {
+            maxOrderNumber = r[i].orderNumber;
+          }
+        }
+        maxOrderNumber = maxOrderNumber + 1;
+        order = {
+          email: f.Email,
+          fullName: f.FullName,
+          placedOn: date,
+          orderList: orderDetails,
+          adress: f.Adress,
+          phone: f.Phone,
+          totalPrize: this.totalPrize,
+          status: 'nová',
+          orderNumber: maxOrderNumber
+        };
+        this.orderNumber = order.orderNumber;
+        this.ordersService.CreateOrder(order)
+          .subscribe();
+      });
     this.finishedOrder = true;
     this.toOrder = false;
-    console.log(orderDetails);
+
   }
   checkCart(productName: any) {
     let names: any[] = [];
