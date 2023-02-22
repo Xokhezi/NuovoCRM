@@ -22,3 +22,80 @@
 img {
     border: solid 1px white;
 }
+
+
+.parent {
+    position: absolute;
+    width: 100%;
+}
+
+.one,
+.two {
+    position: absolute;
+    height: 300px;
+    width: 65%;
+}
+
+.one {
+    left: 0;
+    top: 0;
+    -webkit-clip-path: polygon(0 0, 100% 0%, 50% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0%, 50% 100%, 0% 100%);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    padding-left: 60px;
+}
+
+.two {
+    right: 0;
+    top: 0;
+    -webkit-clip-path: polygon(50% 0, 100% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(50% 0, 100% 0%, 100% 100%, 0% 100%);
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    cursor: pointer;
+    display: flex;
+}
+
+.one:hover {
+    background: #ef7e84;
+    text-shadow: 0 0 20px #4fbdc5, 0 0 10px #4fbdc5;
+}
+
+.two:hover {
+    background: #4fbdc5;
+    text-shadow: 0 0 20px #ef7e84, 0 0 10px #ef7e84;
+}
+
+
+@media screen and (max-width: 780px) {
+    .mob {
+        font-size: 1.6rem;
+    }
+
+    .mob2 {
+        padding-left: 10vh;
+    }
+
+}
+
+@media screen and (min-width: 780px) {
+
+    .mob2 {
+        padding-left: 24vh;
+    }
+
+}
+
+.new-card {
+    height: 60px;
+    width: 100%;
+    position: absolute;
+    border-radius: 0px;
+    bottom: 0;
+    padding-left: 15px;
+    padding-bottom: 3px;
+    background-color: #ef7e84;
+}

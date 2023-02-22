@@ -1,14 +1,14 @@
-
 <div class="text-center marg">
   <img src="assets/logo.png" class="mt-2" width="140" height="50">
   <div class="mt-2">
     <p class="display-4">Vítejte v BMS</p>
-    <p>
+    <p class="lead">
       Partnerském portálu pro NuovoTherapy s.r.o
     </p>
   </div>
 
 </div>
+
 
 <div *ngIf="!this.service.isLoggedIn()" class="text-center marg">
   <h4>Pro využívání funkcí je třeba se přihlásit.</h4>
@@ -44,5 +44,58 @@
     <p><a class="btn btn-primary" href="#">Více »</a></p>
   </div>
 </div>
-<div *ngIf="this.service.isLoggedIn()&& user.Role!='admin'">  
+
+<div *ngIf="this.service.isLoggedIn()&& user.Role!='admin'">
+  <div>
+    <div (click)="toShop()" class="parent container">
+      <div class="one sizeup br-color" style="height: 300px;">
+        <div
+          style=" display: flex; flex-direction: row; text-align: center; padding-top: 40px; padding-right: 20vh; width: 80%;">
+          <p class="mob display-4">Obchod <i class="bi bi-basket"></i></p>
+        </div>
+      </div>
+
+      <div (click)="toOrders()" class="two sizeup br-color-oposite" style="height: 300px; text-align: center;">
+        <div class="" style=" display: flex; flex-direction: row; text-align: center; padding-top: 150px; width: 80%;">
+          <p class="mob mob2 display-4">Objednávky <i class="bi bi-card-checklist"></i></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top: 40vh;" class="container px-4 py-5 parent" id="custom-cards">
+  <h2 class="pb-2 border-bottom">Co je nového?</h2>
+
+  <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5" style="height: 500px;">
+    <div class="col">
+      <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow sizeup"
+        style="background-position: center center;height: 400px;background-size: cover;background-image: url('https://shop.nuovotherapy.cz/eshop/products/0/44/thumb/dsc-0451-shop.jpg');">
+        <div class="d-flex flex-column text-white new-card">
+          <h1 style="margin: 0px;">Nová řada pulse</h1>
+          <p class="text-wrap"> Ještě lepší terapie červeným světlem!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow sizeup"
+        style="background-position: center center;height: 400px;background-size:cover;background-image: url('https://shop.nuovotherapy.cz/eshop/products/0/44/thumb/dsc-0451-shop.jpg');">
+        <div class="d-flex flex-column text-white new-card">
+          <h1 style="margin: 0px;">Vyber si barvu</h1>
+          <p class="text-wrap"> Nově je možné objednat panel s vlastní barvou!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow sizeup click"
+        style="background-position: center center;height: 400px;background-size: cover;background-image: url('https://shop.nuovotherapy.cz/eshop/products/0/42/thumb/dsc-0397-mala-0-25x.jpg');">
+        <div class="d-flex flex-column text-white new-card">
+          <h1 style="margin: 0px;">Komfort nadevše</h1>
+          <p class="text-wrap"> Nový elektrický stojan pro naročné!</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

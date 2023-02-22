@@ -59,6 +59,7 @@ body {
 
 .sizeup:hover {
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 .nuovo-bg {
@@ -68,17 +69,51 @@ body {
   border-radius: 25px;
   border: 0px;
 }
-.btn-primary{  
-    background-color: #273358;  
-}
-.btn-primary:hover{
+
+.btn-primary {
   background-color: #ef7e84;
+  border: 0px;
 }
-.btn-outline-primary{  
-  color: #273358;
-  border-color: #273358;  
-}
-.btn-outline-primary:hover{  
+
+.btn-primary:hover {
   background-color: #4fbdc5;
-  color: white;  
+  border: 1px solid #ef7e84;
+}
+
+.btn-outline-primary {
+  color: #273358;
+  border-color: #273358;
+}
+
+.btn-outline-primary:hover {
+  background-color: #273358;
+  color: white;
+}
+
+.br-color {
+  background: linear-gradient(-45deg, #ef7e84, #4fbdc5);
+  border: 0px;
+  background-size: 400%;
+  animation: gradient 10s ease infinite;
+}
+
+.br-color-oposite {
+  background: linear-gradient(-45deg, #4fbdc5, #ef7e84);
+  border: 0px;
+  background-size: 400%;
+  animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
