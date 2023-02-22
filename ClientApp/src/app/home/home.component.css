@@ -45,7 +45,7 @@ img {
     border-bottom-left-radius: 25px;
     cursor: pointer;
     display: flex;
-    padding-left: 60px;
+    padding-left: 5%;
 }
 
 .two {
@@ -76,13 +76,13 @@ img {
     }
     .mob2 {
         padding-top: 45px;
-        padding-left: 15vh;
+        padding-left: 65%;
     }
 }
 @media screen and (min-width: 700px) and (max-width: 780px) {
     .mob2 {
         padding-top: 35px;
-        padding-left: 15vh;
+        padding-left: 40%;
     }
 }
 
@@ -92,13 +92,13 @@ img {
     }
     .mob2 {
         padding-top: 45px;
-        padding-left: 30vh;
+        padding-left: 60%;
     }
 
 }
 @media screen and (min-width: 1000px) {
     .mob2 {
-        padding-left: 45vh;
+        padding-left: 65%;
     }
 
 }
