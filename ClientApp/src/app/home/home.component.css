@@ -70,16 +70,16 @@ img {
 }
 
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 520px) {
     .mob {
         font-size: 1.6rem;
     }
     .mob2 {
         padding-top: 45px;
-        padding-left: 65%;
+        padding-left: 55%;
     }
 }
-@media screen and (min-width: 700px) and (max-width: 780px) {
+@media screen and (min-width: 520px) and (max-width: 780px) {
     .mob2 {
         padding-top: 35px;
         padding-left: 40%;

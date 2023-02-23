@@ -48,7 +48,6 @@
                                                         </div>
                                                         <div class="col-md-3 col-lg-3 col-xl-3">
                                                             <h3 class="text-muted">{{p.name}}</h3>
-                                                            <h3 class="text-black mb-0">Panel</h3>
                                                         </div>
                                                         <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                                                             <button class="btn btn-link px-2">
@@ -133,7 +132,7 @@
                 <div class="card-body text-center nuovo-bg"
                     style="border-top-right-radius: 0%; border-top-left-radius: 0%;">
                     <h2 class="card-title">{{product.name}}</h2>
-                    <p class="text-wrap">Panel který je super</p>
+                    <p class="text-wrap">{{product.description}}</p>
                     <p><strong>{{product.prize.toLocaleString("fr-FR")}} Kč</strong></p>
                     <button *ngIf="!checkCart(product.name)" class="btn btn-outline-primary"
                         (click)="addToCart(product)"><i class="bi bi-cart-plus"></i></button>
