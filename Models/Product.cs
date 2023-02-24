@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,6 +16,6 @@ namespace NuovoCRM.Models
         public int DiscountStep { get; set; }
         public string Url { get; set; }
          public string Description { get; set; }
-        public ICollection<Category> Categories { get; set; }
+       
     }
 }
