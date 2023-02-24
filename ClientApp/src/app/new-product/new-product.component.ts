@@ -2,7 +2,6 @@ import { CategoriesService } from './../services/categories.service';
 import { ProductsService } from './../services/products.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component } from '@angular/core';
-import { any } from 'underscore';
 
 @Component({
   selector: 'app-new-product',
