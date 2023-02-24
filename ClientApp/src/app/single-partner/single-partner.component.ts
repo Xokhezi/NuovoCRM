@@ -76,11 +76,8 @@ export class SinglePartnerComponent implements OnInit {
       this.partnerService.GetPartners().subscribe((p: any) => {
         this.team = p.filter((p: any) => p.teamId === this.partner.teamId);
         this.partners=p;   
-        while(this.member.level!=0)
-        {
-        this.getTeam();
-        }         
-        console.log(this.directTeam)   
+        //while(this.member.level!=0)
+        //{       this.getTeam();        } 
       });
     });
     

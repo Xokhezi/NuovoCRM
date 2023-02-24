@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { fadeIn } from './../animations/animations';
+import { fadeIn, fadeSideLeft, fadeSideRight } from './../animations/animations';
 import { AuthService } from './../services/auth.service';
 import { Component } from '@angular/core';
 
@@ -8,22 +8,27 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   animations: [
-    fadeIn
+    fadeIn,
+    fadeSideLeft,
+    fadeSideRight
   ]
 })
 export class HomeComponent {
   user = { Role: '' };
+  promo = false;
 
-  constructor(public service: AuthService,private route:Router) { }
+  constructor(public service: AuthService, private route: Router) { }
   ngOnInit(): void {
     this.user = this.service.getcurrentUser();
   }
-  toShop()
-  {
+  toShop() {
     this.route.navigate(['shop']);
   }
-  toOrders()
-  {
+  toOrders() {
     this.route.navigate(['orders/my']);
   }
+  slidePromo() {
+    this.promo = !this.promo
+  }
+
 }
