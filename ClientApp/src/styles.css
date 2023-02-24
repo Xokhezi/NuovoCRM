@@ -72,7 +72,8 @@ body {
 
 .btn-primary {
   background-color: #ef7e84;
-  border: 0px;
+  border: 1px white solid;
+  
 }
 
 .btn-primary:hover {
@@ -91,17 +92,17 @@ body {
 }
 
 .br-color {
-  background: linear-gradient(-45deg, #ef7e84, #4fbdc5);
+  background: linear-gradient(45deg,#f7565e, #ef7e84, #4fbdc5,#48e0ff);
   border: 0px;
   background-size: 400%;
-  animation: gradient 10s ease infinite;
+  animation: gradient 7s ease infinite;
 }
 
 .br-color-oposite {
-  background: linear-gradient(-45deg, #4fbdc5, #ef7e84);
+  background: linear-gradient(45deg,#48e0ff, #4fbdc5, #ef7e84,#f7565e);
   border: 0px;
   background-size: 400%;
-  animation: gradient 10s ease infinite;
+  animation: gradient 7s ease infinite;
 }
 
 @keyframes gradient {

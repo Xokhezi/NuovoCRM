@@ -93,7 +93,7 @@ export class ShopComponent {
     if (!this.checkCart(product.name)) {
       this.cart.push(product);
       this.totalPrize = this.cart.reduce((ac: any, currentPrize: { prize: any; count: any }) => {
-        if (currentPrize.count! < 1)
+        if (currentPrize.count! > 1)
           return ac + currentPrize.prize * currentPrize.count;
         else
           return ac + currentPrize.prize
@@ -118,14 +118,19 @@ export class ShopComponent {
     let order;
 
     this.ordersService.GetOrders()
-      .subscribe((r: any) => {
-        maxOrderNumber = r[0].orderNumber;
-        for (let i = 1; i < r.length; i++) {
-          if (r[i].orderNumber > maxOrderNumber) {
-            maxOrderNumber = r[i].orderNumber;
+      .subscribe((r: any) => {        
+        if (r != null) {
+          maxOrderNumber = r[0].orderNumber;
+          for (let i = 1; i < r.length; i++) {
+            if (r[i].orderNumber > maxOrderNumber) {
+              maxOrderNumber = r[i].orderNumber;
+            }
           }
+          maxOrderNumber = maxOrderNumber + 1;
         }
-        maxOrderNumber = maxOrderNumber + 1;
+        else
+          maxOrderNumber = 100000;
+
         order = {
           email: this.user.Email,
           fullName: f.FullName,
@@ -152,6 +157,8 @@ export class ShopComponent {
     return names.includes(productName);
   }
   removeFromCart(p: any) {
-    this.cart.splice(p, 1);
+    const i = this.cart.indexOf(p, 0);
+    this.cart.splice(i, 1);
+    this.summarize();
   }
 }

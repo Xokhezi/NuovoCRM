@@ -40,7 +40,8 @@ export class OrdersComponent {
   }
   fullfill(order:any)
   {
-    this.newOrders.splice(order,1);
+    const i = this.newOrders.indexOf(order, 0);
+    this.newOrders.splice(i,1);
     order.status="expedováno";
     this.ordersService.UpdateOrder(order,order.id)
     .subscribe();

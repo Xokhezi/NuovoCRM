@@ -139,11 +139,11 @@
                         (click)="addToCart(product)"><i class="bi bi-cart-plus"></i></button>
                     <div class="d-flex pb-2 flexor" style="margin-top: 10px;">
                         <button class="btn btn-outline-primary btn-sm" (click)=" decreasePcs(product)"
-                            style=" height: 30px; border-radius: 100%;margin-right: 20px;"> <i
+                            (click)="summarize()" style=" height: 30px; border-radius: 100%;margin-right: 20px;"> <i
                                 class="bi bi-dash"></i></button>
                         <p style="padding-top: 5px"><strong>{{product.count}}</strong></p>
                         <button class="btn btn-outline-primary btn-sm" (click)="increasePcs(product)"
-                            style="height: 30px;  border-radius: 100%;margin-left: 20px;"> <i
+                            (click)="summarize()" style="height: 30px;  border-radius: 100%;margin-left: 20px;"> <i
                                 class="bi bi-plus"></i></button>
                     </div>
                 </div>
@@ -215,7 +215,7 @@
     </form>
 
 </div>
-<div *ngIf="!loading && finishedOrder">
+<div *ngIf="!loading && finishedOrder" style="padding-bottom: 10vh;">
     <h1>Děkujeme za Vaši obejdnávku! <i class="bi bi-emoji-smile"></i></h1>
     <h2 class="text-muted">Vše co nejrychleji zpracujeme - o odeslání Vás budeme informovat.</h2>
     <div>
@@ -230,7 +230,7 @@
                                         <div class="p-5">
                                             <div class="d-flex justify-content-between align-items-center mb-5">
                                                 <h1 class="fw-bold mb-0 text-black" (click)="switch()">Objednávka
-                                                    #{{orderNumber}}
+                                                    #{{orderNumber}} pro {{user.FullName}}
                                                 </h1>
                                             </div>
                                             <div>
@@ -269,7 +269,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 bg-grey" *ngIf="cart.length!=0 && expanded">
+                                    <div class="col-lg-4 bg-grey">
                                         <div class="p-5">
                                             <h2 class="fw-bold mb-5 mt-2 pt-1">Souhrn</h2>
                                             <hr class="my-4">
@@ -279,7 +279,7 @@
                                                 <h3>Kč {{totalPrize.toLocaleString("fr-FR")}}</h3>
 
                                             </div>
-                                            <div *ngIf="cart.length!=0" class="center">
+                                            <div class="center">
                                                 <button class="btn btn-primary" [routerLink]="['']">Zpět domů</button>
                                             </div>
                                         </div>

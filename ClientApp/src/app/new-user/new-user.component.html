@@ -1,5 +1,4 @@
-<div class="marg">
-    {{user|json}}
+<div class="marg" style="padding-bottom: 10vh;">
     <h1><i [routerLink]="['/users']" (mouseenter)="switch()" (mouseleave)="switch()" class="bi pointer"
             [class.bi-arrow-left-square]="!hover" [class.bi-arrow-left-square-fill]="hover"></i></h1>
     <h2 *ngIf="id==0">Nový uživatel</h2>
