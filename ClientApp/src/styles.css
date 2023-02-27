@@ -118,3 +118,8 @@ body {
     background-position: 0% 50%;
   }
 }
+@keyframes shake{
+  0%, 100% {translate: 0;}
+  25% {translate: 0.125rem;}
+  75% {translate: -0.125rem;}
+}

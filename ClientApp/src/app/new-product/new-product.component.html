@@ -1,9 +1,8 @@
 <div class="marg" style="margin-bottom: 100px;">
     <h1><i [routerLink]="['/products']" (mouseenter)="switch()" (mouseleave)="switch()" class="bi pointer"
-        [class.bi-arrow-left-square]="!hover" [class.bi-arrow-left-square-fill]="hover"></i></h1>
+            [class.bi-arrow-left-square]="!hover" [class.bi-arrow-left-square-fill]="hover"></i></h1>
     <h2 *ngIf="id==0">Nový Produkt</h2>
     <h2 *ngIf="id!=0">{{product.name}}</h2>
-    {{product|json}}
     <form #f="ngForm" (ngSubmit)="submit()">
         <div class="mb-3">
             <label for="name" class="form-label">Produkt</label>
@@ -13,9 +12,10 @@
         </div>
         <div class="mb-3">
             <label for="productCode" class="form-label">Produktový kód</label>
-            <input required maxlength="50" [(ngModel)]="product.productCode" name="productCode" #productCode="ngModel" type="text"
-                class="form-control">
-            <div *ngIf="productCode.touched && !productCode.valid" class="alert alert-danger">Prosím zadejte produktový kód.</div>
+            <input required maxlength="50" [(ngModel)]="product.productCode" name="productCode" #productCode="ngModel"
+                type="text" class="form-control">
+            <div *ngIf="productCode.touched && !productCode.valid" class="alert alert-danger">Prosím zadejte produktový
+                kód.</div>
         </div>
         <div class="mb-3">
             <label for="prize" class="form-label">Cena</label>
@@ -25,15 +25,16 @@
         </div>
         <div class="mb-3">
             <label for="discount" class="form-label">Sleva v %</label>
-            <input required maxlength="50" [(ngModel)]="product.discount" name="discount" #discount="ngModel" type="text"
-                class="form-control">
+            <input required maxlength="50" [(ngModel)]="product.discount" name="discount" #discount="ngModel"
+                type="text" class="form-control">
             <div *ngIf="discount.touched && !discount.valid" class="alert alert-danger">Prosím zadejte slevu v %</div>
         </div>
         <div class="mb-3">
             <label for="discountStep" class="form-label">Slevový posun v %</label>
-            <input required maxlength="50" [(ngModel)]="product.discountStep" name="discountStep" #discountStep="ngModel" type="text"
-                class="form-control">
-            <div *ngIf="discountStep.touched && !discountStep.valid" class="alert alert-danger">Prosím zadejte slevový skok v %.</div>
+            <input required maxlength="50" [(ngModel)]="product.discountStep" name="discountStep"
+                #discountStep="ngModel" type="text" class="form-control">
+            <div *ngIf="discountStep.touched && !discountStep.valid" class="alert alert-danger">Prosím zadejte slevový
+                skok v %.</div>
         </div>
         <div class="mb-3">
             <label for="url" class="form-label">URL</label>
@@ -43,12 +44,13 @@
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Popisek</label>
-            <textarea required maxlength="250" [(ngModel)]="product.description" name="description" #description="ngModel" type="textarea"
-                class="form-control">
+            <textarea required maxlength="250" [(ngModel)]="product.description" name="description"
+                #description="ngModel" type="textarea" class="form-control">
             </textarea>
-            <div *ngIf="description.touched && !description.valid" class="alert alert-danger">Prosím zadejte popisek(max 250 znaků).</div>
-        </div>       
-          
+            <div *ngIf="description.touched && !description.valid" class="alert alert-danger">Prosím zadejte popisek(max
+                250 znaků).</div>
+        </div>
+
     </form>
 
     <button class="btn btn-primary" (click)="submit()">Uložit</button>

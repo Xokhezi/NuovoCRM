@@ -71,6 +71,9 @@ namespace NuovoCRM.Controllers
             user.Country = resource.Country;
             user.Password = resource.Password;
             user.Phone = resource.Phone;
+            user.DiscountCode = resource.DiscountCode;
+            user.DiscountPrimary = resource.DiscountPrimary;
+            user.DiscountSecondary = resource.DiscountSecondary;
 
             await context.SaveChangesAsync();
 
