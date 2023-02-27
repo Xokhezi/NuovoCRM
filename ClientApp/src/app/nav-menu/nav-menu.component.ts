@@ -15,17 +15,19 @@ export class NavMenuComponent {
   newOrders: any;
   user = { Email: "", Role: "" };
   interval: any;
+  currentYear:any;
 
 
   constructor(public service: AuthService, private ordersService: OrdersService) { }
   ngOnInit(): void {
-    this.newOrders = [];    
+    this.newOrders = [];  
+    this.currentYear  = new Date().getFullYear();  
     if (this.service.isLoggedIn()) {
       this.user = this.service.getcurrentUser();      
       this.updateNotifications();
       this.interval = setInterval(() => {
         this.updateNotifications();
-      }, 180000);
+      }, 180000);     
     }
     
 
@@ -41,7 +43,7 @@ export class NavMenuComponent {
     this.service.logout();
   }
   updateNotifications() {
-    this.ordersService.GetOrders()
+    this.ordersService.GetOrders(this.currentYear)
       .subscribe((r: any) => {
         let usersOrders = r.filter((o: any) => o.email == this.user.Email);
         this.newOrders = usersOrders.filter((o: any) => o.status == 'expedováno');

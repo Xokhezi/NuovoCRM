@@ -31,10 +31,14 @@ namespace NuovoCRM.Controllers
 
         }
 
-        [HttpGet]
-        public async Task<IEnumerable<OrderResource>> GetOrders()
+        [HttpGet("{year:int?}")]
+        public async Task<IEnumerable<OrderResource>> GetOrders(int year)
         {
             var orders = await context.Orders.ToListAsync();
+
+            if(year!=0)   
+                orders = orders.Where(o=>o.PlacedOn.Year==year).ToList();
+           
             return mapper.Map<IEnumerable<Order>, IEnumerable<OrderResource>>(orders);
         }
         [HttpGet("{id}")]

@@ -60,9 +60,9 @@
               <mat-icon>local_shipping</mat-icon>
               <span>Expedice</span>
             </button>
-            <button *ngIf="user.Role=='admin' || user.Role=='manažer'" mat-menu-item [routerLink]="['/dashboard']">
+            <button  *ngIf="user.Role!='manažer'" mat-menu-item [routerLink]="['/dashboard']">
               <mat-icon>equalizer</mat-icon>
-              <span>Dashboard</span>
+              <span>Dashboard </span>
             </button>
             <button mat-menu-item [routerLink]="['/user']">
               <mat-icon>account_circle</mat-icon>

@@ -23,7 +23,7 @@ export class OrdersComponent {
   }
   search(input:any)
   {
-    this.ordersService.GetOrders()
+    this.ordersService.GetOrders(2023)
     .subscribe((r:any) => {
       this.orders=r;      
       const inputUp = input.toUpperCase();

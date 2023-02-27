@@ -2,6 +2,7 @@
 
 /* Provide sufficient contrast against white background */
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+@import 'charts.css';
 
 footer {
   height: 45px;

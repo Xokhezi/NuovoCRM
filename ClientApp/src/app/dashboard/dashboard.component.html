@@ -1,0 +1,55 @@
+<div *ngIf="loading">
+    <mat-spinner class="center"></mat-spinner>
+  </div>
+<div *ngIf="!loading">
+<p class="text-center display-3">Jak si vedu?</p>
+<div style="display: flex; flex-direction: row;gap: 20px; margin-bottom: 20px; justify-content: center;">
+    <div class="card-nv shadow flex column text-center">
+        <h2>258</h2>
+        <h3>Celkem tento měsíc</h3>
+    </div>
+    <div class="card-nv shadow text-center">
+        <h2>{{totalThisMonth.toLocaleString("fr-FR")}} Kč</h2>
+        <h3>Celkem tento měsíc</h3>
+    </div>
+    <div class="card-nv shadow text-center">
+        <h2>258</h2>
+        <h3>Celkem tento měsíc</h3>
+    </div>
+</div>
+<div class="shadow card-nv">
+    <h2 class="text-center" style="margin-bottom: 50px;">Prodeje Měsíčně</h2>
+    <table id="monthly" class="charts-css column">
+        <caption> 3D Effect Example #1 </caption>
+        <thead>
+
+            <tr>
+                <th scope="col"> Year </th>
+                <th scope="col"> Progress </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row"> 2016 </th>
+                <td style="--size:0.2;"><span class="data"> 20 </span></td>
+            </tr>
+            <tr>
+                <th scope="row"> 2017 </th>
+                <td style="--size:0.4;"><span class="data"> 40 </span></td>
+            </tr>
+            <tr>
+                <th scope="row"> 2018 </th>
+                <td style="--size:0.6;"><span class="data"> 60 </span></td>
+            </tr>
+            <tr>
+                <th scope="row"> 2019 </th>
+                <td style="--size:0.8;"><span class="data"> 80 </span></td>
+            </tr>
+            <tr>
+                <th scope="row"> 2020 </th>
+                <td style="--size:1;"><span class="data"> 100 </span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
