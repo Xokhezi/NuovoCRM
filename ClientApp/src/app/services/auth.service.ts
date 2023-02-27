@@ -40,4 +40,11 @@ export class AuthService {
 
     return true;
   }
+  isManager() {
+    let user =this.getcurrentUser();
+    if (user.Role!= "manažer")
+      return false;
+
+    return true;
+  }
 }

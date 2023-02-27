@@ -32,6 +32,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ShopComponent } from './shop/shop.component';
 import { OrdersComponent } from './orders/orders.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
     NotfoundComponent,
     ShopComponent,
     OrdersComponent,
-    MyOrdersComponent
+    MyOrdersComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -75,7 +77,8 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
       { path: 'shop', component: ShopComponent, canActivate: [AuthGuardService] },
       { path: 'orders', component: OrdersComponent, canActivate: [AdminauthService] },
       { path: 'orders/my', component: MyOrdersComponent, canActivate: [AuthGuardService] },
-      { path: 'login', component: LoginComponent },
+      { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]  },
+      { path: 'login', component: LoginComponent },            
       { path: '**', component: NotfoundComponent }
 
     ]),

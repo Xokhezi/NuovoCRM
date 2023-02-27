@@ -40,7 +40,7 @@
                                     </div>
                                 </div>
                                 <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Správa</h6>
-                                <div class="row" *ngIf="currentUser.Role==='admin'">
+                                <div class="row" *ngIf="currentUser.Role==='admin' || currentUser.Role=='manažer'">
                                     <div class="col-sm-6">
                                         <button class="btn btn-primary" [routerLink]="['/users']">Uživatelé</button>
                                     </div>

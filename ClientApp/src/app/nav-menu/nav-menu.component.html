@@ -40,27 +40,27 @@
               <mat-icon>home</mat-icon>
               <span>Domů</span>
             </button>
-            <button *ngIf="user.Role=='admin'" mat-menu-item [routerLink]="['/partners']">
+            <button *ngIf="user.Role=='admin' || user.Role=='manažer'" mat-menu-item [routerLink]="['/partners']">
               <mat-icon>handshake</mat-icon>
               <span>Partneři</span>
             </button>
-            <button *ngIf="user.Role=='admin'" mat-menu-item [routerLink]="['/products']">
+            <button *ngIf="user.Role=='admin'|| user.Role=='manažer'" mat-menu-item [routerLink]="['/products']">
               <mat-icon>category</mat-icon>
               <span>Produkty</span>
             </button>
-            <button mat-menu-item [routerLink]="['/shop']">
+            <button *ngIf="user.Role!='manažer'" mat-menu-item [routerLink]="['/shop']">
               <mat-icon>shopping_cart</mat-icon>
               <span>Obchod</span>
             </button>
-            <button mat-menu-item [routerLink]="['/orders/my']">
+            <button *ngIf="user.Role!='manažer'" mat-menu-item [routerLink]="['/orders/my']">
               <mat-icon>fact_check</mat-icon>
               <span>Moje objednávky</span>
             </button>
-            <button *ngIf="user.Role=='admin'" mat-menu-item [routerLink]="['/orders']">
+            <button *ngIf="user.Role=='admin' || user.Role=='manažer'" mat-menu-item [routerLink]="['/orders']">
               <mat-icon>local_shipping</mat-icon>
               <span>Expedice</span>
             </button>
-            <button *ngIf="user.Role=='admin'" mat-menu-item [routerLink]="['/dashboard']">
+            <button *ngIf="user.Role=='admin' || user.Role=='manažer'" mat-menu-item [routerLink]="['/dashboard']">
               <mat-icon>equalizer</mat-icon>
               <span>Dashboard</span>
             </button>
