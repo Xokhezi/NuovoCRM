@@ -18,6 +18,14 @@
                 kód.</div>
         </div>
         <div class="mb-3">
+            <label for="type" class="form-label">kategorie</label>
+            <select #type="ngModel" name="type" id="type" class="form-control" [(ngModel)]="product.type">
+                <option value="Primary">LedBed</option>
+                <option value="Sekundary">Panel</option>
+            </select>
+            <div *ngIf="type.touched && !type.valid" class="alert alert-danger">Prosím zadejte jméno.</div>
+        </div>
+        <div class="mb-3">
             <label for="prize" class="form-label">Cena</label>
             <input required maxlength="50" [(ngModel)]="product.prize" name="prize" #prize="ngModel" type="text"
                 class="form-control">

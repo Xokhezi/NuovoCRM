@@ -21,7 +21,8 @@ export class NewProductComponent {
     discount: 0,
     discountStep: 0,
     url: "",
-    description: ""
+    description: "",
+    type:""
   };
 
   constructor(

@@ -102,7 +102,7 @@
                 <td>{{p.name}}</td>
                 <td>{{p.productCode}}</td>
                 <td>{{p.prize}}</td>
-                <td>{{p.discount-partner.level*p.discountStep}}</td>
+                <td *ngIf="partner.level!=0">{{p.discount-(partner.level-1)*p.discountStep}}</td>
               </tr>
             </tbody>
           </table>

@@ -15,6 +15,7 @@
             <label for="role" class="form-label">Role</label>
             <select #role="ngModel" name="role" id="partner" class="form-control" [(ngModel)]="user.role">
                 <option value="admin">admin</option>
+                <option value="manažer">manažer</option>
                 <option value="obchodní zástupce">obchodní zástupce</option>
             </select>
             <div *ngIf="role.touched && !role.valid" class="alert alert-danger">Prosím zadejte jméno.</div>

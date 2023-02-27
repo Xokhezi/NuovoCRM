@@ -15,8 +15,8 @@ namespace NuovoCRM.Models
         public string Country { get; set; }
         public string Adress { get; set; }
         public string Phone { get; set; }
-        public string DiscountCode { get; set; }
-        public int DiscountPrimary { get; set; }
-        public int DiscountSecondary { get; set; }
+        public int? CouponId { get; set; }
+        public Coupon? Coupon { get; set; }
+       
     }
 }
