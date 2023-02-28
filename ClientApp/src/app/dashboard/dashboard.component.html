@@ -18,9 +18,10 @@
     </div>
 </div>
 <div class="shadow card-nv">
-    <h2 class="text-center" style="margin-bottom: 50px;">Prodeje Měsíčně</h2>
-    <div class="chart">
-        <div class="bar" *ngFor="let data of thisYearOrdersByMonths" style="width: 80px; text-align: center; color: white;" [ngStyle]="{'height': getBarHeight(data) + '%'}">{{data}}</div>
+    <h2 class="text-center" style="margin-bottom: 50px;">Měsíční prodeje pro rok {{year}}</h2>
+    <p>Gold Member - 1mil Kč</p>   
+    <div class="chart" style="border-top: #4fbdc5 solid 1px">        
+         <div class="bar" *ngFor="let data of thisYearOrdersByMonths" style="width: 80px; text-align: center; background-color: #ef7e84;color:white; max-height: 300px;" [ngStyle]="{'height': getBarHeight(data) + '%'}">{{data}}</div>
       </div>
 </div>
 </div>

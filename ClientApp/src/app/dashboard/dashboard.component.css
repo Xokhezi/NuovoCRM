@@ -10,13 +10,6 @@
   width: 50px;
   background-color: #333;
 }
-  #monthly tbody td {
-    animation: moving-bars 4s 1;
-  }
-@keyframes moving-bars {
-  0%  { transform: translateY( 100% ); }
-  15% { transform: translateY( 0 ); }
-}
 .card-nv{
   border-radius: 25px;
   padding: 25px;

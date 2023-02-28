@@ -28,8 +28,7 @@ export class DashboardComponent {
         this.orders = r.filter((o: any) => o.email == this.user.Email);
         this.totalThisMonth = this.summarize(this.orders);
         this.loading = false;
-        this.thisYearOrdersByMonths=this.sortByMonth(this.orders, 2023)
-        console.log(this.thisYearOrdersByMonths);
+        this.thisYearOrdersByMonths = this.sortByMonth(this.orders, this.year);
       });
 
   }
@@ -41,12 +40,12 @@ export class DashboardComponent {
   }
   sortByMonth(input: any, year: any) {
     let monthValues = [];
+    let ordersForMonth = input.filter((o: any) => {
+      let placedOnDate = new Date(o.placedOn);
+      return placedOnDate.getFullYear() == year;
+    });
     for (let i = 0; i < 12; i++) {
-      let ordersForMonth = input.filter((o: any) => {
-        let placedOnDate = new Date(o.placedOn);
-        return placedOnDate.getFullYear() == year;
-      });
-       ordersForMonth = input.filter((o: any) => {
+      ordersForMonth = input.filter((o: any) => {
         let placedOnDate = new Date(o.placedOn);
         return placedOnDate.getMonth() == i;
       });
@@ -58,7 +57,7 @@ export class DashboardComponent {
     return monthValues;
   }
   getBarHeight(value: number): number {
-    const min = Math.log10(100000);
+    const min = Math.log10(50000);
     const max = Math.log10(1000000);
     const logValue = Math.log10(value);
     return (logValue - min) / (max - min) * 100;
