@@ -6,7 +6,7 @@ import { AuthService } from './auth.service';
 export class AdminauthService implements CanActivate {
   constructor(public auth: AuthService, public router: Router) {}
   canActivate(): boolean {
-    if (!this.auth.isLoggedIn()|| !this.auth.isAdmin() || !this.auth.isManager()) {
+    if (!this.auth.isLoggedIn()|| !this.auth.isAdmin() ) {
       this.router.navigate(['login']);
       return false;
     }

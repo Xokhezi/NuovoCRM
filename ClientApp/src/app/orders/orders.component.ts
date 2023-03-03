@@ -11,10 +11,12 @@ export class OrdersComponent {
   loading=true;
   newOrders:any;
   ordersSwitch=false;
+  currentYear:any;
 
   constructor(private ordersService: OrdersService) { };
 
   ngOnInit(): void {
+    this.currentYear  = new Date().getFullYear();
     this.ordersService.GetOrders().subscribe((o: any) => {
       this.orders = o;
       this.newOrders=o.filter((o:any)=>o.status=='nová');
@@ -23,7 +25,7 @@ export class OrdersComponent {
   }
   search(input:any)
   {
-    this.ordersService.GetOrders(2023)
+    this.ordersService.GetOrdersForYear(this.currentYear)
     .subscribe((r:any) => {
       this.orders=r;      
       const inputUp = input.toUpperCase();

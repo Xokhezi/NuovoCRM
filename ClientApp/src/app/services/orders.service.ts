@@ -18,8 +18,11 @@ export class OrdersService {
 
     return options;
   }
-  GetOrders(year?:number) {
+  GetOrdersForYear(year?:number) {
     return this.http.get(this.localhost + '/api/orders/'+year, this.getValidation());
+  }
+  GetOrders() {
+    return this.http.get(this.localhost + '/api/orders/', this.getValidation());
   }
   GetOrder(id: any) {
     return this.http.get(this.localhost + '/api/orders/' + id, this.getValidation());

@@ -43,7 +43,7 @@ export class NavMenuComponent {
     this.service.logout();
   }
   updateNotifications() {
-    this.ordersService.GetOrders(this.currentYear)
+    this.ordersService.GetOrdersForYear(this.currentYear)
       .subscribe((r: any) => {
         let usersOrders = r.filter((o: any) => o.email == this.user.Email);
         this.newOrders = usersOrders.filter((o: any) => o.status == 'expedováno');

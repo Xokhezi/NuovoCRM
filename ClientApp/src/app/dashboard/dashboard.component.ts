@@ -23,7 +23,7 @@ export class DashboardComponent {
   ngOnInit(): void {
     this.year = new Date().getFullYear();
     this.user = this.service.getcurrentUser();
-    this.ordersService.GetOrders(this.year)
+    this.ordersService.GetOrdersForYear(this.year)
       .subscribe((r: any) => {
         this.orders = r.filter((o: any) => o.email == this.user.Email);
         this.totalThisMonth = this.summarize(this.orders);
