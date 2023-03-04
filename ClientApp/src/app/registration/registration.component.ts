@@ -6,8 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent {
-  partner = {
-    id: 0,
+  registration = {
     name: "",
     surname: "",
     email: "",
