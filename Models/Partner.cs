@@ -19,5 +19,7 @@ namespace NuovoCRM.Models
         public int Level { get; set; }
         public int LeadId { get; set; }        
         public int TeamId { get; set; }
+        public int DiscountPrimary { get; set; }
+        public int DiscountSecundary { get; set; }
     }
 }

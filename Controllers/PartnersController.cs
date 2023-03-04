@@ -75,6 +75,8 @@ namespace NuovoCRM.Controllers
             partner.LeadId = resource.LeadId;
             partner.Level = resource.Level;
             partner.TeamId = resource.TeamId;
+            partner.DiscountPrimary = resource.DiscountPrimary;
+            partner.DiscountSecundary = resource.DiscountSecundary;
 
             await context.SaveChangesAsync();
 

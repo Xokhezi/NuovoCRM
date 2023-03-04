@@ -52,7 +52,10 @@ export class SinglePartnerComponent implements OnInit {
     teamId: 0,
     adress: "",
     country: "",
-    userId: 0
+    userId: 0,
+    discountPrimary:0,
+    discountSecundary:0
+    
   };
   products: any;
   hover: any;
@@ -77,11 +80,9 @@ export class SinglePartnerComponent implements OnInit {
         this.team = p.filter((p: any) => p.teamId === this.partner.teamId);
         this.partners=p;   
         //while(this.member.level!=0)
-        //{       this.getTeam();        } 
+        //{       this.getTeam();       
       });
     });
-    
-    console.log(this.directTeam);
     this.productServis.GetProducts().subscribe(p => this.products = p);
   }
   switch() {
@@ -107,5 +108,5 @@ export class SinglePartnerComponent implements OnInit {
   {
     this.directTeam.push(this.member);
     this.member=this.partners.find((p:any)=>p.id==this.member.leadId);
-  }
+  }  
 }

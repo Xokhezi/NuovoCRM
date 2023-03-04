@@ -3,6 +3,7 @@
             [class.bi-arrow-left-square]="!hover" [class.bi-arrow-left-square-fill]="hover"></i></h1>
     <h2>Nový Partner</h2>
     <div *ngIf="invalidPasswords" class="alert alert-danger">Hesla se neschodují.</div>
+    <div *ngIf="levelReached" class="alert alert-danger">Partner má příliš vysoký level!</div>
     <form #f="ngForm" (ngSubmit)="submit(f)">
         <div class="mb-3">
             <label for="name" class="form-label">Jméno</label>
@@ -45,6 +46,18 @@
             <input required maxlength="50" [(ngModel)]="partner.position" name="position" #position="ngModel"
                 type="text" class="form-control">
             <div *ngIf="position.touched && !position.valid" class="alert alert-danger">Prosím zadejte pozici.</div>
+        </div>
+        <div class="mb-3">
+            <label for="discountPrimary" class="form-label">Primární sleva</label>
+            <input required maxlength="50" [(ngModel)]="partner.discountPrimary" name="discountPrimary" #discountPrimary="ngModel"
+                type="text" class="form-control">
+            <div *ngIf="discountPrimary.touched && !discountPrimary.valid" class="alert alert-danger">Prosím zadejte primarní slevu.</div>
+        </div>
+        <div class="mb-3">
+            <label for="discountSecundary" class="form-label">Sekundární sleva</label>
+            <input required maxlength="50" [(ngModel)]="partner.discountSecundary" name="discountSecundary" #discountSecundary="ngModel"
+                type="text" class="form-control">
+            <div *ngIf="discountSecundary.touched && !discountSecundary.valid" class="alert alert-danger">Prosím zadejte sekundarní slevu.</div>
         </div>
         <div>
             <div class="mb-3">
@@ -96,6 +109,5 @@
         <div>
             <button class="btn btn-primary marg">Uložit</button>
         </div>
-
-    </form>
+    </form>    
 </div>

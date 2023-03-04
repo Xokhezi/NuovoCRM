@@ -9,7 +9,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
+import {MatStepperModule} from '@angular/material/stepper';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -33,6 +33,7 @@ import { ShopComponent } from './shop/shop.component';
 import { OrdersComponent } from './orders/orders.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ShopComponent,
     OrdersComponent,
     MyOrdersComponent,
-    DashboardComponent
+    DashboardComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -61,6 +63,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     FormsModule,
     MatMenuModule,
     MatDialogModule,
+    MatStepperModule,
     MatIconModule,
     MatRadioModule,
     MatProgressSpinnerModule,
@@ -78,7 +81,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
       { path: 'orders', component: OrdersComponent, canActivate: [AdminauthService] },
       { path: 'orders/my', component: MyOrdersComponent, canActivate: [AuthGuardService] },
       { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]  },
-      { path: 'login', component: LoginComponent },            
+      { path: 'login', component: LoginComponent }, 
+      { path: 'register', component: RegistrationComponent },            
       { path: '**', component: NotfoundComponent }
 
     ]),

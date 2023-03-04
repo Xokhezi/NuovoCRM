@@ -1,4 +1,5 @@
 <section>
+  <div class="marg">
   <div class="bot">
     <h1><i [routerLink]="['/partners']" (mouseenter)="switch()" (mouseleave)="switch()" class="bi pointer"
         [class.bi-arrow-left-square]="!hover" [class.bi-arrow-left-square-fill]="hover"></i></h1>
@@ -88,21 +89,17 @@
           </div>
         </div>
         <div class="row card mb-4 marg shadow" style="border-radius: 15px;">
-          <table class="table table-hover marg">
+          <table class="table table-hover marg text-center">
             <thead>
               <tr>
-                <th scope="col">Produkt</th>
-                <th scope="col">Pr.Nr.</th>
-                <th scope="col">Cena</th>
-                <th scope="col">Podíl v %</th>
+                <th scope="col">Panely</th>
+                <th scope="col">LedBed</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let p of products">
-                <td>{{p.name}}</td>
-                <td>{{p.productCode}}</td>
-                <td>{{p.prize}}</td>
-                <td *ngIf="partner.level!=0">{{p.discount-(partner.level-1)*p.discountStep}}</td>
+              <tr>
+                <td>{{partner.discountPrimary}} %</td>
+                <td>{{partner.discountSecundary}} %</td>                
               </tr>
             </tbody>
           </table>
@@ -110,4 +107,6 @@
       </div>
     </div>
   </div>
+  <div style="margin-top: 60px;">x</div>
+</div>
 </section>

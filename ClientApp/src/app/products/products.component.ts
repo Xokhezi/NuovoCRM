@@ -18,7 +18,6 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.service.GetProducts()
       .subscribe(p => this.products = p);
-
   }
   DeleteProduct(int: any) {
     if (confirm("Opravdu vymazat produkt?"))
