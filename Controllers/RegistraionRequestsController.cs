@@ -82,6 +82,7 @@ namespace NuovoCRM.Controllers
 
         }
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> DeleteRegistration(int id)
         {
 
