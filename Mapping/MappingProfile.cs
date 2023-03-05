@@ -18,6 +18,7 @@ namespace NuovoCRM.Mapping
             CreateMap<Partner, PartnerResource>();
             CreateMap<User, UserResource>();
             CreateMap<Order, OrderResource>();
+            CreateMap<RegistrationRequest, RegistrationRequestResource>();
             CreateMap<Coupon, CouponResource>();
             
             
@@ -28,6 +29,7 @@ namespace NuovoCRM.Mapping
             CreateMap<CategoryResource, Category>();
             CreateMap<UserResource, User>();
             CreateMap<OrderResource, Order>();
+            CreateMap<RegistrationRequestResource, RegistrationRequest>();
             CreateMap<CouponResource, Coupon>();
             
         }
