@@ -1,58 +1,60 @@
 <div class="center">
-<div class="stepper">    
+  {{registration|json}}
+  <div class="stepper">
     <div class="step center">
-            <h3 class="numberStep" [class.activated]="step==1">1</h3>
-            <p>Účet</p>                      
+      <h3 class="numberStep" [class.activated]="step==1">1</h3>
+      <p>Účet</p>
     </div>
     <div class="step center">
-        <h3 class="numberStep" [class.activated]="step==2">2</h3>
-        <p>Dodatek</p>                      
-</div>
-<div class="step center">
-    <h3 class="numberStep" [class.activated]="step==3">3</h3>
-    <p>Hotovo</p>                      
-</div>
-</div>
+      <h3 class="numberStep" [class.activated]="step==2">2</h3>
+      <p>Dodatek</p>
+    </div>
+    <div class="step center">
+      <h3 class="numberStep" [class.activated]="step==3">3</h3>
+      <p>Hotovo</p>
+    </div>
+  </div>
 
-<section *ngIf="step==1" class="vh-100">
+  <section *ngIf="step==1" class="vh-100">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-lg-12 col-xl-11">
           <div class="card text-black shadow br-color" style="border-radius: 25px;">
             <div class="card-body p-md-5">
               <div class="row justify-content-center">
-                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">  
-                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registrace</p>  
-                  <form class="mx-1 mx-md-4">  
+                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registrace</p>
+                  <form class="mx-1 mx-md-4">
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="email" id="form3Example3c" class="form-control" />
-                        <label class="form-label" for="form3Example3c">Email</label>
+                        <input type="email" name="email" #email="ngModel" id="email" [(ngModel)]="registration.email"
+                          class="form-control" />
+                        <label class="form-label" for="email">Email</label>
                       </div>
-                    </div>  
+                    </div>
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="password" id="form3Example4c" class="form-control" />
-                        <label class="form-label" for="form3Example4c">Heslo</label>
+                        <input type="password" id="password" [(ngModel)]="registration.password" class="form-control" />
+                        <label class="form-label" for="password">Heslo</label>
                       </div>
-                    </div>  
+                    </div>
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
                         <input type="password" id="form3Example4cd" class="form-control" />
                         <label class="form-label" for="form3Example4cd">Heslo znovu</label>
                       </div>
-                    </div>  
+                    </div>
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                       <button type="button" class="btn btn-outline-primary btn-lg" (click)="toDetail()">Dále</button>
-                    </div>  
-                  </form>  
+                    </div>
+                  </form>
                 </div>
-                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">  
+                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
                   <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                    class="img-fluid" alt="Sample image">  
+                    class="img-fluid" alt="Sample image">
                 </div>
               </div>
             </div>
@@ -60,73 +62,103 @@
         </div>
       </div>
     </div>
-</section>
-<section *ngIf="step==2" class="vh-100">
+  </section>
+  <section *ngIf="step==2" class="vh-100 text-center center" style=" width: 150vh;">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-lg-12 col-xl-11">
           <div class="card text-black shadow br-color" style="border-radius: 25px;">
             <div class="card-body p-md-5">
               <div class="row justify-content-center">
-                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">  
-                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Dodatečné informace</p> 
-                  <div>
-                    
-                  </div> 
-                  <form class="mx-1 mx-md-4">  
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <input type="text" id="form3Example1c" class="form-control" />
-                        <label class="form-label" for="form3Example1c">Jméno</label>
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Dodatečné informace</p>
+                 <form class="mx-1 mx-md-4">
+                  <div class="detail center">
+                    <div>
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <input type="text" name="name" #name="ngModel" [(ngModel)]="registration.name"
+                            class="form-control" />
+                          <label class="form-label" for="name">Jméno</label>
+                        </div>
                       </div>
-                    </div>  
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <input type="email" id="form3Example3c" class="form-control" />
-                        <label class="form-label" for="form3Example3c">Příjmení</label>
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <input type="text" name="adress" #adress="ngModel" id="adress"
+                            [(ngModel)]="registration.adress" class="form-control" />
+                          <label class="form-label" for="surname">Adresa</label>
+                        </div>
                       </div>
-                    </div>  
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <input type="text" id="form3Example4c" class="form-control" />
-                        <label class="form-label" for="form3Example4c">Telefon</label>
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <input type="text" name="phone" #phone="ngModel" [(ngModel)]="registration.phone"
+                            class="form-control" />
+                          <label class="form-label" for="phone">Telefon</label>
+                        </div>
                       </div>
-                    </div>  
-                    
-                    <div class="form-check d-flex justify-content-center mb-5">
-                      <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
+                    </div>
+                    <div>
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <input type="text" name="surname" #surname="ngModel" id="surname"
+                            [(ngModel)]="registration.surname" class="form-control" />
+                          <label class="form-label" for="surname">Příjmení</label>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <input type="text" name="country" #country="ngModel" id="country"
+                            [(ngModel)]="registration.country" class="form-control" />
+                          <label class="form-label" for="country">Země</label>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <input type="text" name="phone" #phone="ngModel" [(ngModel)]="registration.phone"
+                            class="form-control" />
+                          <label class="form-label" for="phone">Telefon</label>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div style="display: flex; flex-direction: column; align-content: center;">
+                    <div class="form-check d-flex justify-content-center mb-3">
+                      <input style="width: 20px;" class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
                       <label class="form-check-label" for="form2Example3">
                         I agree all statements in <a href="#!">Terms of service</a>
                       </label>
-                    </div>  
+                    </div>
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                      <button type="button" class="btn btn-outline-primary btn-lg" (click)="toDetail()">Dále</button>
-                    </div>  
-                  </form>  
-                </div>
-                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">  
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                    class="img-fluid" alt="Sample image">  
-                </div>
+                      <button type="button" class="btn btn-outline-primary btn-lg"
+                        (ngSubmit)="submit()">Zaregistrovat</button>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-</section>
-<section class="vh-100">
+  </section>
+  <section *ngIf="step==3" class="vh-100">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-lg-12 col-xl-11">
-          <div class="card text-black shadow br-color" style="border-radius: 25px;">
-            <h1>Díky</h1>
+          <div class="card text-black shadow br-color text-center"
+            style="border-radius: 25px; width: 150vh; height: 60vh;">
+            <h1>Děkujeme!</h1>
+            <p class="text-wrap">Vaše žádost byla úspěšně zaevidována. Nyní bude posouzena a schválena. Obvykle do 24
+              hodin.</p>
           </div>
         </div>
       </div>
     </div>
-</section>
+  </section>
 </div>

@@ -6,31 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent {
+  passwordRepeat:any;
+
   registration = {
     name: "",
     surname: "",
     email: "",
     phone: "",
+    password:"",
     position: "",
-    adress: "",
-    leadId: 0,
-    level: 0,
-    teamId: 0,
+    adress: "",    
     country: "",
-    userId: 0,
-    discountPrimary: 0,
-    discountSecundary: 0
-  };
-  user = {
-    id: 0,
-    email: "",
-    fullName: "",
-    password: "",
-    role: "",
-    country: "",
-    adress: "",
-    phone: "",
-    passwordRepeat: ""
+    leadId: 0    
   };
 
   step:any;
@@ -42,6 +29,10 @@ export class RegistrationComponent {
   toDetail()
   {
     this.step=2;
+  }
+  submit()
+  {
+    this.step=3;
   }
   register()
   {}
