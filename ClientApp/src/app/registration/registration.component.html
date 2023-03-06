@@ -36,16 +36,19 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="password" id="password" [(ngModel)]="registration.password" class="form-control" />
+                        <input type="password" name="password" #password="ngModel" id="password" [(ngModel)]="registration.password" class="form-control" />
                         <label class="form-label" for="password">Heslo</label>
                       </div>
                     </div>
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="password" id="form3Example4cd" class="form-control" />
-                        <label class="form-label" for="form3Example4cd">Heslo znovu</label>
+                        <input type="password" name="passwordRepeat" [(ngModel)]="passwordRepeat"  id="passwordRepeat" class="form-control" />
+                        <label class="form-label" for="passwordRepeat">Heslo znovu</label>
                       </div>
+                    </div>
+                    <div *ngIf="!passwordsValid" class="alert alert-danger" role="alert">
+                      Hesla se neshodují!
                     </div>
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                       <button type="button" class="btn btn-outline-primary btn-lg" (click)="toDetail()">Dále</button>
@@ -53,7 +56,7 @@
                   </form>
                 </div>
                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                  <img  style="border-radius: 20px 80px;" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
                     class="img-fluid" alt="Sample image">
                 </div>
               </div>
@@ -119,9 +122,9 @@
                       <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                         <div class="form-outline flex-fill mb-0">
-                          <input type="text" name="phone" #phone="ngModel" [(ngModel)]="registration.phone"
+                          <input type="text" position="phone" name="position" #position="ngModel" [(ngModel)]="registration.position"
                             class="form-control" />
-                          <label class="form-label" for="phone">Telefon</label>
+                          <label class="form-label" for="position">Pozice</label>
                         </div>
                       </div>
                     </div>
@@ -131,12 +134,12 @@
                     <div class="form-check d-flex justify-content-center mb-3">
                       <input style="width: 20px;" class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
                       <label class="form-check-label" for="form2Example3">
-                        I agree all statements in <a href="#!">Terms of service</a>
+                       Souhlasím s <a href="#!">Podmínkami užití</a>
                       </label>
                     </div>
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                       <button type="button" class="btn btn-outline-primary btn-lg"
-                        (ngSubmit)="submit()">Zaregistrovat</button>
+                        (click)="register()">Zaregistrovat</button>
                     </div>
                   </div>
                 </form>
@@ -152,8 +155,8 @@
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-lg-12 col-xl-11">
           <div class="card text-black shadow br-color text-center"
-            style="border-radius: 25px; width: 150vh; height: 60vh;">
-            <h1>Děkujeme!</h1>
+            style="border-radius: 25px; width: 100vh; height: 60vh; padding-top: 30px;">
+            <h1>Děkujeme! <i class="bi bi-bookmark-check"></i></h1>
             <p class="text-wrap">Vaše žádost byla úspěšně zaevidována. Nyní bude posouzena a schválena. Obvykle do 24
               hodin.</p>
           </div>

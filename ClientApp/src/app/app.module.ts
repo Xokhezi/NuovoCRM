@@ -82,7 +82,7 @@ import { RegistrationComponent } from './registration/registration.component';
       { path: 'orders/my', component: MyOrdersComponent, canActivate: [AuthGuardService] },
       { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]  },
       { path: 'login', component: LoginComponent }, 
-      { path: 'register', component: RegistrationComponent },            
+      { path: 'register/:link', component: RegistrationComponent },            
       { path: '**', component: NotfoundComponent }
 
     ]),
