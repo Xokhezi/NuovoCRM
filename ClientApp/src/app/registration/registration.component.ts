@@ -37,10 +37,6 @@ export class RegistrationComponent {
       this.link = params.get('link'); 
       console.log(this.link);     
     })
-    let link=this.linkService.createLink("karel@test.com",10);
-    console.log(link);
-    let decode =this.linkService.decodeLink(link);
-    console.log(decode);
   }
   toDetail()
   {
