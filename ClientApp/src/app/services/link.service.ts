@@ -19,9 +19,9 @@ export class LinkService {
     return encoded;
   }
   decodeLink(encoded: string): [string, string] {
-    const base64 = decodeURIComponent(encoded.replace(/_/g, '%2F').replace(/-/g, '%2B') + '==');
-    const decrypted = AES.decrypt(atob(base64), this.key).toString(CryptoJS.enc.Utf8);
-    const [email, id] = decrypted.split('|');
+    const base64:any = decodeURIComponent(encoded.replace(/_/g, '%2F').replace(/-/g, '%2B') + '==');
+    const decoded = CryptoJS.enc.Base64.parse(base64).toString(CryptoJS.enc.Utf8);
+    const [email, id] = AES.decrypt(decoded, this.key).toString(CryptoJS.enc.Utf8).split('|');
     return [email, id];
-}
+  }
 }
