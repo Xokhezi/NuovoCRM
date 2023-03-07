@@ -34,9 +34,10 @@ export class RegistrationComponent {
   ngOnInit(): void {
     this.step = 1;
     this.active.paramMap.subscribe(params => {
-      this.link = params.get('link');
+      this.link = params.get('link');      
+      this.link=this.linkService.decodeLink(this.link);
       console.log(this.link);
-    })
+    });    
   }
   toDetail() {
     if (this.passwordRepeat === this.registration.password)

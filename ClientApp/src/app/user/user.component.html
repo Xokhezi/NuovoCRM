@@ -39,6 +39,12 @@
                                         <h6 class="text-muted f-w-400">{{currentUser.Country}}</h6>
                                     </div>
                                 </div>
+                                <div style="margin-top: 30px; margin-bottom: 30px;">
+                                    <h2>Váš registrační link:</h2>                                    
+                                    <p class=" text-wrap"><small>Tento link slouží k registraci nových členů do Vašeho týmu.</small></p>
+                                    <button (click)="show()" class="btn btn-primary">Zobrazit</button>
+                                    <h5 style="margin-top: 20px;" *ngIf="showLink"><strong>https://localhost:44441/register/{{usersLink}}</strong></h5>
+                                </div>
                                 <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Správa</h6>
                                 <div class="row" *ngIf="currentUser.Role==='admin' || currentUser.Role=='manažer'">
                                     <div class="col-sm-6">
