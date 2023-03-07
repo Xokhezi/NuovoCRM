@@ -22,7 +22,6 @@ export class PartnersComponent {
       this.partners = p;
       this.loading = false;
     });
-
   }
   search(input: string) {
     this.partnersService.GetPartners().subscribe(p => {
@@ -31,7 +30,6 @@ export class PartnersComponent {
       this.partners = this.getFullNames().filter((n: any) => n.fullName.toUpperCase().includes(inputUp));
     });
   }
-
   getFullNames() {
     let names = this.partners.map((p: any) => p.name);
     let surnames = this.partners.map((p: any) => p.surname);

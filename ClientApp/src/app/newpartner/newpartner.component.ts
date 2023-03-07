@@ -57,7 +57,6 @@ export class NewpartnerComponent implements OnInit {
           .subscribe((p: any) => this.partner = p);
       }
     })
-
   }
   submit(f: any) {
     if (this.id == 0) {
@@ -70,8 +69,6 @@ export class NewpartnerComponent implements OnInit {
               teamId;
             this.partner.discountPrimary = this.discountAssignment(this.partner.level, "primary");
             this.partner.discountSecundary = this.discountAssignment(this.partner.level, "secundary");
-
-
             if (this.isPartner && this.user.password == this.user.passwordRepeat) {
               let userToCreate = {
                 email: this.partner.email,
@@ -99,11 +96,11 @@ export class NewpartnerComponent implements OnInit {
           else
             this.levelReached = true;
         });
-
     }
     else
       this.partnerService.UpdatePartner(this.partner, this.id).subscribe(r => this.router.navigate(['/partners']));
   }
+  //asign discount regarding level and category
   discountAssignment(level: any, category: any) {
     if (category == "primary") {
       switch (level) {

@@ -22,10 +22,10 @@ export class NewUserComponent {
   invalidPassword = false;
   passwordRepeat: any;
   id: any;
-    hover = false;
+  hover = false;
 
-  constructor(private service: UsersService, private active: ActivatedRoute,private router:Router) { }
-  ngOnInit(): void {    
+  constructor(private service: UsersService, private active: ActivatedRoute, private router: Router) { }
+  ngOnInit(): void {
     this.active.paramMap.subscribe(params => {
       this.id = params.get('id?');
       if (this.id != 0) {
@@ -33,7 +33,6 @@ export class NewUserComponent {
           .subscribe((u: any) => this.user = u);
       }
     })
-
   }
   switch() {
     this.hover = !this.hover;
@@ -48,21 +47,15 @@ export class NewUserComponent {
         country: this.user.country,
         adress: this.user.adress,
         phone: this.user.phone,
-
       };
-
       if (this.user.id == 0)
         this.service.CreateUser(userForApi)
-        .subscribe(r=>this.router.navigate(['/users']));
+          .subscribe(r => this.router.navigate(['/users']));
       else
         this.service.UpdateUser(userForApi, this.user.id)
-        .subscribe(r=>this.router.navigate(['/users']))
-
+          .subscribe(r => this.router.navigate(['/users']))
     }
-
     else
       this.invalidPassword = true;
-
   }
-
 }

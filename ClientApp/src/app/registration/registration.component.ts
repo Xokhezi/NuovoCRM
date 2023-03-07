@@ -9,50 +9,46 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent {
-  passwordRepeat:any;
-  link:any;
+  passwordRepeat: any;
+  link: any;
 
-  passwordsValid=true;
+  passwordsValid = true;
 
   registration = {
     name: "",
     surname: "",
     email: "",
     phone: "",
-    password:"",
+    password: "",
     position: "",
-    adress: "",    
+    adress: "",
     country: "",
-    leadId: 0    
+    leadId: 0
   };
 
-  step:any;
-  isEditable=false;
+  step: any;
+  isEditable = false;
 
-  constructor(private linkService:LinkService,private service:RegistrationsService, private active: ActivatedRoute) { }
+  constructor(private linkService: LinkService, private service: RegistrationsService, private active: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.step=1;
+    this.step = 1;
     this.active.paramMap.subscribe(params => {
-      this.link = params.get('link'); 
-      console.log(this.link);     
+      this.link = params.get('link');
+      console.log(this.link);
     })
   }
-  toDetail()
-  {
-    if(this.passwordRepeat===this.registration.password)    
-      this.step=2;
+  toDetail() {
+    if (this.passwordRepeat === this.registration.password)
+      this.step = 2;
     else
-      this.passwordsValid=false;    
+      this.passwordsValid = false;
   }
-  register()
-  {
+  register() {
     this.service.register(this.registration)
-    .subscribe((r:any)=>{
-      console.log(r);
-      this.step=3;
-    });
-
-    
+      .subscribe((r: any) => {
+        console.log(r);
+        this.step = 3;
+      });
   }
 }

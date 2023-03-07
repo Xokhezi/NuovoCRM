@@ -13,5 +13,4 @@ export class UserComponent {
   ngOnInit(): void {
     this.currentUser=this.authService.getcurrentUser();
   }
-
 }

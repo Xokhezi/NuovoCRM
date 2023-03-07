@@ -118,8 +118,8 @@ export class ShopComponent {
     let order;
 
     this.ordersService.GetOrders()
-    // if no order number start with 100000 otherwise take last +1
-      .subscribe((r: any) => {        
+      // if no order number start with 100000 otherwise take last +1
+      .subscribe((r: any) => {
         if (r != null) {
           maxOrderNumber = r[0].orderNumber;
           for (let i = 1; i < r.length; i++) {
