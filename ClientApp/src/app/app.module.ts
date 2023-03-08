@@ -34,6 +34,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { RegistrationListComponent } from './registration-list/registration-list.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { RegistrationComponent } from './registration/registration.component';
     OrdersComponent,
     MyOrdersComponent,
     DashboardComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    RegistrationListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -82,6 +84,7 @@ import { RegistrationComponent } from './registration/registration.component';
       { path: 'orders/my', component: MyOrdersComponent, canActivate: [AuthGuardService] },
       { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]  },
       { path: 'login', component: LoginComponent }, 
+      { path: 'register/list', component: RegistrationListComponent, canActivate: [AdminauthService] },   
       { path: 'register/:link', component: RegistrationComponent },            
       { path: '**', component: NotfoundComponent }
 

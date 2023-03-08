@@ -74,6 +74,7 @@ namespace NuovoCRM.Controllers
             registration.Adress = resource.Adress;
             registration.Country = resource.Country;            
             registration.LeadId = resource.LeadId;
+            registration.LeadSurname = resource.LeadSurname;
             
 
             await context.SaveChangesAsync();

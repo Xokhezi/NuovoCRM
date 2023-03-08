@@ -1,0 +1,27 @@
+<div>
+    <h1>Příchozí registrace</h1>
+    <div class="bd-example">
+        <table class="table table-hover">
+            <thead>
+          <tr>
+            <th scope="col">Email</th>
+            <th scope="col">Jméno</th>
+            <th scope="col">Lead</th>
+            <th scope="col">Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let r of registrations">
+            <th scope="row">{{r.email}}</th>
+            <td>{{r.surname}}</td>
+            <td>{{r.leadSurname}}</td>
+            <td>{{r.position}}</td>
+            <td >
+                <button class="btn btn-primary"><i class="bi bi-person-add"></i></button>
+                <button class="btn btn-primary" (click)="deleteRegistration(r)"><i class="bi bi-person-dash"></i></button>
+            </td>
+          </tr>         
+        </tbody>      
+        </table>
+      </div>
+</div>

@@ -25,7 +25,8 @@ export class RegistrationComponent {
     position: "",
     adress: "",
     country: "",
-    leadId: 0
+    leadId: 0,
+    leadSurname:""
   };
 
   step: any;
@@ -44,9 +45,9 @@ export class RegistrationComponent {
       this.link = this.linkService.decodeLink(this.link);
       this.partnersService.GetPartners()
         .subscribe((r: any) => {
-          this.lead = r.find((p: any) => p.userId  == this.link[1])
-          console.log(this.lead);
+          this.lead = r.find((p: any) => p.userId  == this.link[1])                   
           this.registration.leadId=this.lead.id;
+          this.registration.leadSurname=this.lead.surname;
         });
     });
   }
@@ -59,7 +60,6 @@ export class RegistrationComponent {
   register() {
     this.service.register(this.registration)
       .subscribe((r: any) => {
-        console.log(r);
         this.step = 3;
       });
   }

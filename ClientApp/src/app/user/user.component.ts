@@ -13,7 +13,11 @@ export class UserComponent {
   usersLink:any;
   showLink=false;
 
-  constructor( private service: UsersService,private authService:AuthService,private linkService:LinkService) { }
+  constructor(
+     private service: UsersService,
+     private authService:AuthService,
+     private linkService:LinkService) { }
+     
   ngOnInit(): void {
     this.currentUser=this.authService.getcurrentUser();
     this.usersLink=this.linkService.encodeLink(this.currentUser.Email,this.currentUser.Id);

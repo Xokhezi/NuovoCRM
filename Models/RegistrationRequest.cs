@@ -17,6 +17,7 @@ namespace NuovoCRM.Models
         public string Adress { get; set; }
         public string Country { get; set; }
         public int LeadId { get; set; }
+        public string LeadSurname { get; set; }
         
     }
 }
