@@ -2,9 +2,9 @@
     <div class="">
         <div class="row container d-flex justify-content-center">
             <div class="col-xl-6 col-md-12">
-                <div class="card user-card-full" >
+                <div class="card user-card-full">
                     <div class="row m-l-0 m-r-0">
-                        <div class="col-sm-4 bg-c-lite-green user-profile" style="height: 60vh;">
+                        <div class="col-sm-4 bg-c-lite-green user-profile">
                             <div class="card-block text-center text-white">
                                 <div class="m-b-25">
                                     <img src="assets/img_avatar.png"
@@ -18,38 +18,66 @@
                         </div>
                         <div class="col-sm-8">
                             <div class="card-block">
-                                <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Informace</h6>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Email</p>
-                                        <h6 class="text-muted f-w-400">{{currentUser.Email}}</h6>
+                                <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Informace - uživatelský účet <button
+                                        (click)="switchInfo()" class="btn btn-primary size-up"><i class="bi"
+                                            [class.bi-info]="switch" [class.bi-briefcase]="!switch"></i></button></h6>
+                                <div *ngIf="!switch">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Email</p>
+                                            <h6 class="text-muted f-w-400">{{currentUser.Email}}</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Telefon</p>
+                                            <h6 class="text-muted f-w-400">{{currentUser.Phone}}</h6>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Telefon</p>
-                                        <h6 class="text-muted f-w-400">{{currentUser.Phone}}</h6>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Adresa</p>
+                                            <h6 class="text-muted f-w-400">{{currentUser.Adress}}</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Země</p>
+                                            <h6 class="text-muted f-w-400">{{currentUser.Country}}</h6>
+                                        </div>
+                                    </div>
+                                    <div style="margin-top: 30px; margin-bottom: 30px;">
+                                        <h2>Váš registrační link:</h2>
+                                        <p class=" text-wrap"><small>Tento link slouží k registraci nových členů do
+                                                Vašeho týmu.</small></p>
+                                        <button (click)="show()" class="btn btn-primary">Zobrazit</button>
+                                        <h5 style="margin-top: 20px;" *ngIf="showLink">
+                                            <strong>https://localhost:44441/register/{{usersLink}}</strong></h5>
+                                    </div>
+                                    <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Správa</h6>
+                                    <div class="row" *ngIf="currentUser.Role==='admin' || currentUser.Role=='manažer'">
+                                        <div class="col-sm-6">
+                                            <button class="btn btn-primary" [routerLink]="['/users']">Uživatelé</button>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Adresa</p>
-                                        <h6 class="text-muted f-w-400">{{currentUser.Adress}}</h6>
+                                <div *ngIf="switch">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Email</p>
+                                            <h6 class="text-muted f-w-400">{{currentUser.Email}}</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Telefon</p>
+                                            <h6 class="text-muted f-w-400">{{currentUser.Phone}}</h6>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Země</p>
-                                        <h6 class="text-muted f-w-400">{{currentUser.Country}}</h6>
-                                    </div>
-                                </div>
-                                <div style="margin-top: 30px; margin-bottom: 30px;">
-                                    <h2>Váš registrační link:</h2>                                    
-                                    <p class=" text-wrap"><small>Tento link slouží k registraci nových členů do Vašeho týmu.</small></p>
-                                    <button (click)="show()" class="btn btn-primary">Zobrazit</button>
-                                    <h5 style="margin-top: 20px;" *ngIf="showLink"><strong>https://localhost:44441/register/{{usersLink}}</strong></h5>
-                                </div>
-                                <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Správa</h6>
-                                <div class="row" *ngIf="currentUser.Role==='admin' || currentUser.Role=='manažer'">
-                                    <div class="col-sm-6">
-                                        <button class="btn btn-primary" [routerLink]="['/users']">Uživatelé</button>
-                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Adresa</p>
+                                            <h6 class="text-muted f-w-400">{{currentUser.Adress}}</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Země</p>
+                                            <h6 class="text-muted f-w-400">{{currentUser.Country}}</h6>
+                                        </div>
+                                    </div> 
                                 </div>
                             </div>
                         </div>

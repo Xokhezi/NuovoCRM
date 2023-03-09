@@ -11,6 +11,8 @@ import { UsersService } from '../services/users.service';
 export class UserComponent {
   currentUser:any;
   usersLink:any;
+
+  switch=false;
   showLink=false;
 
   constructor(
@@ -25,5 +27,9 @@ export class UserComponent {
   show()
   {
     this.showLink=true;
+  }
+  switchInfo()
+  {
+    this.switch=!this.switch;
   }
 }
