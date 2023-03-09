@@ -13,7 +13,7 @@ export class SinglePartnerComponent implements OnInit {
   partners: any;
   team: any;
   id: any;
-  directTeam:any;
+  directTeam: any;
   member = {
     id: 0,
     name: "",
@@ -53,9 +53,9 @@ export class SinglePartnerComponent implements OnInit {
     adress: "",
     country: "",
     userId: 0,
-    discountPrimary:0,
-    discountSecundary:0
-    
+    discountPrimary: 0,
+    discountSecundary: 0
+
   };
   products: any;
   hover: any;
@@ -68,22 +68,21 @@ export class SinglePartnerComponent implements OnInit {
 
   ngOnInit(): void {
     this.team = [];
-    this.directTeam= [];
-    this.partners= [];
+    this.directTeam = [];
+    this.partners = [];
     this.active.paramMap.subscribe(params => this.id = params.get('id'));
     this.partnerService.GetPartner(this.id).subscribe((p: any) => {
       this.partner = p;
-      this.member=p;
-           
+      this.member = p;
+
       this.partnerService.GetPartner(this.partner.leadId).subscribe((p: any) => this.lead = p);
       this.partnerService.GetPartners().subscribe((p: any) => {
         this.team = p.filter((p: any) => p.teamId === this.partner.teamId);
-        this.partners=p;   
+        this.partners = p;
         //while(this.member.level!=0)
         //{       this.getTeam();       
       });
     });
-    this.productServis.GetProducts().subscribe(p => this.products = p);
   }
   switch() {
     this.hover = !this.hover;
@@ -104,9 +103,8 @@ export class SinglePartnerComponent implements OnInit {
           .subscribe(r => this.router.navigate(['/partners']));
     }
   }
-  getTeam()
-  {
+  getTeam() {
     this.directTeam.push(this.member);
-    this.member=this.partners.find((p:any)=>p.id==this.member.leadId);
-  }  
+    this.member = this.partners.find((p: any) => p.id == this.member.leadId);
+  }
 }
