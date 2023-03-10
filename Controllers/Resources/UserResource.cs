@@ -15,7 +15,5 @@ namespace NuovoCRM.Controllers.Resources
         public string Country { get; set; }
         public string Adress { get; set; }
         public string Phone { get; set; }
-        public int DiscountPrimary { get; set; }
-        public int DiscountSecondary { get; set; }
     }
 }

@@ -45,9 +45,9 @@ export class RegistrationComponent {
       this.link = this.linkService.decodeLink(this.link);
       this.partnersService.GetPartners()
         .subscribe((r: any) => {
-          this.lead = r.find((p: any) => p.userId  == this.link[1])                   
+          this.lead = r.find((p: any) => p.userId  == this.link[1]);                
           this.registration.leadId=this.lead.id;
-          this.registration.leadSurname=this.lead.surname;
+          this.registration.leadSurname=this.lead.surname;          
         });
     });
   }
