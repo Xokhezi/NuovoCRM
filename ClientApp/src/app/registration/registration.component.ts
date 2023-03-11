@@ -1,3 +1,4 @@
+import { UsersService } from './../services/users.service';
 import { PartnersService } from './../services/partners.service';
 import { LinkService } from './../services/link.service';
 import { RegistrationsService } from './../services/registrations.service';
@@ -15,6 +16,7 @@ export class RegistrationComponent {
   lead: any;
 
   passwordsValid = true;
+  emailValid = true;
 
   registration = {
     name: "",
@@ -26,7 +28,7 @@ export class RegistrationComponent {
     adress: "",
     country: "",
     leadId: 0,
-    leadSurname:""
+    leadSurname: ""
   };
 
   step: any;
@@ -36,7 +38,8 @@ export class RegistrationComponent {
     private linkService: LinkService,
     private service: RegistrationsService,
     private active: ActivatedRoute,
-    private partnersService: PartnersService) { }
+    private partnersService: PartnersService,
+    private userService: UsersService) { }
 
   ngOnInit(): void {
     this.step = 1;
@@ -45,17 +48,29 @@ export class RegistrationComponent {
       this.link = this.linkService.decodeLink(this.link);
       this.partnersService.GetPartners()
         .subscribe((r: any) => {
-          this.lead = r.find((p: any) => p.userId  == this.link[1]);                
-          this.registration.leadId=this.lead.id;
-          this.registration.leadSurname=this.lead.surname;          
+          this.lead = r.find((p: any) => p.userId == this.link[1]);
+          this.registration.leadId = this.lead.id;
+          this.registration.leadSurname = this.lead.surname;
         });
     });
   }
+  validateEmail() {
+    this.userService.GetUsers()
+      .subscribe((r: any) => {
+        let partner = r.find((p: any) => p.email == this.registration.email);
+        if (!partner) {
+          this.emailValid = true;
+          this.registration.email = this.registration.email.toLocaleUpperCase();
+        }
+        else
+          this.emailValid = false;     
+      })
+  }
   toDetail() {
-    if (this.passwordRepeat === this.registration.password)
+    if (this.passwordRepeat === this.registration.password &&this.emailValid)
       this.step = 2;
     else
-      this.passwordsValid = false;
+      this.emailValid = false;
   }
   register() {
     this.service.register(this.registration)
