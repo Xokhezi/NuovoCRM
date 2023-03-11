@@ -40,7 +40,7 @@ export class NewUserComponent {
   submit() {
     if (this.user.password === this.user.passwordRepeat) {
       let userForApi = {
-        email: this.user.email,
+        email: this.user.email.toLowerCase(),
         fullName: this.user.fullName,
         password: this.user.password,
         role: this.user.role,

@@ -33,7 +33,7 @@ export class RegistrationListComponent {
     this.service.getRegistration(int)
       .subscribe((registration: any) => {
         this.newUser = {
-          email: registration.email,
+          email: registration.email.toLowerCase(),
           fullName: registration.name + registration.surname,
           password: registration.password,
           role: "obchodní zástupce",
@@ -49,7 +49,7 @@ export class RegistrationListComponent {
                 this.newPartner = {
                   name: registration.name,
                   surname: registration.surname,
-                  email: registration.email,
+                  email: registration.email.toLowerCase(),
                   phone: registration.phone,
                   position: registration.position,
                   adress: registration.adress,

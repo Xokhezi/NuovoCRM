@@ -57,13 +57,13 @@ export class RegistrationComponent {
     });
   }
   validateEmail() {
-    this.validationService.getEmalValidation({ email: this.registration.email.toLocaleUpperCase() })
+    this.validationService.getEmalValidation({ email: this.registration.email.toLowerCase() })
       .subscribe(r => {
         if (r)
           this.emailValid = false;
         else {
           this.emailValid = true;
-          this.registration.email = this.registration.email.toLocaleUpperCase();
+          this.registration.email = this.registration.email.toLowerCase();
         }
         console.log(this.emailValid)
       });

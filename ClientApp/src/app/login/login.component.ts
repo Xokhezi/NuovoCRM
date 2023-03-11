@@ -24,6 +24,7 @@ export class LoginComponent {
     }
 
   login() {
+    this.user.email.toLowerCase();
     this.service.login(this.user)
       .subscribe({
         next: (r: any) => {
