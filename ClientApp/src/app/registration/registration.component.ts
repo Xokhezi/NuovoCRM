@@ -1,3 +1,4 @@
+import { EmailValidationService } from './../services/email-validation.service';
 import { UsersService } from './../services/users.service';
 import { PartnersService } from './../services/partners.service';
 import { LinkService } from './../services/link.service';
@@ -39,7 +40,8 @@ export class RegistrationComponent {
     private service: RegistrationsService,
     private active: ActivatedRoute,
     private partnersService: PartnersService,
-    private userService: UsersService) { }
+    private userService: UsersService,
+    private validationService: EmailValidationService) { }
 
   ngOnInit(): void {
     this.step = 1;
@@ -55,19 +57,19 @@ export class RegistrationComponent {
     });
   }
   validateEmail() {
-    this.userService.GetUsers()
-      .subscribe((r: any) => {
-        let partner = r.find((p: any) => p.email == this.registration.email);
-        if (!partner) {
+    this.validationService.getEmalValidation({ email: this.registration.email.toLocaleUpperCase() })
+      .subscribe(r => {
+        if (r)
+          this.emailValid = false;
+        else {
           this.emailValid = true;
           this.registration.email = this.registration.email.toLocaleUpperCase();
         }
-        else
-          this.emailValid = false;     
-      })
-  }
+        console.log(this.emailValid)
+      });
+        }
   toDetail() {
-    if (this.passwordRepeat === this.registration.password &&this.emailValid)
+    if (this.passwordRepeat === this.registration.password && this.emailValid)
       this.step = 2;
     else
       this.emailValid = false;
