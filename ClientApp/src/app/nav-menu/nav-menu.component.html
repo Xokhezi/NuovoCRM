@@ -48,14 +48,14 @@
               <mat-icon>category</mat-icon>
               <span>Produkty</span>
             </button>
-            <button *ngIf="user.Role!='manažer'" mat-menu-item [routerLink]="['/shop']">
+            <!-- <button *ngIf="user.Role!='manažer'" mat-menu-item [routerLink]="['/shop']">
               <mat-icon>shopping_cart</mat-icon>
               <span>Obchod</span>
-            </button> 
-            <button *ngIf="user.Role!='manažer'" mat-menu-item [routerLink]="['/orders/my']">
+            </button>  -->
+            <!-- <button *ngIf="user.Role!='manažer'" mat-menu-item [routerLink]="['/orders/my']">
               <mat-icon>fact_check</mat-icon>
               <span>Moje objednávky</span>
-            </button>
+            </button> -->
             <button *ngIf="user.Role=='admin' || user.Role=='manažer'" mat-menu-item [routerLink]="['/orders']">
               <mat-icon>local_shipping</mat-icon>
               <span>Expedice</span>
@@ -64,10 +64,10 @@
               <mat-icon>how_to_reg</mat-icon>
               <span>Nové registrace</span>
             </button>
-            <button  *ngIf="user.Role!='manažer'" mat-menu-item [routerLink]="['/dashboard']">
+            <!-- <button  *ngIf="user.Role!='manažer'" mat-menu-item [routerLink]="['/dashboard']">
               <mat-icon>equalizer</mat-icon>
               <span>Dashboard </span>
-            </button>
+            </button> -->
             <button mat-menu-item [routerLink]="['/user']">
               <mat-icon>account_circle</mat-icon>
               <span>Profil</span>
