@@ -35,12 +35,16 @@ namespace NuovoCRM.Controllers
         public async Task<IEnumerable<UserResource>> GetUsers()
         {
             var users = await context.Users.ToListAsync();
+            foreach (var user in users)
+                user.Password = "";
+
             return mapper.Map<IEnumerable<User>, IEnumerable<UserResource>>(users);
         }
         [HttpGet("{id}")]
         public async Task<UserResource> GetUser(int id)
         {
             var user = await context.Users.SingleOrDefaultAsync(u => u.Id == id);
+            user.Password = "";
             return mapper.Map<User, UserResource>(user);
         }
         [HttpPost]
@@ -70,7 +74,7 @@ namespace NuovoCRM.Controllers
             user.Adress = resource.Adress;
             user.Country = resource.Country;
             user.Password = resource.Password;
-            user.Phone = resource.Phone;            
+            user.Phone = resource.Phone;
 
             await context.SaveChangesAsync();
 

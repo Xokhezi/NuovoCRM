@@ -27,6 +27,10 @@ export class RegistrationsService {
   {
     return this.http.get(this.localhost+'/api/registration/',this.getValidation());
   }
+  getRegistration(id:any)
+  {
+    return this.http.get(this.localhost+'/api/registration/'+id,this.getValidation());
+  }
   deleteRegistration(id: any) {
     return this.http.delete(this.localhost + '/api/registration/' + id, this.getValidation());
   }
