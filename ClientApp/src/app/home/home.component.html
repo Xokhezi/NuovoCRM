@@ -5,7 +5,7 @@
       <p class="display-4">Vítejte v BMS</p>
       <p class="lead">
         Partnerském portálu pro NuovoTherapy s.r.o
-      </p>
+      </p>      
     </div>
 
   </div>
@@ -46,7 +46,7 @@
     </div>
   </div>
 
-  <div *ngIf="this.service.isLoggedIn()&& user.Role!='admin'">
+  <!-- <div *ngIf="this.service.isLoggedIn()&& user.Role!='admin'">
     <div>
       <div (click)="toShop()" class="parent container">
         <div class="one sizeup br-color" style="height: 300px;">
@@ -63,48 +63,49 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
-  <div *ngIf="this.service.isLoggedIn()&& user.Role!='admin'" style="margin-top: 40vh;" class="container px-4 py-5 parent" id="custom-cards">
+  <!-- <div *ngIf="this.service.isLoggedIn()&& user.Role!='admin'" style="margin-top: 40vh;" class="container px-4 py-5 parent" id="custom-cards">
     <div class="pb-2 border-bottom">
       <button class="btn btn-primary" (click)="slidePromo()">Promo</button>
       <button class="btn btn-outline-primary" (click)="slidePromo()">Co je nového?</button>
-    </div>
+    </div> -->
 
-    <div >
+    <div>      
+      <h1 style="margin-bottom: 0px; text-align: center;margin-top: 40px;">Momentálně připravujeme</h1>
       <div [@fadeSideLeft] *ngIf="!promo && this.service.isLoggedIn()&& user.Role!='admin'" class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5"
         style="height: 500px;">
         <div class="col">
           <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow sizeup"
-            style="background-position: center center;height: 400px;background-size: cover;background-image: url('https://shop.nuovotherapy.cz/eshop/products/0/44/thumb/dsc-0451-shop.jpg');">
+            style="background-position: center center;height: 400px;background-size: cover;background-image: url('assets/shop.jpg');">
             <div class="d-flex flex-column text-white new-card">
-              <h1 style="margin: 0px;">Nová řada pulse</h1>
-              <p class="text-wrap"> Ještě lepší terapie červeným světlem!</p>
+              <h1 style="margin: 0px;">Partner Shop</h1>
+              <p class="text-wrap"> Možnost objednávek přímo v aplikaci</p>
             </div>
           </div>
         </div>
 
         <div class="col">
           <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow sizeup"
-            style="background-position: center center;height: 400px;background-size:cover;background-image: url('https://shop.nuovotherapy.cz/eshop/products/0/44/thumb/dsc-0451-shop.jpg');">
+            style="background-position: center center;height: 400px;background-size:cover;background-image: url('assets/order-home.jpg');">
             <div class="d-flex flex-column text-white new-card">
-              <h1 style="margin: 0px;">Vyber si barvu</h1>
-              <p class="text-wrap"> Nově je možné objednat panel s vlastní barvou!</p>
+              <h1 style="margin: 0px;">Tracking objednávek</h1>
+              <p class="text-wrap"> Vše o objednávkách na jednom místě.</p>
             </div>
           </div>
         </div>
 
         <div class="col">
           <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow sizeup click"
-            style="background-position: center center;height: 400px;background-size: cover;background-image: url('https://shop.nuovotherapy.cz/eshop/products/0/42/thumb/dsc-0397-mala-0-25x.jpg');">
+            style="background-position: center center;height: 400px;background-size: cover;background-image: url('assets/dashboard.jpg');">
             <div class="d-flex flex-column text-white new-card">
-              <h1 style="margin: 0px;">Komfort nadevše</h1>
-              <p class="text-wrap"> Nový elektrický stojan pro naročné!</p>
+              <h1 style="margin: 0px;">Reporty</h1>
+              <p class="text-wrap">Sledujte své celkové výsledky</p>
             </div>
           </div>
         </div>
-      </div>
-      <div [@fadeSideRight] *ngIf=" promo && this.service.isLoggedIn()&& user.Role!='admin'" class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5"
+      <!-- </div> -->
+      <!-- <div [@fadeSideRight] *ngIf=" promo && this.service.isLoggedIn()&& user.Role!='admin'" class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5"
         style="height: 500px;">
         <div class="col">
           <div class="card card-cover overflow-hidden text-bg-dark rounded-4 shadow sizeup"
@@ -135,7 +136,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
