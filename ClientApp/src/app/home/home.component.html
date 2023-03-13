@@ -71,8 +71,8 @@
       <button class="btn btn-outline-primary" (click)="slidePromo()">Co je nového?</button>
     </div> -->
 
-    <div>      
-      <h1 style="margin-bottom: 0px; text-align: center;margin-top: 40px;">Momentálně připravujeme</h1>
+    <div >      
+      <h1 *ngIf="!promo && this.service.isLoggedIn()&& user.Role!='admin'" style="margin-bottom: 0px; text-align: center;margin-top: 40px;">Momentálně připravujeme</h1>
       <div [@fadeSideLeft] *ngIf="!promo && this.service.isLoggedIn()&& user.Role!='admin'" class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5"
         style="height: 500px;">
         <div class="col">
