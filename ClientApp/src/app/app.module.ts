@@ -8,7 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, CanActivate } from '@angular/router';
 import {MatStepperModule} from '@angular/material/stepper';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -35,6 +35,7 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { RegistrationListComponent } from './registration-list/registration-list.component';
+import { RegisteredauthService } from './services/registeredauth.service';
 
 
 @NgModule({
@@ -85,7 +86,7 @@ import { RegistrationListComponent } from './registration-list/registration-list
       { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]  },
       { path: 'login', component: LoginComponent }, 
       { path: 'register/list', component: RegistrationListComponent, canActivate: [AdminauthService] },   
-      { path: 'register/:link', component: RegistrationComponent },            
+      { path: 'register/:link', component: RegistrationComponent, canActivate:[RegisteredauthService]},            
       { path: '**', component: NotfoundComponent }
 
     ]),
@@ -97,7 +98,8 @@ import { RegistrationListComponent } from './registration-list/registration-list
     AuthService,
     AuthGuardService,
     AdminauthService,
-    OrdersService
+    OrdersService,
+    RegisteredauthService
   ],
   bootstrap: [AppComponent]
 })
